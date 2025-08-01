@@ -1,0 +1,354 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+.header {
+
+  background-color: white;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+ height: 100px;
+ 
+
+
+
+  
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  /* padding: 12px 20px; */
+   padding: 20px 24px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  /* new css */
+  height: 80px;
+  
+
+}
+
+
+.logo img {
+  height: 100%;
+  max-height: 120px;
+  transform: scale(1.5);
+  transform-origin: left center;
+  object-fit: contain;
+  /* width: auto; */
+  /* object-fit: contain;
+  display: block; */
+  
+}
+
+
+
+
+.logo-food {
+  color: #22c55e; /* green-500 */
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+  font-weight: 500;
+  color: #1f2937; /* gray-800 */
+  
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+/* new css */
+  align-items: center;
+  height: 100%;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.active-link {
+  color: #15803d; /* green-600 */
+}
+
+.search-icons {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+
+
+
+
+.icon-circle {
+  font-size: 20px;
+  cursor: pointer;
+  position: relative;
+}
+
+.cart-icon .cart-badge {
+  position: absolute;
+  top: -6px;
+  right: -10px;
+  background: red;
+  color: white;
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 50%;
+}
+
+.mobile-menu-btn button {
+  font-size: 24px;
+  color: #15803d;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.mobile-menu {
+  padding: 0 20px 20px;
+}
+
+.mobile-menu nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: #1f2937;
+}
+
+/* .mobile-search {
+  display: flex;
+  margin-top: 12px;
+  background-color: #d1fae5;
+  border-radius: 999px;
+  overflow: hidden;
+} */
+
+/* .mobile-search input {
+  padding: 4px 10px;
+  border: none;
+  background: transparent;
+  outline: none;
+  flex-grow: 1;
+} */
+
+.mobile-search button {
+  background-color: #15803d;
+  color: white;
+  padding: 4px 10px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Responsive */
+.desktop-only {
+  display: none;
+}
+
+.mobile-only {
+  display: block;
+}
+
+@media (min-width: 1024px) {
+  .desktop-only {
+    display: flex;
+  }
+
+  .mobile-only {
+    display: none;
+  }
+}   
+
+
+
+/* For mobile/tablet screens */
+@media (max-width: 768px) {
+  .dropdown-toggle,
+  .mobile-menu summary {
+    cursor: pointer;
+  }
+}
+
+
+
+
+
+.dropdown {
+  position: relative;
+  cursor: pointer;
+}
+
+.dropdown-toggle {
+  padding: 4px;
+  font-weight: 500;
+  color: #1f2937;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 28px;
+  left: 0;
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  z-index: 99;
+  border-radius: 4px;
+}
+
+.dropdown-menu a {
+  padding: 6px 10px;
+  text-decoration: none;
+  color: #1f2937;
+  transition: background 0.2s;
+}
+
+.dropdown-menu a:hover {
+  background-color: #f0fdf4; /* light green */
+  color: #15803d; /* green-700 */
+}
+
+/* Mobile dropdown inside <details> */
+.mobile-dropdown {
+  display: flex;
+  flex-direction: column;
+  padding-left: 12px;
+  margin-top: 6px;
+}
+
+.mobile-dropdown a {
+  margin-bottom: 6px;
+  color: #1f2937;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+
+
+
+.mobile-cart {
+  position: absolute;
+  top: 16px;
+  right: 60px; /* hamburger se thoda distance */
+}
+
+@media (min-width: 1024px) {
+  .mobile-cart {
+    display: none;
+  }
+}
+
+
+
+
+.mobile-user {
+  margin-left: 10px;
+}
+
+.mobile-user .icon-circle {
+  background-color: #f0f0f0;
+  padding: 2px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.nav-links a:hover {
+  color: #15803d;
+  text-decoration: underline;
+}
+
+
+ .dropdown-toggle svg {
+  margin-left: 4px;
+  font-size: 11px; 
+
+} 
+
+
+
+
+
+
+
+/* dorp-down menu css */
+
+.mega-dropdown-menu {
+  position: absolute;
+  top: 120%;               
+  left: 50%;               
+  transform: translateX(-50%); 
+  
+  background-color: white;
+  padding: 3rem 4rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  min-width: 700px;
+  border-radius: 8px;
+}
+
+
+.mega-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  gap: 2.5rem 3rem; /* row-gap and column-gap */
+}
+
+.mega-grid a {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  color: #222;
+  font-size: 1.25rem; /* larger text */
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+}
+
+.mega-grid a:hover {
+  color: #ff6600;
+  transform: translateX(4px);
+}
+
+.mega-icon {
+  font-size: 2rem; /* larger icon */
+  color: #ff6600;
+}
+
+
+
+
+/* Fix hamburger position on small screens */
+@media (max-width: 400px) {
+  .mobile-menu-btn {
+    margin-left: auto;
+    margin-right: 10px; /* Shift hamburger right */
+    z-index: 1000; /* Ensure it's above logo or other elements */
+  }
+
+  .header-container {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .logo img {
+    transform: scale(1.3); /* Optional: reduce scale slightly for more room */
+  }
+}
