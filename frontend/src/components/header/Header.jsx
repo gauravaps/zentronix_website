@@ -8,12 +8,9 @@ import { IoMdFitness } from "react-icons/io";
 import { MdInstallMobile } from "react-icons/md";
 import { CgWebsite } from "react-icons/cg";
 import { SiCodesignal } from "react-icons/si";
-
-
-
 import { TbTruckDelivery,TbScooterElectric ,TbDeviceMobileCode  } from "react-icons/tb";
 
-import zentronix from './zentronix.png'
+import zentronix2 from './zentronix2.png';
 import './header.css';
 
 const Header = () => {
@@ -42,7 +39,7 @@ const Header = () => {
 
              {/* <img src="https://cdn-icons-png.flaticon.com/512/135/135620.png" alt="Logo" />  */}
 
-             <img src={zentronix} alt="logo" /> 
+             <img src={zentronix2} alt="logo" /> 
           </Link>
 
           
