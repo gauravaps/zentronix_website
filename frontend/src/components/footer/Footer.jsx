@@ -13,10 +13,13 @@ const Footer = () => {
       <div className="footer-content">
         {/* Column 1: Logo & Contact */}
         <div className="footer-column">
+            
+            <div className='logo-div'> 
           <Link to={'/'} className="footer-logo">
             <img src={zentronix2} alt="logo" />
             
           </Link>
+          </div>
 
           <ul className="footer-contact">
             <li>
