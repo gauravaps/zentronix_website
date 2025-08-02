@@ -130,21 +130,9 @@
   color: #1f2937;
 }
 
-/* .mobile-search {
-  display: flex;
-  margin-top: 12px;
-  background-color: #d1fae5;
-  border-radius: 999px;
-  overflow: hidden;
-} */
 
-/* .mobile-search input {
-  padding: 4px 10px;
-  border: none;
-  background: transparent;
-  outline: none;
-  flex-grow: 1;
-} */
+
+
 
 .mobile-search button {
   background-color: #15803d;
@@ -161,6 +149,7 @@
 
 .mobile-only {
   display: block;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 @media (min-width: 1024px) {
@@ -180,6 +169,7 @@
   .dropdown-toggle,
   .mobile-menu summary {
     cursor: pointer;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   }
 }
 
@@ -209,6 +199,7 @@
   flex-direction: column;
   z-index: 99;
   border-radius: 4px;
+  
 }
 
 .dropdown-menu a {
@@ -351,4 +342,35 @@
   .logo img {
     transform: scale(1.3); /* Optional: reduce scale slightly for more room */
   }
+}
+
+
+
+/* for mobile view */
+
+/* Common styles for summary and links */
+.mobile-menu summary,
+.mobile-menu nav a,
+.mobile-dropdown a {
+  
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  transition: all 0.3s ease-in-out;
+
+  
+}
+
+/* Hover styles with 3D effect */
+.mobile-menu nav a:hover,
+.mobile-dropdown a:hover,
+.mobile-menu summary:hover {
+  color: #15803d;
+  text-decoration: underline;
+  transform: perspective(400px) rotateX(3deg) scale(1.05);
+}
+
+.mobile-menu summary:hover svg {
+  transform: rotateX(180deg);
+  transition: transform 0.3s ease-in-out;
 }

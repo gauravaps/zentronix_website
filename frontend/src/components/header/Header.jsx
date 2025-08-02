@@ -60,7 +60,8 @@ const Header = () => {
             onMouseEnter={() => setDropdownOpen(true)}
             onMouseLeave={() => setDropdownOpen(false)}
           >
-            <span className="dropdown-toggle">Industries <FaChevronDown className="dropdown-icon" /></span>
+             
+            <span className="dropdown-toggle">Industries <FaChevronDown className="dropdown-icon" /></span> 
             {dropdownOpen && (
               <div className="mega-dropdown-menu">
                 <div className="mega-grid">
