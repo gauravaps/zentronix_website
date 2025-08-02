@@ -1,6 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FaUser, FaBars, FaChevronDown, FaCube } from 'react-icons/fa';
+import { FaUser, FaBars, FaChevronDown, FaCube,FaBriefcaseMedical, FaCartPlus,FaTachometerAlt ,FaPhotoVideo ,FaCode   } from 'react-icons/fa';
+import { FaTruckPlane ,FaArrowsDownToPeople  } from "react-icons/fa6";
+import { BsFillBuildingsFill ,BsFillTicketPerforatedFill ,BsPciCardSound  } from "react-icons/bs";
+import { GiForkKnifeSpoon,GiShop,GiAutoRepair ,GiConvergenceTarget  } from "react-icons/gi";
+import { IoMdFitness } from "react-icons/io";
+import { MdInstallMobile } from "react-icons/md";
+import { CgWebsite } from "react-icons/cg";
+import { SiCodesignal } from "react-icons/si";
+
+
+
+import { TbTruckDelivery,TbScooterElectric ,TbDeviceMobileCode  } from "react-icons/tb";
+
 import zentronix from './zentronix.png'
 import './header.css';
 
@@ -52,18 +64,22 @@ const Header = () => {
             {dropdownOpen && (
               <div className="mega-dropdown-menu">
                 <div className="mega-grid">
-                  <Link to="/categories/vegetables"><FaUser className="mega-icon" /><span>Pickup & Delivery</span></Link>
-                  <Link to="/categories/drinks"><FaCube className="mega-icon" /><span>Food Delivery</span></Link>
-                  <Link to="/categories/fruits"><FaCube className="mega-icon" /><span>Grocery App</span></Link>
-                  <Link to="/categories/ecommerce"><FaCube className="mega-icon" /><span>E-commerce</span></Link>
-                  <Link to="/categories/packers"><FaCube className="mega-icon" /><span>Packers & Movers</span></Link>
-                  <Link to="/categories/logistics"><FaCube className="mega-icon" /><span>Logistics Services</span></Link>
-                  <Link to="/categories/demand"><FaCube className="mega-icon" /><span>On Demand</span></Link>
-                  <Link to="/categories/realestate"><FaCube className="mega-icon" /><span>Real Estate</span></Link>
-                  <Link to="/categories/events"><FaCube className="mega-icon" /><span>Events and Ticketing</span></Link>
-                  <Link to="/categories/fitness"><FaCube className="mega-icon" /><span>Fitness App</span></Link>
-                  <Link to="/categories/social"><FaCube className="mega-icon" /><span>Social Media App</span></Link>
-                  <Link to="/categories/healthcare"><FaCube className="mega-icon" /><span>Health Care App</span></Link>
+                  <Link to="/categories/vegetables"><FaCube className="mega-icon" /><span>Pickup & Delivery</span></Link>
+                  <Link to="/categories/drinks"><GiForkKnifeSpoon className="mega-icon" /><span>Food Delivery</span></Link>
+                  <Link to="/categories/fruits"><GiShop className="mega-icon" /><span>Grocery App</span></Link>
+                  <Link to="/categories/ecommerce">< FaCartPlus className="mega-icon" /><span>E-commerce</span></Link>
+                  <Link to="/categories/packers"><TbTruckDelivery  className="mega-icon" /><span>Packers & Movers</span></Link>
+                  <Link to="/categories/logistics"><FaTruckPlane className="mega-icon" /><span>Logistics Services</span></Link>
+                  <Link to="/categories/demand"><FaTachometerAlt className="mega-icon" /><span>On Demand</span></Link>
+                  <Link to="/categories/realestate"><BsFillBuildingsFill className="mega-icon" /><span>Real Estate</span></Link>
+                  <Link to="/categories/events"><BsFillTicketPerforatedFill className="mega-icon" /><span>Events and Ticketing</span></Link>
+                  <Link to="/categories/fitness"><IoMdFitness className="mega-icon" /><span>Fitness App</span></Link>
+                  <Link to="/categories/social"><FaPhotoVideo  className="mega-icon" /><span>Social Media App</span></Link>
+                  <Link to="/categories/healthcare"><FaBriefcaseMedical  className="mega-icon" /><span>Health Care App</span></Link>
+                  <Link to="/categories/healthcare"><GiAutoRepair   className="mega-icon" /><span>Home Services</span></Link>
+                  <Link to="/categories/healthcare"><GiConvergenceTarget    className="mega-icon" /><span>Taxi Dispatch</span></Link>
+                  <Link to="/categories/healthcare"><TbScooterElectric     className="mega-icon" /><span>e-Scooter App</span></Link>
+
                 </div>
               </div>
             )}
@@ -79,12 +95,12 @@ const Header = () => {
             {servicesOpen && (
               <div className="mega-dropdown-menu">
                 <div className="mega-grid">
-                  <Link to="/services/mobile-app"><FaCube className="mega-icon" /><span>Mobile App Development</span></Link>
-                  <Link to="/services/web-app"><FaCube className="mega-icon" /><span>Web App Development</span></Link>
-                  <Link to="/services/website"><FaCube className="mega-icon" /><span>Website Development</span></Link>
-                  <Link to="/services/ui-ux"><FaCube className="mega-icon" /><span>UI/UX Design</span></Link>
-                  <Link to="/services/staff"><FaCube className="mega-icon" /><span>Staff Augmentation</span></Link>
-                  <Link to="/services/marketing"><FaCube className="mega-icon" /><span>Digital Marketing</span></Link>
+                  <Link to="/services/mobile-app"><MdInstallMobile  className="mega-icon" /><span>Mobile App Development</span></Link>
+                  <Link to="/services/web-app"><FaCode  className="mega-icon" /><span>Web App Development</span></Link>
+                  <Link to="/services/website"><CgWebsite className="mega-icon" /><span>Website Development</span></Link>
+                  <Link to="/services/ui-ux"><SiCodesignal className="mega-icon" /><span>UI/UX Design</span></Link>
+                  <Link to="/services/staff"><FaArrowsDownToPeople  className="mega-icon" /><span>Staff Augmentation</span></Link>
+                  <Link to="/services/marketing"><BsPciCardSound  className="mega-icon" /><span>Digital Marketing</span></Link>
                 </div>
               </div>
             )}
