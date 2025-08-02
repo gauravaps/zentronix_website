@@ -1,13 +1,19 @@
 import React from 'react'
 import Header from './components/header/Header'
 import { Routes ,Route } from 'react-router-dom'
+import Layout from './components/pages/Layout'
 
 
 const App = () => {
   return (
     
     <> 
-      <Header/>
+    <Routes>
+
+    <Route path='/' element={<Layout/>}/>
+
+
+    </Routes>
 </>
 
 )

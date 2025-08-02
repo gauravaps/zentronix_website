@@ -8,15 +8,27 @@
 
 .header {
 
-  background-color: white;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
- height: 100px;
- 
 
-
-
-  
+ /* new headder color */
+  background-color: #0f2250; 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Soft depth */
+  color: white; /* Important for visibility */
+  position: relative;
+  z-index: 10;
+   
 }
+
+
+.header a,
+/* .header svg, */
+/* .header .menu-icon, */
+.header .user-icon {
+  color: white;
+  fill: white; /* For SVGs if needed */
+}
+
+
+
 
 .header-container {
   display: flex;
@@ -24,7 +36,7 @@
   justify-content: space-between;
 
   /* padding: 12px 20px; */
-   padding: 20px 24px;
+    padding: 20px 24px; 
   max-width: 1200px;
   margin: auto;
 }
@@ -33,6 +45,7 @@
   display: flex;
   align-items: center;
   gap: 6px;
+  
 
   /* new css */
   height: 80px;
@@ -50,6 +63,7 @@
   /* width: auto; */
   /* object-fit: contain;
   display: block; */
+  color: white;
   
 }
 
@@ -66,7 +80,7 @@
   display: flex;
   gap: 20px;
   font-weight: 500;
-  color: #1f2937; /* gray-800 */
+  color: white;
   
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
@@ -81,7 +95,7 @@
 }
 
 .active-link {
-  color: #15803d; /* green-600 */
+  color: #15803d; 
 }
 
 .search-icons {
@@ -111,13 +125,13 @@
   border-radius: 50%;
 }
 
-.mobile-menu-btn button {
+ .mobile-menu-btn button {
   font-size: 24px;
   color: #15803d;
   background: none;
   border: none;
   cursor: pointer;
-}
+} 
 
 .mobile-menu {
   padding: 0 20px 20px;
@@ -134,13 +148,13 @@
 
 
 
-.mobile-search button {
+/* .mobile-search button {
   background-color: #15803d;
   color: white;
   padding: 4px 10px;
   border: none;
   cursor: pointer;
-}
+} */
 
 /* Responsive */
 .desktop-only {
@@ -150,6 +164,7 @@
 .mobile-only {
   display: block;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: white;
 }
 
 @media (min-width: 1024px) {
@@ -170,6 +185,7 @@
   .mobile-menu summary {
     cursor: pointer;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: white;
   }
 }
 
@@ -185,20 +201,21 @@
 .dropdown-toggle {
   padding: 4px;
   font-weight: 500;
-  color: #1f2937;
+  color:white;
 }
 
 .dropdown-menu {
   position: absolute;
   top: 28px;
   left: 0;
-  background-color: #fff;
+  background-color: #fff; 
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
   padding: 10px;
   display: flex;
   flex-direction: column;
   z-index: 99;
   border-radius: 4px;
+  
   
 }
 
@@ -232,11 +249,7 @@
 
 
 
-.mobile-cart {
-  position: absolute;
-  top: 16px;
-  right: 60px; /* hamburger se thoda distance */
-}
+
 
 @media (min-width: 1024px) {
   .mobile-cart {
@@ -270,6 +283,7 @@
  .dropdown-toggle svg {
   margin-left: 4px;
   font-size: 11px; 
+  color: white;
 
 } 
 
@@ -282,12 +296,12 @@
 /* dorp-down menu css */
 
 .mega-dropdown-menu {
-  position: absolute;
+  position:absolute;
   top: 120%;               
   left: 50%;               
   transform: translateX(-50%); 
   
-  background-color: white;
+  background-color:white;
   padding: 3rem 4rem;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
   z-index: 100;
@@ -300,6 +314,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* 3 columns */
   gap: 2.5rem 3rem; /* row-gap and column-gap */
+  color: white;
 }
 
 .mega-grid a {
@@ -307,7 +322,7 @@
   align-items: center;
   gap: 1rem;
   text-decoration: none;
-  color: #222;
+  color:black;
   font-size: 1.25rem; /* larger text */
   font-weight: 500;
   transition: all 0.2s ease-in-out;
@@ -330,13 +345,15 @@
 @media (max-width: 400px) {
   .mobile-menu-btn {
     margin-left: auto;
-    margin-right: 10px; /* Shift hamburger right */
-    z-index: 1000; /* Ensure it's above logo or other elements */
+    margin-right: 20px; 
+    z-index: 1000; 
+    
   }
 
   .header-container {
     padding-left: 12px;
     padding-right: 12px;
+    /* height:150px; */
   }
 
   .logo img {
@@ -349,7 +366,8 @@
 /* for mobile view */
 
 /* Common styles for summary and links */
-.mobile-menu summary,
+
+ .mobile-menu summary,
 .mobile-menu nav a,
 .mobile-dropdown a {
   
@@ -357,15 +375,15 @@
   justify-content: space-between;
   gap: 6px;
   transition: all 0.3s ease-in-out;
+  color: white;
 
   
 }
 
-/* Hover styles with 3D effect */
 .mobile-menu nav a:hover,
 .mobile-dropdown a:hover,
 .mobile-menu summary:hover {
-  color: #15803d;
+  color: orangered;
   text-decoration: underline;
   transform: perspective(400px) rotateX(3deg) scale(1.05);
 }
@@ -373,4 +391,9 @@
 .mobile-menu summary:hover svg {
   transform: rotateX(180deg);
   transition: transform 0.3s ease-in-out;
-}
+} 
+
+
+
+/* hide problem */
+

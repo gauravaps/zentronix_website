@@ -122,7 +122,7 @@ const Header = () => {
         {/* Mobile Menu Button */}
         <div className="mobile-menu-btn mobile-only">
           <button onClick={() => setMenuOpen(!menuOpen)}>
-            <FaBars />
+            <FaBars  style={{color:'white'}}/>
           </button>
         </div>
 
