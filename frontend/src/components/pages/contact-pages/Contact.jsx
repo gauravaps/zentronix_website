@@ -83,7 +83,8 @@ const Contact = () => {
               {openingHours.map(({ day, time }) => (
                 <li key={day} className={day === currentDay ? 'active-day' : ''}>
                   <span>{day}</span>
-                  <span>{time}</span>
+                  {time ==='Closed'?<span style={{color:"blue"}}>{time}</span> :<span>{time}</span> }
+                  {/* <span>{time}</span> */}
                 </li>
               ))}
             </ul>
