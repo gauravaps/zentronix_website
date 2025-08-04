@@ -37,6 +37,11 @@ const contactSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+
+    how_soon:{
+        type:String,
+        required:true,
+    },
    
     message: {
       type: String,

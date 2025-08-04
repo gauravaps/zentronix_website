@@ -15,6 +15,7 @@ export const createContact = async (req, res) => {
       email,
       phone,
       service,
+      how_soon,
       budget,
       message,
     } = req.body;
@@ -26,6 +27,7 @@ export const createContact = async (req, res) => {
       !email ||
       !phone ||
       !service ||
+      !how_soon ||
       !budget ||
       !message
     ) {
@@ -42,6 +44,7 @@ export const createContact = async (req, res) => {
       phone,
       service,
       budget,
+      how_soon,
       message,
     });
 

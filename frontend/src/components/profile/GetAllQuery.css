@@ -2,6 +2,8 @@
   padding: 20px;
   max-width: 800px;
   margin: auto;
+
+
 }
 
 .fetch-btn {
@@ -13,6 +15,15 @@
   border-radius: 6px;
   cursor: pointer;
   margin-bottom: 20px;
+/* new css */
+  display: block;
+  margin: 0 auto 20px auto;
+
+
+  background: linear-gradient( #02162E 20%, #0060d4 100%);
+  /* -webkit-background-clip: text; */
+  /* -webkit-text-fill-color: transparent; */
+
 }
 
 .query-card {
@@ -53,4 +64,32 @@
 .ago-text {
   font-size: 14px;
   color: gray;
+}
+
+
+.query-title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 30px;
+
+  background: linear-gradient( #02162E 20%, #0060d4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+}
+
+
+.delete-btn {
+  background-color: #dc3545;
+  color: white;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 5px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background-color: #c82333;
 }

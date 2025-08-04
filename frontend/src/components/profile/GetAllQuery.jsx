@@ -11,18 +11,27 @@ const GetAllQuery = () => {
   const fetchQueries = async () => {
     try {
       const response = await axios.get('http://localhost:5000/api/getallquery');
-      // Oldest first..
       const sorted = response.data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
-setQueries(sorted);
-
+      setQueries(sorted);
       setShowData(true);
     } catch (error) {
       console.error('Error fetching queries:', error);
     }
   };
 
+  const deleteQuery = async (id) => {
+    try {
+      await axios.delete(`http://localhost:5000/api/deletequery/${id}`);
+      setQueries(queries.filter(query => query._id !== id));
+    } catch (error) {
+      console.error('Error deleting query:', error);
+    }
+  };
+
   return (
     <div className="query-container">
+      <h1 className="query-title">Here's your all updated Query</h1>
+
       <button className="fetch-btn" onClick={fetchQueries}>Get All User</button>
 
       {showData && queries.map((query, index) => (
@@ -39,7 +48,10 @@ setQueries(sorted);
           <p><strong>Phone:</strong> <a href={`tel:${query.phone}`}>{query.phone}</a></p>
           <p><strong>Service:</strong> {query.service}</p>
           <p><strong>Budget:</strong> ₹{query.budget}</p>
+          <p><strong>How soon do you want to start?:</strong> {query.how_soon}</p>
           <p><strong>Message:</strong> {query.message}</p>
+
+          <button className="delete-btn" onClick={() => deleteQuery(query._id)}>Delete</button>
         </div>
       ))}
     </div>
