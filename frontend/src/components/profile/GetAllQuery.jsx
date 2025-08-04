@@ -7,6 +7,8 @@ import { formatDistanceToNow } from 'date-fns';
 const GetAllQuery = () => {
   const [queries, setQueries] = useState([]);
   const [showData, setShowData] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 4;
 
   const fetchQueries = async () => {
     try {
@@ -14,6 +16,7 @@ const GetAllQuery = () => {
       const sorted = response.data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
       setQueries(sorted);
       setShowData(true);
+      setCurrentPage(1); // reset page on fetch
     } catch (error) {
       console.error('Error fetching queries:', error);
     }
@@ -22,11 +25,23 @@ const GetAllQuery = () => {
   const deleteQuery = async (id) => {
     try {
       await axios.delete(`http://localhost:5000/api/deletequery/${id}`);
-      setQueries(queries.filter(query => query._id !== id));
+      const updatedQueries = queries.filter(query => query._id !== id);
+      setQueries(updatedQueries);
+      // Adjust current page if all items on current page are deleted
+      if ((currentPage - 1) * itemsPerPage >= updatedQueries.length && currentPage > 1) {
+        setCurrentPage(currentPage - 1);
+      }
     } catch (error) {
       console.error('Error deleting query:', error);
     }
   };
+
+  // Pagination logic
+  const indexOfLast = currentPage * itemsPerPage;
+  const indexOfFirst = indexOfLast - itemsPerPage;
+  const currentQueries = queries.slice(indexOfFirst, indexOfLast);
+
+  const totalPages = Math.ceil(queries.length / itemsPerPage);
 
   return (
     <div className="query-container">
@@ -34,7 +49,7 @@ const GetAllQuery = () => {
 
       <button className="fetch-btn" onClick={fetchQueries}>Get All User</button>
 
-      {showData && queries.map((query, index) => (
+      {showData && currentQueries.map((query, index) => (
         <div className="query-card" key={index}>
           <div className="query-header">
             <FaGlobeAmericas className="earth-icon" />
@@ -54,6 +69,31 @@ const GetAllQuery = () => {
           <button className="delete-btn" onClick={() => deleteQuery(query._id)}>Delete</button>
         </div>
       ))}
+
+      {/* Pagination Controls */}
+      {showData && queries.length > 0 && (
+        <div className="pagination-controls">
+          <button
+            onClick={() => setCurrentPage(currentPage - 1)}
+            disabled={currentPage === 1}
+            className="pagination-btn"
+          >
+            Previous
+          </button>
+
+          <span className="pagination-info">
+            Page {currentPage} of {totalPages}
+          </span>
+
+          <button
+            onClick={() => setCurrentPage(currentPage + 1)}
+            disabled={indexOfLast >= queries.length}
+            className="pagination-btn"
+          >
+            Next
+          </button>
+        </div>
+      )}
     </div>
   );
 };
