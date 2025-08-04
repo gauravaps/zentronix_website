@@ -106,7 +106,7 @@ const Header = () => {
 
           <Link to="/pages" className="nav-item">About</Link>
           <Link to="/blog" className="nav-item">Product</Link>
-          <Link to="/about" className="nav-item">Contact</Link>
+          <Link to="/contact-us" className="nav-item">Contact</Link>
         </nav>
 
         {/* Desktop User Icon */}
@@ -122,7 +122,7 @@ const Header = () => {
             <FaBars  style={{color:'white'}}/>
           </button>
         </div>
-
+ 
         {/* Mobile User Icon */}
         <div className="mobile-user mobile-only">
           <Link to="/register" className="icon-circle">
@@ -169,7 +169,7 @@ const Header = () => {
 
             <Link to="/pages" className="nav-item">About</Link>
             <Link to="/blog" className="nav-item">Product</Link>
-            <Link to="/about" className="nav-item">Contact </Link>
+            <Link to="/contact-us" className="nav-item">Contact </Link>
           </nav>
         </div>
       )}

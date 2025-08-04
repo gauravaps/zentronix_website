@@ -109,7 +109,7 @@
 
 
 .icon-circle {
-  font-size: 20px;
+  font-size: 25px;
   cursor: pointer;
   position: relative;
 }
@@ -148,13 +148,6 @@
 
 
 
-/* .mobile-search button {
-  background-color: #15803d;
-  color: white;
-  padding: 4px 10px;
-  border: none;
-  cursor: pointer;
-} */
 
 /* Responsive */
 .desktop-only {
@@ -265,7 +258,7 @@
 }
 
 .mobile-user .icon-circle {
-  background-color: #f0f0f0;
+  /* background-color: #f0f0f0; */
   padding: 2px;
   border-radius: 50%;
   display: flex;
