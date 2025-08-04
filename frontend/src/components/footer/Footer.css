@@ -139,3 +139,25 @@
     
 }
 
+
+
+@media (min-width: 768px) {
+  .footer-content {
+    grid-template-columns: repeat(4, 1fr); /* from 3 to 4 */
+  }
+}
+
+
+.footer-apps-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.footer-apps {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap; /* for small screen wrapping */
+  justify-content: center;
+}

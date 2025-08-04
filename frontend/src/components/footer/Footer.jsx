@@ -3,7 +3,7 @@ import './Footer.css';
 import { FaFacebookF, FaInstagram, FaGithub, FaPinterest } from 'react-icons/fa';
 import { MdEmail, MdPhone, MdLanguage } from 'react-icons/md';
 import { BsTwitterX } from "react-icons/bs";
-import { FaLinkedin } from "react-icons/fa6";
+import { FaLinkedin, FaLocationDot } from "react-icons/fa6";
 import { Link } from 'react-router-dom';
 import zentronix2 from './zentronix2.png';
 
@@ -11,30 +11,29 @@ const Footer = () => {
   return (
     <footer className="footer-container">
       <div className="footer-content">
+
         {/* Column 1: Logo & Contact */}
         <div className="footer-column">
-            
-            <div className='logo-div'> 
-          <Link to={'/'} className="footer-logo">
-            <img src={zentronix2} alt="logo" />
-            
-          </Link>
+          <div className='logo-div'>
+            <Link to={'/'} className="footer-logo">
+              <img src={zentronix2} alt="logo" />
+            </Link>
           </div>
 
           <ul className="footer-contact">
             <li>
-              <a href="https://www.gauravfood.com" target="_blank" rel="noopener noreferrer">
-                <MdLanguage /> <span>www.Gauravfood.com</span>
+              <a href="https://www.zentronixinfotech.com/" target="_blank" rel="noopener noreferrer">
+                <MdLanguage /> <span>www.zentronixinfotech.com/</span>
               </a>
             </li>
             <li>
-              <a href="mailto:help@gauravfood.com">
-                <MdEmail /> <span>help@Gauravfood.com</span>
+              <a href="mailto:info@zentronixinfotech.com">
+                <MdEmail /> <span>info@zentronixinfotech.com</span>
               </a>
             </li>
             <li>
-              <a href="tel:+918109107318">
-                <MdPhone /> <span>+91-8109107318</span>
+              <a href="tel:+916260706512">
+                <MdPhone /> <span>+91-6260706512</span>
               </a>
             </li>
           </ul>
@@ -89,8 +88,42 @@ const Footer = () => {
               </a>
             </li>
           </ul>
+</div>
 
-          <div className="footer-apps">
+
+        {/* ✅ Column 4: Address Section */}
+        <div className="footer-column">
+          <h3 className="footer-heading">Address</h3>
+          <ul className="footer-contact">
+            <li>
+              <a
+                href="https://www.google.com/maps?q=Talawali+Chanda+Indore+M.P"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaLocationDot /> <span>Talawali Chanda, Indore (M.P)</span>
+              </a>
+            </li>
+            <li>
+              <a href="mailto:info@zentronixinfotech.com">
+                <MdEmail /> <span>info@zentronixinfotech.com</span>
+              </a>
+            </li>
+            <li>
+              <a href="tel:+916260706512">
+                <MdPhone /> <span>+91-6260706512</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.zentronixinfotech.com/" target="_blank" rel="noopener noreferrer">
+                <MdLanguage /> <span>www.zentronixinfotech.com/</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        
+<div className="footer-apps">
             <img
               src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Download_on_the_App_Store_RGB_blk.svg/512px-Download_on_the_App_Store_RGB_blk.svg.png"
               alt="App Store"
@@ -100,11 +133,14 @@ const Footer = () => {
               alt="Play Store"
             />
           </div>
-        </div>
+          
+        
+
+
       </div>
 
       <div className="footer-bottom">
-        © 2025 - 2026 Gaurav Food, LLC. All Rights Reserved.
+        © 2025 - 2026 Zentronix infotech, LLC. All Rights Reserved.
       </div>
     </footer>
   );

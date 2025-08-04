@@ -82,3 +82,16 @@ const Footer = () => {
 };
 
 export default Footer;
+
+
+
+<div className="footer-apps">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Download_on_the_App_Store_RGB_blk.svg/512px-Download_on_the_App_Store_RGB_blk.svg.png"
+              alt="App Store"
+            />
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/1920px-Google_Play_Store_badge_EN.svg.png"
+              alt="Play Store"
+            />
+          </div>
