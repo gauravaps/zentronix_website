@@ -3,6 +3,7 @@ import Header from './components/header/Header'
 import { Routes ,Route } from 'react-router-dom'
 import Layout from './components/pages/Layout'
 import Contact from './components/pages/contact-pages/Contact'
+import GetAllQuery from './components/profile/GetAllQuery'
 
 
 const App = () => {
@@ -14,6 +15,7 @@ const App = () => {
     <Route path='/' element={<Layout/>}>
 
     <Route path='/contact-us' element={<Contact/>}/>
+    <Route path='/product' element={<GetAllQuery/>}/>
     </Route>
 
 

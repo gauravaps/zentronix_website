@@ -1,4 +1,10 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
+
+
+
+
+
+
 
 const contactSchema = new mongoose.Schema(
   {
@@ -31,10 +37,7 @@ const contactSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    startTime: {
-      type: String,
-      required: true,
-    },
+   
     message: {
       type: String,
       required: true,
@@ -48,4 +51,4 @@ const contactSchema = new mongoose.Schema(
 
 const Queries = mongoose.model("Queries", contactSchema);
 
-module.exports = Queries;
+export default Queries;

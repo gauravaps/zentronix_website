@@ -1,0 +1,56 @@
+.query-container {
+  padding: 20px;
+  max-width: 800px;
+  margin: auto;
+}
+
+.fetch-btn {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.query-card {
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.query-card p {
+  margin: 6px 0;
+  font-size: 16px;
+}
+
+.query-card a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.query-card a:hover {
+  text-decoration: underline;
+}
+
+.earth-icon {
+  font-size: 18px;
+  margin-right: 5px;
+  color: green;
+  vertical-align: middle;
+}
+
+.query-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.ago-text {
+  font-size: 14px;
+  color: gray;
+}
