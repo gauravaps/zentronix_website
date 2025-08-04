@@ -11,7 +11,7 @@ const GetAllQuery = () => {
   const fetchQueries = async () => {
     try {
       const response = await axios.get('http://localhost:5000/api/getallquery');
-      // Oldest first
+      // Oldest first..
       const sorted = response.data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
 setQueries(sorted);
 
