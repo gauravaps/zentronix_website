@@ -26,26 +26,29 @@ const Contact = () => {
   };
 
   const validateForm = () => {
-    const { firstName, lastName, email, phone, service, how_soon, budget, message } = formData;
+  const { firstName, lastName, email, phone, service, how_soon, budget, message } = formData;
 
-    if (!firstName.trim()) return "First name is required";
-    if (!lastName.trim()) return "Last name is required";
-    if (!email.trim()) return "Email is required";
+  if (!firstName.trim()) return "First name is required";
+  if (!lastName.trim()) return "Last name is required";
+  if (!email.trim()) return "Email is required";
 
-    const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    if (!emailRegex.test(email)) return "Please enter a valid email";
+  // Stronger email regex
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9-]+\.(com|in|Blog|blog|tech|yahoo|Xyz|Online|online|Org|Info|Shop|shop|info|org|net|org|co\.in)$/;
 
-    if (!phone.trim()) return "Phone number is required";
-    const phoneRegex = /^\d{10}$/;
-    if (!phoneRegex.test(phone)) return "Phone number must be exactly 10 digits";
+  if (!emailRegex.test(email)) return "Please enter a valid email (e.g. example@gmail.com)";
 
-    if (!service.trim()) return "Service selection is required";
-    if (!budget.trim()) return "Budget selection is required";
-    if (!how_soon.trim()) return "Project start time selection is required";
-    if (!message.trim()) return "Project message is required";
+  if (!phone.trim()) return "Phone number is required";
+  const phoneRegex = /^\d{10}$/;
+  if (!phoneRegex.test(phone)) return "Phone number must be exactly 10 digits";
 
-    return null; // ✅ No validation errors
-  };
+  if (!service.trim()) return "Service selection is required";
+  if (!budget.trim()) return "Budget selection is required";
+  if (!how_soon.trim()) return "Project start time selection is required";
+  if (!message.trim()) return "Project message is required";
+
+  return null;
+};
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();

@@ -3,6 +3,10 @@ import axios from 'axios';
 import './GetAllQuery.css'; 
 import { FaGlobeAmericas } from 'react-icons/fa';
 import { formatDistanceToNow } from 'date-fns';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
 
 const GetAllQuery = () => {
   const [queries, setQueries] = useState([]);
@@ -23,18 +27,27 @@ const GetAllQuery = () => {
   };
 
   const deleteQuery = async (id) => {
-    try {
-      await axios.delete(`http://localhost:5000/api/deletequery/${id}`);
-      const updatedQueries = queries.filter(query => query._id !== id);
-      setQueries(updatedQueries);
-      // Adjust current page if all items on current page are deleted
-      if ((currentPage - 1) * itemsPerPage >= updatedQueries.length && currentPage > 1) {
-        setCurrentPage(currentPage - 1);
-      }
-    } catch (error) {
-      console.error('Error deleting query:', error);
+  const confirmDelete = window.confirm("Are you sure you want to delete this query?");
+  if (!confirmDelete) return;
+
+  try {
+    await axios.delete(`http://localhost:5000/api/deletequery/${id}`);
+    
+    const updatedQueries = queries.filter(query => query._id !== id);
+    setQueries(updatedQueries);
+
+    // Adjust page if needed
+    if ((currentPage - 1) * itemsPerPage >= updatedQueries.length && currentPage > 1) {
+      setCurrentPage(currentPage - 1);
     }
-  };
+
+    toast.success("Query deleted successfully ✅");
+  } catch (error) {
+    console.error('Error deleting query:', error);
+    toast.error("Failed to delete query ❌");
+  }
+};
+
 
   // Pagination logic
   const indexOfLast = currentPage * itemsPerPage;
@@ -46,6 +59,7 @@ const GetAllQuery = () => {
   return (
     <div className="query-container">
       <h1 className="query-title">Here's your all updated Query</h1>
+<ToastContainer position="top-right" autoClose={3000} />
 
       <button className="fetch-btn" onClick={fetchQueries}>Get All User</button>
 
