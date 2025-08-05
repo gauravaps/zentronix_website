@@ -4,7 +4,7 @@ import Queries from "../models/Queries.js";
 
 
 
-
+ 
 
 // create new query..
 export const createContact = async (req, res) => {
@@ -19,7 +19,7 @@ export const createContact = async (req, res) => {
       budget,
       message,
     } = req.body;
-
+console.log("Received data:", req.body)
     // 🔒 Manual validation for all required fields
     if (
       !firstName ||
@@ -55,14 +55,13 @@ export const createContact = async (req, res) => {
       data: newQuery,
     });
   } catch (error) {
-    res.status(500).json({
-      error: "Something went wrong. Please try again later.",
-    });
+    res.status(400).json({ message: err.message });
+    
   }
 };
 
 
- 
+    
 export const getAllContacts = async (req, res) => {
   try {
     const contacts = await Queries.find().sort({ createdAt: -1 });

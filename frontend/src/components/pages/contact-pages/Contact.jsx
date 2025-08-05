@@ -1,10 +1,85 @@
+// ...existing imports
 import React, { useState } from 'react';
 import './Contact.css';
 import { FaLocationDot } from 'react-icons/fa6';
 import { MdEmail, MdPhone, MdLanguage } from 'react-icons/md';
+import axios from 'axios';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Contact = () => {
-  const [currentDay, setCurrentDay] = useState(new Date().toLocaleString('en-US', { weekday: 'long' }));
+  const [loading, setLoading] = useState(false);
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    service: '',
+    how_soon: '',
+    budget: '',
+    message: '',
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const validateForm = () => {
+    const { firstName, lastName, email, phone, service, how_soon, budget, message } = formData;
+
+    if (!firstName.trim()) return "First name is required";
+    if (!lastName.trim()) return "Last name is required";
+    if (!email.trim()) return "Email is required";
+
+    const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    if (!emailRegex.test(email)) return "Please enter a valid email";
+
+    if (!phone.trim()) return "Phone number is required";
+    const phoneRegex = /^\d{10}$/;
+    if (!phoneRegex.test(phone)) return "Phone number must be exactly 10 digits";
+
+    if (!service.trim()) return "Service selection is required";
+    if (!budget.trim()) return "Budget selection is required";
+    if (!how_soon.trim()) return "Project start time selection is required";
+    if (!message.trim()) return "Project message is required";
+
+    return null; // ✅ No validation errors
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const error = validateForm();
+    if (error) {
+      toast.error(error);
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      const res = await axios.post('http://localhost:5000/api/createquery', formData);
+      toast.success(res.data.message);
+
+      // Reset form
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        phone: '',
+        service: '',
+        how_soon: '',
+        budget: '',
+        message: '',
+      });
+    } catch (error) {
+      console.log("Submit Error:", error);
+      toast.error(error.response?.data?.error || 'Something went wrong');
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const openingHours = [
     { day: 'Monday', time: '10:30 AM - 8 PM' },
@@ -16,28 +91,33 @@ const Contact = () => {
     { day: 'Sunday', time: 'Closed' },
   ];
 
+  const currentDay = new Date().toLocaleString('en-US', { weekday: 'long' });
+
   return (
     <div className="contact-page">
-      <h1 className="contact-heading" >Let’s Start a Conversation Today!</h1>
+      <ToastContainer position="top-right" autoClose={3000} />
+
+      <h1 className="contact-heading">Let’s Start a Conversation Today!</h1>
       <p className="contact-subheading">
         Submit your details, and we’ll connect with you to explore the best-fit solution that drives success.
       </p>
 
       <div className="contact-container">
-        {/* Left Form Section */}
         <div className="contact-form-section">
           <h2>Contact Us</h2>
-          <form className="contact-form">
+          <form className="contact-form" onSubmit={handleSubmit}>
             <div className="form-row">
-              <input type="text" placeholder="First Name" required />
-              <input type="text" placeholder="Last Name" required />
+              <input type="text" name="firstName" placeholder="First Name" value={formData.firstName} onChange={handleChange} />
+              <input type="text" name="lastName" placeholder="Last Name" value={formData.lastName} onChange={handleChange} />
             </div>
+
             <div className="form-row">
-              <input type="email" placeholder="Email" required />
-              <input type="tel" placeholder="Mobile Number" required />
+              <input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleChange} />
+              <input type="tel" name="phone" placeholder="Mobile Number" value={formData.phone} onChange={handleChange} />
             </div>
+
             <div className="form-row">
-              <select required>
+              <select name="service" value={formData.service} onChange={handleChange}>
                 <option value="">Select a Service</option>
                 <option>Mobile Application Development</option>
                 <option>Web Development</option>
@@ -49,7 +129,8 @@ const Contact = () => {
                 <option>QA Services</option>
                 <option>Other</option>
               </select>
-              <select required>
+
+              <select name="budget" value={formData.budget} onChange={handleChange}>
                 <option value="">Select Budget</option>
                 <option>$5k-$10k</option>
                 <option>$10k-$25k</option>
@@ -61,8 +142,9 @@ const Contact = () => {
                 <option>Not sure</option>
               </select>
             </div>
+
             <div className="form-row">
-              <select required>
+              <select name="how_soon" value={formData.how_soon} onChange={handleChange}>
                 <option value="">How soon do you want to start?</option>
                 <option>Right now</option>
                 <option>In a few weeks</option>
@@ -70,12 +152,16 @@ const Contact = () => {
                 <option>Not sure</option>
               </select>
             </div>
-            <textarea placeholder="Brief about the project" required></textarea>
-            <button type="submit">Get in Touch</button>
+
+            <textarea name="message" placeholder="Brief about the project" value={formData.message} onChange={handleChange}></textarea>
+
+            <button type="submit" disabled={loading}>
+              {loading ? 'Sending...' : 'Get in Touch'}
+            </button>
           </form>
         </div>
 
-        {/* Right Info Section */}
+         {/* Right Info Section */}
         <div className="map-wrapper">
           <div className="opening-time">
             <h3>OPENING TIME</h3>
