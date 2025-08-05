@@ -2,7 +2,8 @@ import express from "express";
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 import cors from 'cors';
-import router from './routes/QueriesRoute.js';
+import quryRouter from './routes/QueriesRoute.js';
+import userRouter from './routes/UserRoutes.js'
  
 
 
@@ -20,8 +21,11 @@ app.use(express.json());
 
 
 
-/// Queries router
-app.use('/api' , router)
+/// Queries router /api
+app.use('/api' , quryRouter)
+
+//User router /api
+app.use('/api' , userRouter);
 
 // test route
 app.get('/', (req, res) => {

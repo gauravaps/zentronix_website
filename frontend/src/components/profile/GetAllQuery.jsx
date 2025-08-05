@@ -5,6 +5,8 @@ import { FaGlobeAmericas } from 'react-icons/fa';
 import { formatDistanceToNow } from 'date-fns';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Swal from 'sweetalert2';
+
 
 
 
@@ -26,27 +28,51 @@ const GetAllQuery = () => {
     }
   };
 
-  const deleteQuery = async (id) => {
-  const confirmDelete = window.confirm("Are you sure you want to delete this query?");
-  if (!confirmDelete) return;
 
-  try {
-    await axios.delete(`http://localhost:5000/api/deletequery/${id}`);
-    
-    const updatedQueries = queries.filter(query => query._id !== id);
-    setQueries(updatedQueries);
 
-    // Adjust page if needed
-    if ((currentPage - 1) * itemsPerPage >= updatedQueries.length && currentPage > 1) {
-      setCurrentPage(currentPage - 1);
+
+  
+const deleteQuery = async (id) => {
+  // Step 1: Swal alert show
+  const result = await Swal.fire({
+    title: 'Are you sure?',
+    text: "You won't be able to revert this!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Yes, delete it!'
+  });
+
+  // Step 2: If user confirms
+  if (result.isConfirmed) {
+    try {
+      await axios.delete(`http://localhost:5000/api/deletequery/${id}`);
+
+      // Step 3: Update frontend queries state
+      const updatedQueries = queries.filter(query => query._id !== id);
+      setQueries(updatedQueries);
+
+      // Step 4: Adjust pagination
+      if ((currentPage - 1) * itemsPerPage >= updatedQueries.length && currentPage > 1) {
+        setCurrentPage(currentPage - 1);
+      }
+
+      // Step 5: Show success toast
+      toast.success("Query deleted successfully ✅");
+
+      // Optional: SweetAlert success message
+      Swal.fire('Deleted!', 'Query has been deleted.', 'success');
+
+    } catch (error) {
+      console.error('Error deleting query:', error);
+      toast.error("Failed to delete query ❌");
     }
-
-    toast.success("Query deleted successfully ✅");
-  } catch (error) {
-    console.error('Error deleting query:', error);
-    toast.error("Failed to delete query ❌");
   }
 };
+
+
+
 
 
   // Pagination logic
