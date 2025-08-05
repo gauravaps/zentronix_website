@@ -6,6 +6,7 @@ import Contact from './components/pages/contact-pages/Contact'
 import GetAllQuery from './components/profile/GetAllQuery' 
 import { FloatingWhatsApp } from "react-floating-whatsapp";
 import zentronix2 from '/public/zentronix2.png' 
+import GetAllUsers from './components/profile/GetAllUsers'
 
 
 
@@ -19,6 +20,7 @@ const App = () => {
 
     <Route path='/contact-us' element={<Contact/>}/>
     <Route path='/product' element={<GetAllQuery/>}/>
+    <Route path='/alluser' element={<GetAllUsers/>}/>
     </Route>
   
 

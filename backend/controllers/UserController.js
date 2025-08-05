@@ -13,31 +13,40 @@ import upload from "../middleware/multer.middileware.js";
  
 
 export const registerUser = async (req, res) => {
-
   try {
+    // If using form-data, fields in req.body, file in req.file (memoryStorage)
     const { firstName, lastName, email, phone, password, role } = req.body;
-console.log("Received data:", req.body)
+    console.log("Received body:", req.body);
+    console.log("Received file:", req.file?.originalname);
 
-    // Manual field validation
+    // Basic validation
     if (!firstName || !lastName || !email || !phone || !password) {
       return res.status(400).json({ error: "All fields are required." });
     }
 
-    // Check for existing user (email)
+    // Check existing email and phone
     const existingUser = await User.findOne({ email });
     if (existingUser) {
       return res.status(400).json({ message: "User already exists with this email." });
     }
-
-    // Check for existing phone
     const existingPhone = await User.findOne({ phone });
     if (existingPhone) {
       return res.status(400).json({ message: "Phone number already registered." });
     }
 
-    // Hash the password
+    // Hash password
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
+
+    // Prepare image value:
+    // - if req.file exists, convert buffer -> dataURL (base64) and save into image (String)
+    // - else do not set image; mongoose schema default will apply
+    let imageValue;
+    if (req.file && req.file.buffer) {
+      const mime = req.file.mimetype; // e.g. image/png
+      const base64 = req.file.buffer.toString("base64");
+      imageValue = `data:${mime};base64,${base64}`; // store data URL string
+    }
 
     // Create new user
     const newUser = new User({
@@ -47,13 +56,36 @@ console.log("Received data:", req.body)
       phone,
       password: hashedPassword,
       role: role || "normal",
+      ...(imageValue ? { image: imageValue } : {}), // set only if uploaded
     });
 
     await newUser.save();
 
-    res.status(201).json({ message: "User registered successfully", user: newUser });
+    // Remove password from returned object
+    const userToReturn = newUser.toObject();
+    delete userToReturn.password;
+
+    return res.status(201).json({ message: "User registered successfully", user: userToReturn });
   } catch (error) {
     console.error("Registration error:", error);
-    res.status(500).json({ message: "Something went wrong" });
+    return res.status(500).json({ message: "Something went wrong" });
+  }
+};
+
+
+
+// Get all users
+export const getAllUsers = async (req, res) => {
+  try {
+    const users = await User.find().select("-password");
+
+    res.status(200).json({
+      success: true,
+      count: users.length,
+      users
+    });
+  } catch (error) {
+    console.error("Error fetching users:", error);
+    res.status(500).json({ success: false, message: "Something went wrong" });
   }
 };

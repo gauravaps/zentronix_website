@@ -104,7 +104,7 @@ const Header = () => {
             )}
           </div>
 
-          <Link to="/pages" className="nav-item">About</Link>
+          <Link to="/alluser" className="nav-item">About</Link>
           <Link to="/product" className="nav-item">Product</Link>
           <Link to="/contact-us" className="nav-item">Contact</Link>
         </nav>
@@ -167,7 +167,7 @@ const Header = () => {
               </div>
             </details>
 
-            <Link to="/pages" className="nav-item">About</Link>
+            <Link to="/alluser" className="nav-item">About</Link>
             <Link to="/product" className="nav-item">Product</Link>
             <Link to="/contact-us" className="nav-item">Contact </Link>
           </nav>
