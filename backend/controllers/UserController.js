@@ -1,5 +1,7 @@
 import User from "../models/User.js";
 import bcrypt from "bcryptjs"; 
+import upload from "../middleware/multer.middileware.js";
+
 
 
 
