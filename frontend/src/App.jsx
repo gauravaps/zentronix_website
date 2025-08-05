@@ -3,7 +3,9 @@ import Header from './components/header/Header'
 import { Routes ,Route } from 'react-router-dom'
 import Layout from './components/pages/Layout'
 import Contact from './components/pages/contact-pages/Contact'
-import GetAllQuery from './components/profile/GetAllQuery'
+import GetAllQuery from './components/profile/GetAllQuery' 
+import { FloatingWhatsApp } from "react-floating-whatsapp";
+
 
 
 const App = () => {
@@ -20,6 +22,19 @@ const App = () => {
 
 
     </Routes>
+
+     <FloatingWhatsApp
+        phoneNumber="911234567890" 
+        accountName="Gaurav Support"
+        avatar="https://yourwebsite.com/avatar.png" // optional
+        statusMessage="Typically replies in 1 minute"
+        chatMessage="Hello 👋 How can I help you?"
+        placeholder="Type your message"
+        darkMode={false}
+        allowClickAway
+        notification
+        notificationSound
+      />
 </>
 
 )
