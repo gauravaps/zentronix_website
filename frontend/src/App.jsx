@@ -11,7 +11,8 @@ import Login from './components/profile/Login'
 import UserProfile from './components/profile/UserProfile'
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from './components/context/AuthContext'
-
+import NotAuthorized from './components/pages/NotAuthorized'
+import ProtectedRoute from './components/routes/ProtectedRoute'
  
 
 const App = () => {
@@ -20,15 +21,7 @@ const App = () => {
 
     const {user, setUser } = useAuth();
 
-  useEffect(() =>{
-
-    if (user?.role?.role === 'admin') {
-          navigate('/userprofile'); // admin route
-        } else {
-          navigate('/login'); 
-        }
-
-  },[user])
+  
 
 
   
@@ -44,9 +37,33 @@ const App = () => {
     <Route path='/alluser' element={<GetAllUsers/>}/>
     <Route path='/login' element={<Login/>}/>
     <Route path='/userprofile' element={<UserProfile/>}/>
-    </Route>
-  
 
+
+{/* Only logged-in users can access profile */}
+    <Route
+      path='/userprofile'
+      element={
+        <ProtectedRoute>
+          <UserProfile />
+        </ProtectedRoute>
+      }
+    />
+
+    {/* Example admin-only page (replace paths as needed) */}
+    <Route
+      path='/admin/all-queries'
+      element={
+        <ProtectedRoute requiredRole='admin'>
+          <GetAllQuery />
+        </ProtectedRoute>
+      }
+    />
+
+    <Route path='/not-authorize' element={<NotAuthorized />} />
+
+
+
+    </Route>
     </Routes>
 
      <FloatingWhatsApp

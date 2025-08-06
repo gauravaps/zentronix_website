@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './Login.css';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -13,11 +13,11 @@ const Login = () => {
   });
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
+  const { login } = useAuth(); // use the login helper from AuthContext
 
-  const { setUser } = useAuth();
-
-
-
+  // where to redirect after login (if user was trying to access protected route)
+  const from = location.state?.from?.pathname || null;
 
   const handleChange = (e) => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
@@ -30,33 +30,46 @@ const Login = () => {
     try {
       const res = await axios.post('http://localhost:5000/api/loginuser', credentials);
 
-      // response se token aur user object le lo
+      // response se token aur user object expect kar rahe hain
       const { token, user, message } = res.data;
 
-      // localStorage me store karna (role ko as plain string store karo)
-      localStorage.setItem('token', token);
-      localStorage.setItem('user', JSON.stringify(user));
-      setUser(user)
-      localStorage.setItem('role', user.role); // no JSON.stringify — simple string
+      // store token (AuthContext handles user persistence)
+      if (token) {
+        localStorage.setItem('token', token);
+      }
 
-      // optional: agar aapko image/name alag store karna hai:
-      if (user.image) localStorage.setItem('userImage', user.image);
-      if (user.firstName) localStorage.setItem('userName', user.firstName);
+      // use context login to normalise and persist user
+      login(user);
+
+      // optional other small info (if you need separate items)
+      if (user?.image) localStorage.setItem('userImage', user.image);
+      if (user?.firstName) localStorage.setItem('userName', user.firstName);
 
       // success toast
       toast.success(message || 'Login successful!', {
         position: 'top-right',
-        autoClose: 2000,
+        autoClose: 1500,
       });
- 
-      // thoda delay de kar navigate karo taa ki toast visible rahe
+
+      // navigate after short delay so toast shows
       setTimeout(() => {
-        if (user.role === 'admin') {
-          navigate('/userprofile'); // admin route
-        } else {
-          navigate('/login'); 
+        // if original protected page exists, go back there
+        if (from) {
+          navigate(from, { replace: true });
+          return;
         }
-      }, 900);
+
+        // otherwise decide default destination by role
+        const role =
+          typeof user?.role === 'string' ? user.role : user?.role?.role || user?.role?.name;
+
+        if (role === 'admin') {
+          navigate('/userprofile', { replace: true });
+        } else {
+          // normal user landing (change as per your app)
+          navigate('/not-authorize', { replace: true });
+        }
+      }, 700);
     } catch (err) {
       console.error('Login error:', err);
       const errorMsg = err.response?.data?.message || 'Login failed. Check credentials.';
@@ -74,7 +87,7 @@ const Login = () => {
         <input
           type="email"
           name="email"
-          placeholder="Enter your Credential"
+          placeholder="Enter your Email"
           required
           value={credentials.email}
           onChange={handleChange}
@@ -82,19 +95,18 @@ const Login = () => {
         <input
           type="password"
           name="password"
-          placeholder="Enter your Credential"
+          placeholder="Enter your Password"
           required
           value={credentials.password}
           onChange={handleChange}
         />
 
         <button type="submit" disabled={loading}>
-          {loading ? 'Logging in...' : 'Sumbit'}
+          {loading ? 'Logging in...' : 'Submit'}
         </button>
       </form>
 
-      {/* Toast container ko app me ek hi jagah rakho (usually App.jsx me) — 
-          yaha agar nahi rakha to bhi chalega */}
+      {/* Toast container: It's okay to keep here, but ideally place once in App.jsx */}
       <ToastContainer />
     </div>
   );
