@@ -201,3 +201,194 @@ body{margin:0;font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, 
     font-size: 30px;
   }
 }
+
+
+
+
+/* ======= Services / Cards (Section 3) — updated ======= */
+.services-section {
+  background: linear-gradient(180deg, #07254d 0%, #04264b 100%);
+  color: #fff;
+  padding: 64px 0 72px;
+  position: relative;
+}
+
+.services-head {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 18px; 
+  position: relative;
+}
+
+.services-title {
+  font-size: 36px;
+  font-weight: 700;
+  margin: 0;
+  color: #fff;
+  text-align: center;
+  width: 100%;
+}
+
+.services-sub {
+  width: 100%;
+  max-width: 900px;
+  margin: 10px auto 10px;
+  text-align: center;
+  color: rgba(255,255,255,0.85);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* nav buttons container - now positioned relative to carousel area */
+.services-nav {
+  position: absolute;
+  right: 24px;
+  top: calc(50% - 22px); 
+  display: flex;
+  gap: 12px;
+  z-index: 20;
+}
+
+/* nav buttons */
+.nav-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  border:1px solid rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.04);
+  color:#fff;
+  font-size:18px;
+  cursor:pointer;
+  display:inline-grid;
+  place-items:center;
+  backdrop-filter: blur(4px);
+}
+
+/* Carousel wrapper — overflow hidden so user can't scroll with mouse/touch */
+.services-carousel{
+  display:flex;
+  gap:28px;
+  overflow: hidden; 
+  padding: 28px 8px;
+  scroll-behavior:smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* card sizes - larger on big screens */
+.service-card{
+  min-width: 360px;     
+  max-width: 420px;
+  min-height: 240px;     
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius:6px;
+  padding:28px;
+  color:#fff;
+  text-decoration:none;
+  position:relative;
+  transition: transform .18s ease, box-shadow .18s ease;
+  flex: 0 0 auto;
+  display:flex;
+  flex-direction:column;
+  justify-content: flex-start;
+}
+
+/* icon at top-left inside card */
+.card-icon{
+  font-size:30px;
+  color:#bfe0ff;
+  margin-bottom:18px;
+}
+
+/* card title */
+.card-title{
+  font-size:20px;
+  font-weight:700;
+  margin:0 0 12px;
+  color:#fff;
+}
+
+.card-hover{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  padding:18px;
+  background: linear-gradient(180deg, rgba(4,36,64,0.0), rgba(3,18,38,0.92));
+  transform: translateY(100%);
+  opacity:0;
+  transition: transform .22s ease, opacity .22s ease;
+  border-top: 1px solid rgba(255,255,255,0.04);
+}
+
+/* desc & learn more */
+.card-desc{
+  margin:0 0 10px;
+  font-size:14px;
+  color: rgba(255,255,255,0.95);
+  line-height:1.5;
+}
+.card-learn{
+  font-weight:700;
+  font-size:13px;
+  color:#dbeeff;
+}
+
+/* hover show */
+.service-card:hover{
+  transform: translateY(-8px);
+  box-shadow: 0 22px 50px rgba(0,0,0,0.40);
+}
+.service-card:hover .card-hover{
+  transform: translateY(0%);
+  opacity:1;
+}
+
+/* Learn More CTA below carousel */
+.services-cta{
+  margin-top: 28px;
+  text-align:center;
+}
+.cta-button.secondary{
+  background: #fff;
+  color: #06294f;
+  padding:12px 26px;
+  border-radius:36px;
+  font-weight:700;
+  border:none;
+  box-shadow: 0 6px 18px rgba(8,52,106,0.12);
+}
+
+/* hide native scrollbars appearance for safety */
+.services-carousel::-webkit-scrollbar { height:0; width:0; }
+.services-carousel { scrollbar-width: none; -ms-overflow-style: none; }
+
+/* --- Responsive adjustments --- */
+@media (min-width: 1400px) {
+  .service-card { min-width: 420px; max-width: 480px; min-height: 280px; padding:32px; }
+  .services-nav { right: 64px; }
+}
+
+@media (max-width: 980px){
+  .services-title{ font-size: 30px; }
+  .service-card{ min-width: 320px; max-width: 360px; padding:22px; min-height: 240px; }
+  .services-nav { right: 18px; top: calc(50% - 22px); }
+}
+
+/* On mobile/tablet place nav buttons just above the carousel and centered */
+@media (max-width: 640px){
+  .services-head { margin-bottom: 6px; }
+  .services-nav {
+    position: absolute;
+    right: 50%;
+    transform: translateX(50%);
+    top: calc(100% - 10px); /* place just above cards */
+    gap: 10px;
+  }
+  .nav-btn { width:40px; height:40px; font-size:16px; }
+  .service-card{ min-width: 240px; max-width: 260px; padding:18px; min-height: 200px; }
+  .services-sub { font-size:14px; padding:0 12px; }
+}
