@@ -1,7 +1,9 @@
 .footer-container {
-  background-color:  #0f172a; /* green-200 */
+  /* background-color:  #0f172a;  */
   color:white; /* gray-800 */
   font-family:'Times New Roman', Times, serif;
+   background: linear-gradient( #02162E 20%, #0060d4 100%);
+
 }
 
 .footer-content {

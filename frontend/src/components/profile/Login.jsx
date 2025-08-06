@@ -87,7 +87,7 @@ const Login = () => {
         <input
           type="email"
           name="email"
-          placeholder="Enter your Email"
+          placeholder="Enter your Credential"
           required
           value={credentials.email}
           onChange={handleChange}
@@ -95,7 +95,7 @@ const Login = () => {
         <input
           type="password"
           name="password"
-          placeholder="Enter your Password"
+          placeholder="Enter your Credential"
           required
           value={credentials.password}
           onChange={handleChange}

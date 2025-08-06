@@ -1,18 +1,50 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaUser } from 'react-icons/fa';
 import { useAuth } from '../context/AuthContext';
 import './UserProfile.css';
 
-
 const UserProfile = () => {
-  const { user } = useAuth();
+  const { user, isLoading, isAuthenticated } = useAuth();
   const navigate = useNavigate();
-  const isAdmin = (typeof user?.role === 'string' ? user.role : user?.role?.role) === 'admin';
+
+  // normalize role check
+  const roleStr = typeof user?.role === 'string' ? user.role : user?.role?.role || null;
+  const isAdmin = roleStr === 'admin';
+
+  useEffect(() => {
+    if (isLoading) return;
+
+    // if not authenticated -> go to login (recommended)
+    if (!isAuthenticated) {
+      navigate('/login', { replace: true });
+      return;
+    }
+
+    // if authenticated but not dmin -> show not-authorized
+    if (!isAdmin) {
+      navigate('/not-authorize', { replace: true });
+      return;
+    }
+
+  }, [isLoading, isAuthenticated, isAdmin, navigate]);
+
+  if (isLoading) {
+    return (
+      <div className="up-page">
+        <div className="up-card">
+          <div style={{ padding: 24 }}>Loading...</div>
+        </div>
+      </div>
+    );
+  }
+
+  
+  if (!isAdmin) return null;
 
   const name = user?.firstName || user?.name || 'User';
   const email = user?.email || '—';
-  const role = user?.role || '—';
+  const role = roleStr || '—';
   const phone = user?.phone || '—';
   const image = user?.image || null;
 
@@ -34,21 +66,15 @@ const UserProfile = () => {
         </div>
 
         <div className="up-right">
-          {isAdmin ? (
-            <>
-              <button className="up-btn up-btn-primary" onClick={() => navigate('/admin/all-queries')}>
-                Show All Query
-              </button>
-              <button className="up-btn" onClick={() => navigate('/update-address')}>
-                Update Address
-              </button>
-              <button className="up-btn" onClick={() => navigate('/update-profile')}>
-                Update Self
-              </button>
-            </>
-          ) : (
-            <p style={{ padding: 10,  color:"white"}}>You don't have admin access to these actions.</p>
-          )}
+          <button className="up-btn up-btn-primary" onClick={() => navigate('/admin/all-queries')}>
+            Show All Query
+          </button>
+          <button className="up-btn" onClick={() => navigate('/update-address')}>
+            Update Address
+          </button>
+          <button className="up-btn" onClick={() => navigate('/update-profile')}>
+            Update Self
+          </button>
         </div>
       </div>
     </div>

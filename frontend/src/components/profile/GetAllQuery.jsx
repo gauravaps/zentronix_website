@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './GetAllQuery.css'; 
 import { FaGlobeAmericas } from 'react-icons/fa';
@@ -14,9 +14,14 @@ const GetAllQuery = () => {
   const [queries, setQueries] = useState([]);
   const [showData, setShowData] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
+    const [loading, setLoading] = useState(false);
+  
   const itemsPerPage = 4;
 
   const fetchQueries = async () => {
+
+    setLoading(true);
+
     try {
       const response = await axios.get('http://localhost:5000/api/getallquery');
       const sorted = response.data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
@@ -25,10 +30,16 @@ const GetAllQuery = () => {
       setCurrentPage(1); // reset page on fetch
     } catch (error) {
       console.error('Error fetching queries:', error);
+      }
+      finally {
+      setLoading(false);
     }
   };
 
 
+  useEffect(() =>{
+    fetchQueries()
+  },[])
 
 
   
@@ -87,7 +98,7 @@ const deleteQuery = async (id) => {
       <h1 className="query-title">Here's your all updated Query</h1>
 <ToastContainer position="top-right" autoClose={3000} />
 
-      <button className="fetch-btn" onClick={fetchQueries}>Get All User</button>
+      <button className="fetch-btn" onClick={fetchQueries}>   {loading ? "Refreshing..." : "Refresh"}  </button>
 
       {showData && currentQueries.map((query, index) => (
         <div className="query-card" key={index}>

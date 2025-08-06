@@ -13,6 +13,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from './components/context/AuthContext'
 import NotAuthorized from './components/pages/NotAuthorized'
 import ProtectedRoute from './components/routes/ProtectedRoute'
+import Home from './components/pages/home/Home'
  
 
 const App = () => {
@@ -31,9 +32,9 @@ const App = () => {
     <Routes>
 
     <Route path='/' element={<Layout/>}>
-
+      <Route path='/' element={<Home/>}/>
     <Route path='/contact-us' element={<Contact/>}/>
-    <Route path='/product' element={<GetAllQuery/>}/>
+    {/* <Route path='/product' element={<GetAllQuery/>}/> */}
     <Route path='/alluser' element={<GetAllUsers/>}/>
     <Route path='/login' element={<Login/>}/>
     <Route path='/userprofile' element={<UserProfile/>}/>
