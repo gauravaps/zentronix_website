@@ -1,6 +1,6 @@
 import User from "../models/User.js";
 import bcrypt from "bcryptjs"; 
-import upload from "../middleware/multer.middileware.js";
+import jwt from 'jsonwebtoken';
 
 
 
@@ -87,5 +87,48 @@ export const getAllUsers = async (req, res) => {
   } catch (error) {
     console.error("Error fetching users:", error);
     res.status(500).json({ success: false, message: "Something went wrong" });
+  }
+};
+
+
+
+
+
+/// Login user with jwt token..
+export const loginUser = async (req, res) => {
+  try {
+    const { email, password } = req.body;
+
+    // check user exists
+    const user = await User.findOne({ email });
+    if (!user) return res.status(400).json({ message: 'Invalid email or password' });
+
+    // compare password
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch) return res.status(400).json({ message: 'Invalid email or password' });
+
+    // generate token
+    const token = jwt.sign(
+      { id: user._id, role: user.role },
+      process.env.JWT_SECRET,
+      { expiresIn: '1d' }
+    );
+
+    res.status(200).json({
+      message: 'Login successful',
+      token,
+      user: {
+        id: user._id,
+        firstName: user.firstName,
+        email: user.email,
+        image:user.image,
+        phone:user.phone,
+        role: user.role
+      }
+    });
+
+  } catch (err) {
+    console.error('Login error:', err);
+    res.status(500).json({ message: 'Server error' });
   }
 };

@@ -19,7 +19,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-
+ 
 
 /// Queries router /api
 app.use('/api' , quryRouter)

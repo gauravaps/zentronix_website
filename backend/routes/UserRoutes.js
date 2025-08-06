@@ -1,7 +1,8 @@
 import express from "express";
-import { getAllUsers, registerUser } from "../controllers/UserController.js";
+import { getAllUsers, loginUser, registerUser } from "../controllers/UserController.js";
 const router = express.Router();
 import upload from "../middleware/multer.middileware.js";
+import { isAdmin ,verifyToken } from "../middleware/authMiddleware.js";
 
 
 
@@ -14,6 +15,7 @@ import upload from "../middleware/multer.middileware.js";
 // POST /api/register route
 router.post("/register", upload.single("image"), registerUser);
 router.get("/getallusers" , getAllUsers)
+router.post("/loginuser" , loginUser)
 
 
 

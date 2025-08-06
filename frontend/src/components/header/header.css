@@ -388,5 +388,95 @@
 
 
 
-/* hide problem */
+
+
+
+/* user profile and logout button css */
+
+/* user area - desktop */
+.user-area {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.user-info-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: white; /* ya jo bhi aapka header text color ho */
+}
+
+.user-image {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(255,255,255,0.15);
+}
+
+.user-icon-fallback {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-name {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #fff; /* adjust */
+  white-space: nowrap;
+}
+
+/* logout button */
+.logout-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.18);
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-left: 8px;
+  font-size: 0.9rem;
+}
+
+.logout-btn:hover {
+  background: rgba(255,255,255,0.06);
+}
+
+/* Mobile user image smaller */
+.user-image-mobile {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Mobile logout row inside menu */
+.mobile-logout-row {
+  margin-top: 12px;
+  padding: 8px 12px;
+}
+
+.mobile-logout-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #e74c3c;
+  color: #fff;
+  border: none;
+  padding: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
 

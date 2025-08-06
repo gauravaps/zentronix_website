@@ -23,7 +23,7 @@ export const verifyToken = (req, res, next) => {
 // middleware for admin user
 
 export const isAdmin = (req, res, next) => {
-  if (req.user.role !== 'admin' && req.user.role !== 'superadmin') {
+  if (req.user.role !== 'admin') {
     return res.status(403).json({ message: 'Only admin or superadmin allowed' });
   }
   next();
