@@ -1,0 +1,74 @@
+/* src/styles/Modal.css */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(16, 24, 40, 0.45); /* dark translucent */
+  backdrop-filter: blur(6px) saturate(120%);
+  z-index: 1000;
+  padding: 20px;
+}
+
+/* modal white box */
+.modal-content {
+  width: 100%;
+  max-width: 760px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 12px 40px rgba(2,6,23,0.4);
+  position: relative;
+  padding: 22px;
+  transform: translateY(0);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+/* close button */
+.modal-close {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+/* optional smaller padding for the inner form */
+.modal-body {
+  padding-top: 16px;
+}
+
+/* form action buttons area */
+.modal-form-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  margin-top: 12px;
+}
+
+/* optional button styles you can adapt */
+.btn-secondary {
+  background: transparent;
+  border: 1px solid #ddd;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+
+
+.modal-title {
+  text-align: center;
+  /* color: #0b5cff;         */
+  font-size: 1.5rem;    
+  font-weight: 700;
+  margin: -10px 0 18px;  
+  padding-top: 4px;  
+  
+  background: linear-gradient( #02162E 20%, #0060d4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

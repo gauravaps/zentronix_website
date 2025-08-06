@@ -1,7 +1,10 @@
 import React, { useEffect, useState, useRef } from "react";
 import { ImSwitch } from "react-icons/im";
-import { MdInstallMobile } from "react-icons/md"; // icon placeholder (you can replace later)
 import "./Home.css";
+import services from "./serviceCard";
+import ContactForm from "./ContactForm";
+import ModalForm from "./ModalForm";
+
 
 const Home = () => {
   // State for count animation
@@ -9,6 +12,11 @@ const Home = () => {
   const [pros, setPros] = useState(0);
   const [projects, setProjects] = useState(0);
   const [industries, setIndustries] = useState(0);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+
+
+
 
   useEffect(() => {
     const animateValue = (setter, target) => {
@@ -27,56 +35,10 @@ const Home = () => {
   }, []);
 
   /* ========== SERVICES / CARDS (SECTION 3) ========== */
-  const services = [
-    {
-      id: 1,
-      title: "Mobile App Development",
-      desc:
-        "Custom native & cross-platform mobile apps built for performance and UX.",
-      icon: <MdInstallMobile />,
-      link: "/mobile-app-development",
-    },
-    {
-      id: 2,
-      title: "Web App Development",
-      desc:
-        "Robust web applications using modern stacks, optimized for scale and speed.",
-      icon: <MdInstallMobile />,
-      link: "/web-app-development",
-    },
-    {
-      id: 3,
-      title: "Website Development",
-      desc:
-        "Create websites that engage audiences and deliver the right business info.",
-      icon: <MdInstallMobile />,
-      link: "/website-development",
-    },
-    {
-      id: 4,
-      title: "UI/UX Design",
-      desc:
-        "User-centered design solutions that increase engagement and conversions.",
-      icon: <MdInstallMobile />,
-      link: "/ui-ux-design",
-    },
-    {
-      id: 5,
-      title: "Staff Augmentation",
-      desc:
-        "Scale your team quickly with vetted developers and specialists on demand.",
-      icon: <MdInstallMobile />,
-      link: "/staff-augmentation",
-    },
-    {
-      id: 6,
-      title: "Digital Marketing",
-      desc:
-        "SEO, PPC, content & social strategies to grow traffic and conversions.",
-      icon: <MdInstallMobile />,
-      link: "/digital-marketing",
-    },
-  ];
+   
+
+
+
 
   // ref for horizontal scroll container
   const servicesRef = useRef(null);
@@ -114,7 +76,10 @@ const Home = () => {
             </p>
 
             <div className="hero-cta-wrap">
-              <button className="cta-button" type="button" aria-label="Get started">
+              <button className="cta-button" type="button" aria-label="Get started" 
+              onClick={() => setIsModalOpen(true)}
+
+              >
                 <span className="cta-icon">
                   <ImSwitch />
                 </span>
@@ -213,6 +178,13 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+            {/* Modal with contact form */}
+      <ModalForm isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+        <h2 className="modal-title">Get Started — Tell us about your project</h2>
+        <ContactForm onClose={() => setIsModalOpen(false)} />
+      </ ModalForm>
+
     </>
   );
 };
