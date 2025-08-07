@@ -75,3 +75,29 @@ export const updateCompanyAddress = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
+
+
+
+
+// get all addresses
+export const GetAllAddress = async (req, res) => {
+  try {
+    const allAddresses = await Address.find();
+
+    if (allAddresses.length === 0) {
+      return res.status(404).json({
+        message: "No addresses found.",
+      });
+    }
+
+    res.status(200).json({
+      message: "All addresses fetched successfully.",
+      data: allAddresses,
+    });
+  } catch (err) {
+    res.status(500).json({
+      error: "Failed to fetch addresses.",
+      message: err.message,
+    });
+  }
+};

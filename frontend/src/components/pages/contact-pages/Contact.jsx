@@ -6,7 +6,7 @@ import { MdEmail, MdPhone, MdLanguage } from 'react-icons/md';
 import axios from 'axios';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+ 
 const Contact = () => {
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
