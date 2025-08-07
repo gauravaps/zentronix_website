@@ -44,3 +44,34 @@ console.log("Received data:", req.body)
     
   }
 };
+
+
+
+// ✅ Update Company Address
+export const updateCompanyAddress = async (req, res) => {
+  try {
+    const { id } = req.params; // Company address ID from URL
+    const { email, phone, address } = req.body;
+
+    
+
+    // 🔄 Update the address by ID
+    const updatedAddress = await Address.findByIdAndUpdate(
+      id,
+      { email, phone, address },
+      { new: true, runValidators: true }
+    );
+
+    if (!updatedAddress) {
+      return res.status(404).json({ error: "Address not found." });
+    }
+
+    // ✅ Success
+    res.status(200).json({
+      message: "Company address updated successfully.",
+      data: updatedAddress,
+    });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
