@@ -4,6 +4,7 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import quryRouter from './routes/QueriesRoute.js';
 import userRouter from './routes/UserRoutes.js'
+import addressRouter from './routes/AddressRoutes.js'
  
 
 
@@ -26,6 +27,11 @@ app.use('/api' , quryRouter)
 
 //User router /api
 app.use('/api' , userRouter);
+
+//Address router /api
+app.use('/api' , addressRouter);
+
+
 
 // test route
 app.get('/', (req, res) => {
