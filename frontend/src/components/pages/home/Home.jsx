@@ -35,26 +35,47 @@ const Home = () => {
   }, []);
 
   /* ========== SERVICES / CARDS (SECTION 3) ========== */
-   
-
-
-
 
   // ref for horizontal scroll container
+  
   const servicesRef = useRef(null);
 
   const scrollByWidth = (dir = "next") => {
-    const el = servicesRef.current;
-    if (!el) return;
-    const cardWidth = el.querySelector(".service-card")?.clientWidth || 300;
-    const gap = 24; // same as CSS gap
-    const scrollAmount = cardWidth + gap;
-    if (dir === "next") {
+  const el = servicesRef.current;
+  if (!el) return;
+
+  const card = el.querySelector(".service-card");
+  const cardWidth = card?.clientWidth || 300;
+  const gap = 24; // Same as CSS gap
+  const scrollAmount = cardWidth + gap;
+
+  if (dir === "next") {
+    // Check if it's at or near the end
+    const maxScrollLeft = el.scrollWidth - el.clientWidth;
+    const isAtEnd = el.scrollLeft + scrollAmount >= maxScrollLeft - 5;
+
+    if (isAtEnd) {
+      // Loop to start
+      el.scrollTo({ left: 0, behavior: "smooth" });
+    } else {
       el.scrollBy({ left: scrollAmount, behavior: "smooth" });
+    }
+  } else {
+    // Handle "prev"
+    const isAtStart = el.scrollLeft <= 0;
+
+    if (isAtStart) {
+      // Scroll to end
+      const maxScrollLeft = el.scrollWidth - el.clientWidth;
+      el.scrollTo({ left: maxScrollLeft, behavior: "smooth" });
     } else {
       el.scrollBy({ left: -scrollAmount, behavior: "smooth" });
     }
-  };
+  }
+};
+
+
+
 
   return (
     <>
