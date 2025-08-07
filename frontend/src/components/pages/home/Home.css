@@ -380,7 +380,7 @@ body{margin:0;font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, 
 
 /* On mobile/tablet place nav buttons just above the carousel and centered */
 @media (max-width: 640px){
-  .services-head { margin-bottom: 6px; }
+  .services-head { margin-bottom: 14px; }
   .services-nav {
     position: absolute;
     right: 50%;
@@ -388,7 +388,7 @@ body{margin:0;font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, 
     top: calc(100% - 10px); /* place just above cards */
     gap: 10px;
   }
-  .nav-btn { width:40px; height:40px; font-size:16px; }
-  .service-card{ min-width: 240px; max-width: 260px; padding:18px; min-height: 200px; }
+  .nav-btn { width:45px; height:40px; font-size:19px; }
+  .service-card{ min-width: 240px; max-width: 245px; padding:18px; min-height: 250px; }
   .services-sub { font-size:14px; padding:0 12px; }
 }
