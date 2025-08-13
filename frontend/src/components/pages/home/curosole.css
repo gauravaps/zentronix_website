@@ -1,0 +1,218 @@
+ /* body {
+    margin: 20px;
+    padding: 0px;
+    font-family: Arial, sans-serif;
+
+  }  */
+  
+  
+  .slider {
+    position: relative;
+    max-width: 100%;
+    overflow: hidden;
+  }
+  
+  .slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%; /* 5 images */
+
+    
+  }
+  
+  .slide {
+    width: 100%;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 400px;
+    padding: 1% 5%;
+    gap: 30px;
+    background-color:white;
+    box-sizing: border-box;
+  }
+  
+  .caption {
+    width: 55%;
+    color: #222;
+  }
+  
+  .caption h2 {
+    font-size: 2rem;
+    font-weight: 900;
+    margin-bottom: 10px;
+    text-align: left;
+    color:black; 
+  text-shadow: 0px 2.4px 1px  rgba(0, 123, 255, 0.8); 
+     font-family:'Times New Roman', Times, serif
+  
+
+  }
+  
+  .caption p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    font-weight: 600;
+    text-align: left;
+     font-family:'Times New Roman', Times, serif
+  }
+  
+  .caption a {
+    color: white;
+    text-decoration:none;
+    font-weight: bold;
+    background-color: rgb(9, 185, 238);
+    
+  }
+
+  .caption a:hover {
+  background-color: #222;
+  color: white;
+}
+
+  
+  .slide img {
+    width: 40%;
+    height: 100%;
+    object-fit: contain;
+    background: none;
+  }
+  
+  
+  
+  
+  .prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color:black;
+    color: white;
+    
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 24px;
+    z-index: 1;
+    border-radius: 50%;
+  }
+  
+  .prev:hover, .next:hover {
+    background-color: orange;
+    color: black;
+  }
+  
+  .prev {
+    left: 10px;
+  }
+  
+  .next {
+    right: 10px;
+  }
+
+
+
+
+  @media (max-width: 768px) {
+  .slide {
+    flex-direction: column;
+    height: auto;
+    padding: 20px 10px;
+    gap: 20px;
+  }
+
+  .caption,
+  .slide img {
+    width: 100%;
+    text-align: center;
+  }
+
+  .caption h2,
+  .caption p {
+    text-align: center;
+  }
+
+  .slide img {
+    height: 200px; 
+    object-fit: contain;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .slide img {
+    height: 150px;
+  }
+
+  .caption h2 {
+    font-size: 1.5rem;
+  }
+
+  .caption p {
+    font-size: 1rem;
+  }
+} 
+
+
+
+/* bubbles animation  */
+/* Bubbles Background */
+.bubbles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1; /* background me rahega */
+}
+
+.bubbles span {
+  position: absolute;
+  display: block;
+  bottom: -150px;
+background: rgba(42, 214, 8, 0.6); 
+ border-radius: 50%;
+  animation: bubbleMove 15s linear infinite;
+}
+
+.bubbles span:nth-child(odd) {
+  color: aqua;
+  box-shadow: 0 0 10px rgba(27, 8, 201, 0.9);
+  background: rgba(27, 8, 201, 0.7);
+
+}
+
+.bubbles span {
+  width: calc(var(--i) * 8px);
+  height: calc(var(--i) * 8px);
+  left: calc(var(--i) * 10%);
+  animation-duration: calc(100s / var(--i));
+    box-shadow: 0 0 10px rgba(42, 214, 8, 0.8);
+
+}
+
+@keyframes bubbleMove {
+  0% {
+    transform: translateY(0) translateX(0) scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateY(-50vh) translateX(20px) scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) translateX(-20px) scale(0.8);
+    opacity: 0;
+  }
+}
+
+/* Make sure slider content is above bubbles */
+.slider {
+  position: relative;
+  z-index: 2;
+  background: transparent;
+}
+
+
+  

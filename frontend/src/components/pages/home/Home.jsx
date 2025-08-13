@@ -6,6 +6,7 @@ import ContactForm from "./ContactForm";
 import ModalForm from "./ModalForm";
 import IndustriesCard from "./IndustriesCard";
 import { FaPaperPlane } from "react-icons/fa";
+import Curosole from "./Curosole";
 
 const Home = () => {
   // State for count animation
@@ -369,6 +370,13 @@ const Home = () => {
           </button>
         </div>
       </section>
+
+        {/* six section.. */}
+
+            <section>
+              <Curosole/>
+              </section>
+
 
       {/* Modal with contact form */}
       <ModalForm isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
