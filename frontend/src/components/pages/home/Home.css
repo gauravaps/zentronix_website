@@ -392,3 +392,270 @@ body{margin:0;font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, 
   .service-card{ min-width: 240px; max-width: 245px; padding:18px; min-height: 250px; }
   .services-sub { font-size:14px; padding:0 12px; }
 }
+
+
+
+
+/* css for fifth section.. */
+
+.fifth-section {
+  position: relative;
+  height: 100vh;
+   overflow: hidden; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  background: #0f0f17; /* Dark premium background */
+}
+
+/* Cube background */
+.cube-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1200px;
+  z-index: 0;
+}
+
+.cube {
+  position: relative;
+  width: 200px;
+  transform-style: preserve-3d;
+  animation: rotateCube 12s infinite linear;
+  filter: drop-shadow(0 0 20px rgba(255,255,255,0.3));
+}
+
+.cube div {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(4px);
+  box-shadow: 0 0 20px rgba(255,255,255,0.1);
+}
+
+/* Cube faces */
+.cube div:nth-child(1) { transform: rotateY(0deg) translateZ(100px); }
+.cube div:nth-child(2) { transform: rotateY(90deg) translateZ(100px); }
+.cube div:nth-child(3) { transform: rotateY(180deg) translateZ(100px); }
+.cube div:nth-child(4) { transform: rotateY(-90deg) translateZ(100px); }
+.cube div:nth-child(5) { transform: rotateX(90deg) translateZ(100px); }
+.cube div:nth-child(6) { transform: rotateX(-90deg) translateZ(100px); }
+
+@keyframes rotateCube {
+  from { transform: rotateX(0) rotateY(0); }
+  to { transform: rotateX(360deg) rotateY(360deg); }
+}
+
+/* Gradient overlay */
+.gradient-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(255, 110, 196, 0.5), rgba(120, 115, 245, 0.5));
+  opacity: 0.8;
+  z-index: 1;
+}
+
+/* Content */
+.content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 0 20px;
+  max-width: 800px;
+}
+
+/* Location text */
+.location {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  color: #ffb6ff;
+}
+
+/* Heading */
+h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  background: linear-gradient(90deg, #ff6ec4, #7873f5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Stylish subheading */
+.subheading {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  opacity: 0.95;
+  color: rgba(255, 255, 255, 0.85);
+  background: linear-gradient(90deg, #ffffff, #e3e3ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: fadeInUp 1.5s ease;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Button */
+.contact-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(90deg, #ff6ec4, #7873f5);
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+}
+
+.contact-btn:hover {
+  background: linear-gradient(90deg, #ff8ad4, #9a90ff);
+  transform: translateY(-3px) scale(1.05);
+}
+
+/* Responsive */
+.cube-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1200px;
+  z-index: 0;
+}
+
+.cube {
+  position: relative;
+  width: 200px;
+  transform-style: preserve-3d;
+  animation: rotateCube 12s infinite linear;
+  filter: drop-shadow(0 0 20px rgba(255,255,255,0.3));
+}
+
+.cube div {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(4px);
+  box-shadow: 0 0 20px rgba(255,255,255,0.1);
+}
+
+/* Cube faces */
+.cube div:nth-child(1) { transform: rotateY(0deg) translateZ(100px); }
+.cube div:nth-child(2) { transform: rotateY(90deg) translateZ(100px); }
+.cube div:nth-child(3) { transform: rotateY(180deg) translateZ(100px); }
+.cube div:nth-child(4) { transform: rotateY(-90deg) translateZ(100px); }
+.cube div:nth-child(5) { transform: rotateX(90deg) translateZ(100px); }
+.cube div:nth-child(6) { transform: rotateX(-90deg) translateZ(100px); }
+
+@keyframes rotateCube {
+  from { transform: rotateX(0) rotateY(0); }
+  to { transform: rotateX(360deg) rotateY(360deg); }
+}
+
+/* Gradient overlay */
+.gradient-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(255, 110, 196, 0.5), rgba(120, 115, 245, 0.5));
+  opacity: 0.8;
+  z-index: 1;
+}
+
+/* Content */
+.content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 0 20px;
+  max-width: 800px;
+}
+
+/* Location text */
+.location {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  color: #ffb6ff;
+}
+
+/* Heading */
+h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  background: linear-gradient(90deg, #ff6ec4, #7873f5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Stylish subheading */
+.subheading {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  opacity: 0.95;
+  color: rgba(255, 255, 255, 0.85);
+  background: linear-gradient(90deg, #ffffff, #e3e3ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: fadeInUp 1.5s ease;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Button */
+.contact-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(90deg, #ff6ec4, #7873f5);
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+}
+
+.contact-btn:hover {
+  background: linear-gradient(90deg, #ff8ad4, #9a90ff);
+  transform: translateY(-3px) scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  h1 { font-size: 1.1rem; }
+  .subheading { font-size: 0.95rem; line-height: 1.6; }
+  .cube { width: 120px; }
+  .cube div { width: 150px; height: 150px; }
+
+  .cube-container{
+    
+  
+  }
+}
+

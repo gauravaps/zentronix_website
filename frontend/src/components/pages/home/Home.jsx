@@ -4,7 +4,8 @@ import "./Home.css";
 import services from "./serviceCard";
 import ContactForm from "./ContactForm";
 import ModalForm from "./ModalForm";
-
+import IndustriesCard from "./IndustriesCard";
+import { FaPaperPlane } from "react-icons/fa";
 
 const Home = () => {
   // State for count animation
@@ -12,11 +13,7 @@ const Home = () => {
   const [pros, setPros] = useState(0);
   const [projects, setProjects] = useState(0);
   const [industries, setIndustries] = useState(0);
-    const [isModalOpen, setIsModalOpen] = useState(false);
-
-
-
-
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     const animateValue = (setter, target) => {
@@ -37,45 +34,80 @@ const Home = () => {
   /* ========== SERVICES / CARDS (SECTION 3) ========== */
 
   // ref for horizontal scroll container
-  
+
   const servicesRef = useRef(null);
 
   const scrollByWidth = (dir = "next") => {
-  const el = servicesRef.current;
-  if (!el) return;
+    const el = servicesRef.current;
+    if (!el) return;
 
-  const card = el.querySelector(".service-card");
-  const cardWidth = card?.clientWidth || 300;
-  const gap = 24; // Same as CSS gap
-  const scrollAmount = cardWidth + gap;
+    const card = el.querySelector(".service-card");
+    const cardWidth = card?.clientWidth || 300;
+    const gap = 24; // Same as CSS gap
+    const scrollAmount = cardWidth + gap;
 
-  if (dir === "next") {
-    // Check if it's at or near the end
-    const maxScrollLeft = el.scrollWidth - el.clientWidth;
-    const isAtEnd = el.scrollLeft + scrollAmount >= maxScrollLeft - 5;
-
-    if (isAtEnd) {
-      // Loop to start
-      el.scrollTo({ left: 0, behavior: "smooth" });
-    } else {
-      el.scrollBy({ left: scrollAmount, behavior: "smooth" });
-    }
-  } else {
-    // Handle "prev"
-    const isAtStart = el.scrollLeft <= 0;
-
-    if (isAtStart) {
-      // Scroll to end
+    if (dir === "next") {
+      // Check if it's at or near the end
       const maxScrollLeft = el.scrollWidth - el.clientWidth;
-      el.scrollTo({ left: maxScrollLeft, behavior: "smooth" });
+      const isAtEnd = el.scrollLeft + scrollAmount >= maxScrollLeft - 5;
+
+      if (isAtEnd) {
+        // Loop to start
+        el.scrollTo({ left: 0, behavior: "smooth" });
+      } else {
+        el.scrollBy({ left: scrollAmount, behavior: "smooth" });
+      }
     } else {
-      el.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+      // Handle "prev"
+      const isAtStart = el.scrollLeft <= 0;
+
+      if (isAtStart) {
+        // Scroll to end
+        const maxScrollLeft = el.scrollWidth - el.clientWidth;
+        el.scrollTo({ left: maxScrollLeft, behavior: "smooth" });
+      } else {
+        el.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+      }
     }
-  }
-};
+  };
 
+  /* ========== SERVICES / CARDS (SECTION 4) ========== */
 
+  const servicesRef1 = useRef(null);
 
+  const scrollByWidth1 = (dir = "next") => {
+    const el = servicesRef1.current;
+    if (!el) return;
+
+    const card = el.querySelector(".service-card");
+    const cardWidth = card?.clientWidth || 300;
+    const gap = 24; // Same as CSS gap
+    const scrollAmount = cardWidth + gap;
+
+    if (dir === "next") {
+      // Check if it's at or near the end
+      const maxScrollLeft = el.scrollWidth - el.clientWidth;
+      const isAtEnd = el.scrollLeft + scrollAmount >= maxScrollLeft - 5;
+
+      if (isAtEnd) {
+        // Loop to start
+        el.scrollTo({ left: 0, behavior: "smooth" });
+      } else {
+        el.scrollBy({ left: scrollAmount, behavior: "smooth" });
+      }
+    } else {
+      // Handle "prev"
+      const isAtStart = el.scrollLeft <= 0;
+
+      if (isAtStart) {
+        // Scroll to end
+        const maxScrollLeft = el.scrollWidth - el.clientWidth;
+        el.scrollTo({ left: maxScrollLeft, behavior: "smooth" });
+      } else {
+        el.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+      }
+    }
+  };
 
   return (
     <>
@@ -97,9 +129,11 @@ const Home = () => {
             </p>
 
             <div className="hero-cta-wrap">
-              <button className="cta-button" type="button" aria-label="Get started" 
-              onClick={() => setIsModalOpen(true)}
-
+              <button
+                className="cta-button"
+                type="button"
+                aria-label="Get started"
+                onClick={() => setIsModalOpen(true)}
               >
                 <span className="cta-icon">
                   <ImSwitch />
@@ -126,15 +160,18 @@ const Home = () => {
             Your Digital Vision, <span className="accent">Our Expertise.</span>
           </h2>
           <p className="vision-desc">
-            Our team of agile web and mobile developers, proficient in modern technologies,
-            can create powerful websites, web portals, progressive web applications, and
-            mobile apps. We are here to help your business thrive in the intense market
-            competition. Our team takes a proactive approach to building a prospective
-            digital solution on both architectural and business levels.
-            <br /><br />
-            We believe in delivering innovative solutions that empower businesses to scale
-            efficiently. With a focus on user-centric design and performance optimization,
-            we ensure that every project exceeds client expectations and drives measurable results.
+            Our team of agile web and mobile developers, proficient in modern
+            technologies, can create powerful websites, web portals, progressive
+            web applications, and mobile apps. We are here to help your business
+            thrive in the intense market competition. Our team takes a proactive
+            approach to building a prospective digital solution on both
+            architectural and business levels.
+            <br />
+            <br />
+            We believe in delivering innovative solutions that empower
+            businesses to scale efficiently. With a focus on user-centric design
+            and performance optimization, we ensure that every project exceeds
+            client expectations and drives measurable results.
           </p>
 
           <div className="stats-wrap">
@@ -162,18 +199,40 @@ const Home = () => {
       <section className="services-section">
         <div className="container">
           <div className="services-head">
-            <h2 className="services-title">Explore Our Stellar <span className="accent">Digital Service Offering</span></h2>
-            <p className="services-sub">Leverage our end-to-end web and mobile development expertise to drive business growth and innovation.</p>
+            <h2 className="services-title">
+              Explore Our Stellar{" "}
+              <span className="accent">Digital Service Offering</span>
+            </h2>
+            <p className="services-sub">
+              Leverage our end-to-end web and mobile development expertise to
+              drive business growth and innovation.
+            </p>
 
             <div className="services-nav">
-              <button className="nav-btn" aria-label="prev" onClick={() => scrollByWidth("prev")}>←</button>
-              <button className="nav-btn" aria-label="next" onClick={() => scrollByWidth("next")}>→</button>
+              <button
+                className="nav-btn"
+                aria-label="prev"
+                onClick={() => scrollByWidth("prev")}
+              >
+                ←
+              </button>
+              <button
+                className="nav-btn"
+                aria-label="next"
+                onClick={() => scrollByWidth("next")}
+              >
+                →
+              </button>
             </div>
           </div>
 
-          <div className="services-carousel" ref={servicesRef} aria-label="services list">
+          <div
+            className="services-carousel"
+            ref={servicesRef}
+            aria-label="services list"
+          >
             {services.map((s) => (
-              <a key={s.id} href={s.link} className="service-card" >
+              <a key={s.id} href={s.link} className="service-card">
                 <div className="card-icon">{s.icon}</div>
                 <h3 className="card-title">{s.title}</h3>
 
@@ -189,23 +248,135 @@ const Home = () => {
           <div className="services-cta">
             {/* <button className="cta-button secondary" type="button">  <ImSwitch /> LEARN MORE</button> */}
 
-                <button className="cta-button secondary" type="button" aria-label="Get started">
-                <span className="cta-icon">
-                  <ImSwitch />
-                </span>
-                <span className="cta-text">LEARN MORE</span>
-              </button>
-
+            <button
+              className="cta-button secondary"
+              type="button"
+              aria-label="Get started"
+              onClick={() => setIsModalOpen(true)}
+            >
+              <span className="cta-icon">
+                <ImSwitch />
+              </span>
+              <span className="cta-text">LEARN MORE</span>
+            </button>
           </div>
         </div>
       </section>
 
-            {/* Modal with contact form */}
-      <ModalForm isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
-        <h2 className="modal-title">Get Started — Tell us about your project</h2>
-        <ContactForm onClose={() => setIsModalOpen(false)} />
-      </ ModalForm>
+      {/* ===== fourth Section: Services / Cards ===== */}
+      <section className="services-section">
+        <div className="container">
+          <div className="services-head">
+            <h2 className="services-title">
+              Innovative Solutions
+              <span className="accent"> for Unstoppable Growth</span>
+            </h2>
+            <p className="services-sub">
+              "We build scalable on-demand apps that drive business growth."
+            </p>
 
+            <div className="services-nav">
+              <button
+                className="nav-btn"
+                aria-label="prev"
+                onClick={() => scrollByWidth1("prev")}
+              >
+                ←
+              </button>
+              <button
+                className="nav-btn"
+                aria-label="next"
+                onClick={() => scrollByWidth1("next")}
+              >
+                →
+              </button>
+            </div>
+          </div>
+
+          <div
+            className="services-carousel"
+            ref={servicesRef1}
+            aria-label="services list"
+          >
+            {IndustriesCard.map((s) => (
+              <a key={s.id} href={s.link} className="service-card">
+                <div className="card-icon">{s.icon}</div>
+                <h3 className="card-title">{s.title}</h3>
+
+                {/* hover content */}
+                <div className="card-hover">
+                  <p className="card-desc">{s.desc}</p>
+                  <span className="card-learn">Learn More →</span>
+                </div>
+              </a>
+            ))}
+          </div>
+
+          <div className="services-cta">
+            {/* <button className="cta-button secondary" type="button">  <ImSwitch /> LEARN MORE</button> */}
+
+            <button
+              className="cta-button secondary"
+              type="button"
+              aria-label="Get started"
+              onClick={() => setIsModalOpen(true)}
+            >
+              <span className="cta-icon">
+                <ImSwitch />
+              </span>
+              <span className="cta-text">LEARN MORE</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Cube background */}
+
+      <section className="fifth-section">
+        <div className="cube-container">
+          <div className="cube">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+
+        {/* Gradient overlay */}
+        <div className="gradient-overlay"></div>
+
+        {/* Content */}
+        <div className="content">
+          <p className="location">📍 Indore, India</p>
+          <h1>Innovative Solutions from the Heart of Indore</h1>
+          <p className="subheading">
+            Zentronix — Where Innovation Meets Excellence. Based in Indore,
+            India, we are your strategic technology partner, turning bold ideas
+            into powerful digital realities. From next-gen web solutions to
+            high-impact mobile apps, we design and develop technology that
+            doesn’t just work — it inspires. Our elite team of developers,
+            designers, and innovators harness the latest tech stack, AI-driven
+            strategies, and precision-engineered code to deliver scalable,
+            secure, and future-ready solutions. Whether you’re a visionary
+            startup or an established enterprise, Zentronix ensures you stay
+            ahead of the curve, transforming your business into a digital
+            leader.
+          </p>
+          <button className="contact-btn">
+            <FaPaperPlane /> Get in Touch
+          </button>
+        </div>
+      </section>
+
+      {/* Modal with contact form */}
+      <ModalForm isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+        <h2 className="modal-title">
+          Get Started — Tell us about your project
+        </h2>
+        <ContactForm onClose={() => setIsModalOpen(false)} />
+      </ModalForm>
     </>
   );
 };
