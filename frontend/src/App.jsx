@@ -14,6 +14,7 @@ import { useAuth } from './components/context/AuthContext'
 import NotAuthorized from './components/pages/NotAuthorized'
 import ProtectedRoute from './components/routes/ProtectedRoute'
 import Home from './components/pages/home/Home'
+import UpdateAddress from './components/pages/address_page/UpdateAddress'
  
 
 const App = () => {
@@ -48,6 +49,16 @@ const App = () => {
           <UserProfile />
         </ProtectedRoute>
       }
+    />
+
+    <Route path='update-address' 
+    element={
+      <ProtectedRoute>
+        <UpdateAddress/>
+      </ProtectedRoute>
+    }
+    
+    
     />
 
     {/* Example admin-only page (replace paths as needed) */}

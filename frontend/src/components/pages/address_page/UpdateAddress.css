@@ -1,0 +1,75 @@
+/* src/components/UpdateAddress.css */
+.update-address-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+  background: #f4f6f8;
+}
+
+.update-address-card {
+  background: #fff;
+  padding: 30px;
+  width: 500px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+.update-address-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.cancel-icon {
+  font-size: 22px;
+  color: #888;
+  cursor: pointer;
+}
+
+.cancel-icon:hover {
+  color: red;
+}
+
+.update-address-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.update-address-form label {
+  font-weight: 600;
+  margin: 8px 0 4px;
+}
+
+.update-address-form input,
+.update-address-form textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  background: #fafafa;
+}
+
+.update-address-form input:focus,
+.update-address-form textarea:focus {
+  border-color: #007bff;
+  outline: none;
+  background: #fff;
+}
+
+.update-address-form button {
+  margin-top: 20px;
+  padding: 12px;
+  background: #007bff;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.update-address-form button:hover {
+  background: #0056b3;
+}
