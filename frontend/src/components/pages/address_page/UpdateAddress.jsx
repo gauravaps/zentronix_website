@@ -1,56 +1,72 @@
-// src/components/UpdateAddress.jsx
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import "./UpdateAddress.css"; 
+import "./UpdateAddress.css";
 import { FaTimes } from "react-icons/fa";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext"; // <-- Auth context import
 
 const UpdateAddress = () => {
+  const { user, isAuthenticated, isLoading } = useAuth(); // <-- auth state
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     email: "",
     phone: "",
     address: ""
   });
-
-  const [placeholders, setPlaceholders] = useState({
-    email: "",
-    phone: "",
-    address: ""
-  });
-
   const [addressId, setAddressId] = useState(null);
-  console.log('address id ' , addressId);
-  
-  const navigate = useNavigate();
 
-  // Fetch current address
+  // Normalize role
+  const roleStr =
+    typeof user?.role === "string" ? user.role : user?.role?.role || null;
+  const isAdmin = roleStr === "admin";
+
+  // Page access control
   useEffect(() => {
+    if (isLoading) return;
+
+    if (!isAuthenticated) {
+      navigate("/login", { replace: true });
+      return;
+    }
+
+    if (!isAdmin) {
+      navigate("/not-authorize", { replace: true });
+      return;
+    }
+  }, [isLoading, isAuthenticated, isAdmin, navigate]);
+
+  // Fetch address after access control
+  useEffect(() => {
+    if (!isAdmin || !isAuthenticated) return;
+
     const fetchAddress = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/get_address");
+        const res = await axios.get("http://localhost:5000/get_address", {
+          withCredentials: true // send JWT cookie
+        });
         if (res.data.data && res.data.data.length > 0) {
           const current = res.data.data[0];
-          setPlaceholders({
+          setFormData({
             email: current.email || "",
             phone: current.phone || "",
             address: current.address || ""
           });
-          setAddressId(current._id); // store ID for PUT request
+          setAddressId(current._id);
         }
       } catch (err) {
         console.error("Error fetching address:", err);
+        alert("Failed to fetch address!");
       }
     };
 
     fetchAddress();
-  }, []);
+  }, [isAdmin, isAuthenticated]);
 
-  // Input change
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // Submit update
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!addressId) {
@@ -62,7 +78,7 @@ const UpdateAddress = () => {
       await axios.put(
         `http://localhost:5000/update_address/${addressId}`,
         formData,
-        { withCredentials: true } // if token cookie is used
+        { withCredentials: true } // send JWT cookie
       );
       alert("Address updated successfully!");
     } catch (err) {
@@ -71,10 +87,13 @@ const UpdateAddress = () => {
     }
   };
 
-  // Cancel click
   const handleCancel = () => {
-    navigate(-1); // go back
+    navigate(-1);
   };
+
+  if (isLoading) {
+    return <div style={{ padding: 24 }}>Loading...</div>;
+  }
 
   return (
     <div className="update-address-container">
@@ -89,27 +108,27 @@ const UpdateAddress = () => {
           <input
             type="email"
             name="email"
-            placeholder={placeholders.email}
             value={formData.email}
             onChange={handleChange}
+            required
           />
 
           <label>Phone:</label>
           <input
             type="text"
             name="phone"
-            placeholder={placeholders.phone}
             value={formData.phone}
             onChange={handleChange}
+            required
           />
 
           <label>Address:</label>
           <textarea
             name="address"
-            placeholder={placeholders.address}
             value={formData.address}
             onChange={handleChange}
             rows={5}
+            required
           ></textarea>
 
           <button type="submit">Update Address</button>
