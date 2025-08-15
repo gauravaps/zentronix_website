@@ -1,14 +1,21 @@
-// ...existing imports
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Contact.css';
 import { FaLocationDot } from 'react-icons/fa6';
 import { MdEmail, MdPhone, MdLanguage } from 'react-icons/md';
 import axios from 'axios';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
- 
+
 const Contact = () => {
   const [loading, setLoading] = useState(false);
+  const [companyInfo, setCompanyInfo] = useState({
+      email: "",
+      phone: "",
+      address: "",
+      website: "www.zentronixinfotech.com/",
+    });
+  
+
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -20,35 +27,53 @@ const Contact = () => {
     message: '',
   });
 
+  // ✅ Fetch company address/email/phone from backend
+  
+    const fetchAddress = async () => {
+      try {
+        const res = await axios.get("http://localhost:5000/api/get_address");
+        if (res.data.data && res.data.data.length > 0) {
+          const current = res.data.data[0];
+          setCompanyInfo({
+            email: current.email || "",
+            phone: current.phone || "",
+            address: current.address || "",
+            website: "www.zentronixinfotech.com/",
+          });
+        }
+      } catch (err) {
+        console.error("Error fetching company info:", err);
+      }
+    };
+  
+    useEffect(() => {
+      fetchAddress();
+    }, []);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const validateForm = () => {
-  const { firstName, lastName, email, phone, service, how_soon, budget, message } = formData;
+    const { firstName, lastName, email, phone, service, how_soon, budget, message } = formData;
 
-  if (!firstName.trim()) return "First name is required";
-  if (!lastName.trim()) return "Last name is required";
-  if (!email.trim()) return "Email is required";
+    if (!firstName.trim()) return "First name is required";
+    if (!lastName.trim()) return "Last name is required";
 
-  // Stronger email regex
-  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9-]+\.(com|in|Blog|blog|tech|yahoo|Xyz|Online|online|Org|Info|Shop|shop|info|org|net|org|co\.in)$/;
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9-]+\.(com|in|tech|yahoo|online|org|info|shop|net|co\.in)$/;
+    if (!emailRegex.test(email)) return "Please enter a valid email";
 
-  if (!emailRegex.test(email)) return "Please enter a valid email (e.g. example@gmail.com)";
+    const phoneRegex = /^\d{10}$/;
+    if (!phoneRegex.test(phone)) return "Phone number must be exactly 10 digits";
 
-  if (!phone.trim()) return "Phone number is required";
-  const phoneRegex = /^\d{10}$/;
-  if (!phoneRegex.test(phone)) return "Phone number must be exactly 10 digits";
+    if (!service.trim()) return "Service selection is required";
+    if (!budget.trim()) return "Budget selection is required";
+    if (!how_soon.trim()) return "Project start time selection is required";
+    if (!message.trim()) return "Project message is required";
 
-  if (!service.trim()) return "Service selection is required";
-  if (!budget.trim()) return "Budget selection is required";
-  if (!how_soon.trim()) return "Project start time selection is required";
-  if (!message.trim()) return "Project message is required";
-
-  return null;
-};
-
+    return null;
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -65,7 +90,6 @@ const Contact = () => {
       const res = await axios.post('http://localhost:5000/api/createquery', formData);
       toast.success(res.data.message);
 
-      // Reset form
       setFormData({
         firstName: '',
         lastName: '',
@@ -77,7 +101,7 @@ const Contact = () => {
         message: '',
       });
     } catch (error) {
-      console.log("Submit Error:", error);
+      console.error("Submit Error:", error);
       toast.error(error.response?.data?.error || 'Something went wrong');
     } finally {
       setLoading(false);
@@ -164,7 +188,7 @@ const Contact = () => {
           </form>
         </div>
 
-         {/* Right Info Section */}
+        {/* Right Info Section */}
         <div className="map-wrapper">
           <div className="opening-time">
             <h3>OPENING TIME</h3>
@@ -172,8 +196,7 @@ const Contact = () => {
               {openingHours.map(({ day, time }) => (
                 <li key={day} className={day === currentDay ? 'active-day' : ''}>
                   <span>{day}</span>
-                  {time ==='Closed'?<span style={{color:"blue"}}>{time}</span> :<span>{time}</span> }
-                  {/* <span>{time}</span> */}
+                  {time === 'Closed' ? <span style={{ color: "blue" }}>{time}</span> : <span>{time}</span>}
                 </li>
               ))}
             </ul>
@@ -184,30 +207,30 @@ const Contact = () => {
             <ul>
               <li>
                 <a
-                  href="https://www.google.com/maps?q=Talawali+Chanda+Indore+M.P"
+                  href={`https://www.google.com/maps?q=${encodeURIComponent(companyInfo.address)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <FaLocationDot  className="gradient-icon"/> Talawali Chanda, Indore (M.P)
+                  <FaLocationDot className="gradient-icon" /> {companyInfo.address}
                 </a>
               </li>
               <li>
-                <a href="mailto:info@zentronixinfotech.com">
-                  <MdEmail className="gradient-icon"/> info@zentronixinfotech.com
+                <a href={`mailto:${companyInfo.email}`}>
+                  <MdEmail className="gradient-icon" /> {companyInfo.email}
                 </a>
               </li>
               <li>
-                <a href="tel:+916260706512">
-                  <MdPhone  className="gradient-icon"/> +91-6260706512
+                <a href={`tel:${companyInfo.phone}`}>
+                  <MdPhone className="gradient-icon" /> +91-{companyInfo.phone}
                 </a>
               </li>
               <li>
                 <a
-                  href="https://www.zentronixinfotech.com/"
+                  href={companyInfo.website}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <MdLanguage className="gradient-icon" /> www.zentronixinfotech.com/
+                  <MdLanguage className="gradient-icon" /> {companyInfo.website}
                 </a>
               </li>
             </ul>
@@ -219,8 +242,8 @@ const Contact = () => {
       <div className="map-wrapper">
         <div className="map-container">
           <iframe
-            title="Talawali Chanda Map"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29424.762713312088!2d75.89733191184698!3d22.798930927163013!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39631cd821e627a5%3A0xd65af132c541d4d9!2sTalawali%20Chanda%2C%20Indore%2C%20Madhya%20Pradesh%20453771!5e0!3m2!1sen!2sin!4v1753451276322!5m2!1sen!2sin"
+            title="Company Location"
+            src={`https://www.google.com/maps?q=${encodeURIComponent(companyInfo.address)}&output=embed`}
             className="map-frame"
             allowFullScreen=""
             loading="lazy"

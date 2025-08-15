@@ -3,10 +3,10 @@ import { useNavigate } from 'react-router-dom';
 import { FaUser } from 'react-icons/fa';
 import { useAuth } from '../context/AuthContext';
 import './UserProfile.css';
-
+  
 const UserProfile = () => {
   const { user, isLoading, isAuthenticated } = useAuth();
-  const navigate = useNavigate();
+  const navigate = useNavigate(); 
 
   // normalize role check
   const roleStr = typeof user?.role === 'string' ? user.role : user?.role?.role || null;

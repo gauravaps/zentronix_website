@@ -113,7 +113,7 @@ export const loginUser = async (req, res) => {
       process.env.JWT_SECRET,
       { expiresIn: '1d' }
     );
-
+  
     res.status(200).json({
       message: 'Login successful',
       token,
@@ -123,7 +123,8 @@ export const loginUser = async (req, res) => {
         email: user.email,
         image:user.image,
         phone:user.phone,
-        role: user.role
+        role: user.role,
+        
       }
     });
 

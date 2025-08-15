@@ -3,11 +3,13 @@ import axios from "axios";
 import "./UpdateAddress.css";
 import { FaTimes } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../context/AuthContext"; // <-- Auth context import
+import { useAuth } from "../../context/AuthContext";
 
 const UpdateAddress = () => {
-  const { user, isAuthenticated, isLoading } = useAuth(); // <-- auth state
+  const { user, isAuthenticated, isLoading } = useAuth();
   const navigate = useNavigate();
+
+  const token = localStorage.getItem("token");
 
   const [formData, setFormData] = useState({
     email: "",
@@ -15,13 +17,37 @@ const UpdateAddress = () => {
     address: ""
   });
   const [addressId, setAddressId] = useState(null);
+  console.log('id--- ', addressId , 'token--' , token);
+   
 
-  // Normalize role
+  // Normalize role for check
   const roleStr =
     typeof user?.role === "string" ? user.role : user?.role?.role || null;
   const isAdmin = roleStr === "admin";
 
-  // Page access control
+  // Fetch address function
+  const fetchAddress = async () => {
+    try {
+      const res = await axios.get("http://localhost:5000/api/get_address"
+      
+      );
+
+      if (res.data.data && res.data.data.length > 0) {
+        const current = res.data.data[0];
+        setFormData({
+          email: current.email || "",
+          phone: current.phone || "",
+          address: current.address || ""
+        });
+        setAddressId(current._id);
+      }
+    } catch (err) {
+      console.error("Error fetching address:", err.response?.data || err);
+      alert("Failed to fetch address!");
+    }
+  };
+
+  // Access control + fetch
   useEffect(() => {
     if (isLoading) return;
 
@@ -34,39 +60,16 @@ const UpdateAddress = () => {
       navigate("/not-authorize", { replace: true });
       return;
     }
-  }, [isLoading, isAuthenticated, isAdmin, navigate]);
-
-  // Fetch address after access control
-  useEffect(() => {
-    if (!isAdmin || !isAuthenticated) return;
-
-    const fetchAddress = async () => {
-      try {
-        const res = await axios.get("http://localhost:5000/get_address", {
-          withCredentials: true // send JWT cookie
-        });
-        if (res.data.data && res.data.data.length > 0) {
-          const current = res.data.data[0];
-          setFormData({
-            email: current.email || "",
-            phone: current.phone || "",
-            address: current.address || ""
-          });
-          setAddressId(current._id);
-        }
-      } catch (err) {
-        console.error("Error fetching address:", err);
-        alert("Failed to fetch address!");
-      }
-    };
 
     fetchAddress();
-  }, [isAdmin, isAuthenticated]);
+  }, [isLoading, isAuthenticated, isAdmin, navigate]);
 
+  // Handle form field change
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  // Handle submit
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!addressId) {
@@ -76,17 +79,23 @@ const UpdateAddress = () => {
 
     try {
       await axios.put(
-        `http://localhost:5000/update_address/${addressId}`,
+        `http://localhost:5000/api/update_address/${addressId}`,
         formData,
-        { withCredentials: true } // send JWT cookie
+        {
+          headers: {
+            Authorization: `Bearer ${token}`
+          },
+        }
       );
+
       alert("Address updated successfully!");
     } catch (err) {
-      console.error("Error updating address:", err);
+      console.error("Error updating address:", err.response?.data || err);
       alert("Failed to update address");
     }
   };
 
+  // Handle cancel button
   const handleCancel = () => {
     navigate(-1);
   };
