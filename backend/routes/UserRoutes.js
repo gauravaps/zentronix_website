@@ -1,5 +1,5 @@
 import express from "express";
-import { getAllUsers, loginUser, registerUser } from "../controllers/UserController.js";
+import { getAllUsers, loginUser, registerUser, updateUserProfile } from "../controllers/UserController.js";
 const router = express.Router();
 import upload from "../middleware/multer.middileware.js";
 import { isAdmin ,verifyToken } from "../middleware/authMiddleware.js";
@@ -16,6 +16,7 @@ import { isAdmin ,verifyToken } from "../middleware/authMiddleware.js";
 router.post("/register", upload.single("image"), registerUser);
 router.get("/getallusers" , getAllUsers)
 router.post("/loginuser" , loginUser)
+router.put("/update-profile/:id" ,verifyToken , isAdmin , upload.single("image"), updateUserProfile)
 
 
 

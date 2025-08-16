@@ -15,6 +15,7 @@ import NotAuthorized from './components/pages/NotAuthorized'
 import ProtectedRoute from './components/routes/ProtectedRoute'
 import Home from './components/pages/home/Home'
 import UpdateAddress from './components/pages/address_page/UpdateAddress'
+import UpdateProfile from './components/profile/UpdateProfile'
  
 
 const App = () => {
@@ -51,15 +52,15 @@ const App = () => {
       }
     />
 
-    <Route path='update-address' 
+    {/* <Route path='update-address' 
     element={
       <ProtectedRoute>
         <UpdateAddress/>
       </ProtectedRoute>
     }
     
-    
-    />
+    /> */}
+
 
     {/* Example admin-only page (replace paths as needed) */}
     <Route
@@ -70,6 +71,27 @@ const App = () => {
         </ProtectedRoute>
       }
     />
+
+
+    <Route path='update-address' 
+    element={
+      <ProtectedRoute requiredRole='admin'>
+        <UpdateAddress/>
+      </ProtectedRoute>
+    } /> 
+
+
+    
+    <Route path='update-profile' 
+    element={
+      <ProtectedRoute requiredRole='admin'>
+        <UpdateProfile/>
+      </ProtectedRoute>
+    } />
+
+
+
+
 
     <Route path='/not-authorize' element={<NotAuthorized />} />
 

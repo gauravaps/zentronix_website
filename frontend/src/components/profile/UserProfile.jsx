@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { FaUser } from 'react-icons/fa';
 import { useAuth } from '../context/AuthContext';
 import './UserProfile.css';
+import ModalForm from '../pages/home/ModalForm'
   
 const UserProfile = () => {
   const { user, isLoading, isAuthenticated } = useAuth();
