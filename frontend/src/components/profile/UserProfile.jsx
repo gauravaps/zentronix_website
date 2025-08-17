@@ -1,13 +1,19 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaUser } from 'react-icons/fa';
 import { useAuth } from '../context/AuthContext';
 import './UserProfile.css';
 import ModalForm from '../pages/home/ModalForm'
+import UpdateAddress from '../pages/address_page/UpdateAddress';
+
+
+
   
 const UserProfile = () => {
   const { user, isLoading, isAuthenticated } = useAuth();
   const navigate = useNavigate(); 
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
 
   // normalize role check
   const roleStr = typeof user?.role === 'string' ? user.role : user?.role?.role || null;
@@ -65,19 +71,37 @@ const UserProfile = () => {
             {user?.id && <p className="up-id"><strong>ID:</strong> <span className="up-value">{user.id}</span></p>}
           </div>
         </div>
-
+  
         <div className="up-right">
           <button className="up-btn up-btn-primary" onClick={() => navigate('/admin/all-queries')}>
             Show All Query
           </button>
-          <button className="up-btn" onClick={() => navigate('/update-address')}>
-            Update Address
-          </button>
+
+
+          <button
+  className="up-btn"
+  onClick={() => {
+    setIsModalOpen(true);   
+  }}
+>
+  Update Address
+</button>
+
+
           <button className="up-btn" onClick={() => navigate('/update-profile')}>
             Update Self
           </button>
         </div>
       </div>
+
+
+      {/* Modal with contact form */}
+            <ModalForm isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+              <h2 className="modal-title">
+                Get Started — Tell us about your project
+              </h2>
+              <UpdateAddress onClose={() => setIsModalOpen(false)} />
+            </ModalForm>
     </div>
   );
 };

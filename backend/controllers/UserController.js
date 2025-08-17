@@ -137,6 +137,8 @@ export const loginUser = async (req, res) => {
 
 
 
+
+// Update profile
 // Update profile
 export const updateUserProfile = async (req, res) => {
   try {
@@ -153,8 +155,6 @@ export const updateUserProfile = async (req, res) => {
     // Image handle
     if (req.file) {
       user.image = req.file.buffer; 
-      
-    
     }
 
     // Password update
@@ -165,11 +165,15 @@ export const updateUserProfile = async (req, res) => {
 
     await user.save();
 
-    res.status(200).json({ message: "Profile updated successfully", user });
+    // 👇 Response me consistent key send karo
+    res.status(200).json({ 
+      message: "Profile updated successfully", 
+      updatedUser: user 
+    });
   } catch (err) {
-    res
-      .status(500)
-      .json({ message: "Error updating profile", error: err.message });
+    res.status(500).json({ 
+      message: "Error updating profile", 
+      error: err.message 
+    });
   }
 };
-

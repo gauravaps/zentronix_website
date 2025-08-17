@@ -16,6 +16,10 @@ import ProtectedRoute from './components/routes/ProtectedRoute'
 import Home from './components/pages/home/Home'
 import UpdateAddress from './components/pages/address_page/UpdateAddress'
 import UpdateProfile from './components/profile/UpdateProfile'
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import FoodDelivery from './components/industryPages/FoodDelivery'
+
  
 
 const App = () => {
@@ -39,7 +43,8 @@ const App = () => {
     {/* <Route path='/product' element={<GetAllQuery/>}/> */}
     <Route path='/alluser' element={<GetAllUsers/>}/>
     <Route path='/login' element={<Login/>}/>
-    <Route path='/userprofile' element={<UserProfile/>}/>
+    {/* <Route path='/userprofile' element={<UserProfile/>}/> */}
+    <Route path='/food-delivery' element={<FoodDelivery/>}/>
 
 
 {/* Only logged-in users can access profile */}
@@ -112,6 +117,20 @@ const App = () => {
         notification
         notificationSound    
       />
+
+
+      <ToastContainer 
+    position="top-right"
+    autoClose={3000}
+    hideProgressBar={false}
+    newestOnTop={false}
+    closeOnClick
+    rtl={false}
+    pauseOnFocusLoss
+    draggable
+    pauseOnHover
+    theme="colored"
+  />
 </>
 
 )

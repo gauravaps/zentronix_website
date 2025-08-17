@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import './Login.css';
 import { useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import { useAuth } from '../context/AuthContext';
+import { toast } from "react-toastify";
+
 
 const Login = () => {
   const [credentials, setCredentials] = useState({
@@ -46,10 +46,7 @@ const Login = () => {
       if (user?.firstName) localStorage.setItem('userName', user.firstName);
 
       // success toast
-      toast.success(message || 'Login successful!', {
-        position: 'top-right',
-        autoClose: 1500,
-      });
+      toast.success(message || 'Login successful!');
 
       // navigate after short delay so toast shows
       setTimeout(() => {
@@ -73,7 +70,7 @@ const Login = () => {
     } catch (err) {
       console.error('Login error:', err);
       const errorMsg = err.response?.data?.message || 'Login failed. Check credentials.';
-      toast.error(errorMsg, { position: 'top-right', autoClose: 3000 });
+      toast.error(errorMsg);
     } finally {
       setLoading(false);
     }
@@ -106,8 +103,8 @@ const Login = () => {
         </button>
       </form>
 
-      {/* Toast container: It's okay to keep here, but ideally place once in App.jsx */}
-      <ToastContainer />
+     
+
     </div>
   );
 };

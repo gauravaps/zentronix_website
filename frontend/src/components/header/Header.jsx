@@ -129,7 +129,7 @@ const Header = () => {
               <div className="mega-dropdown-menu">
                 <div className="mega-grid">
                   <Link to="/categories/vegetables"><FaCube className="mega-icon" /><span>Pickup & Delivery</span></Link>
-                  <Link to="/categories/drinks"><GiForkKnifeSpoon className="mega-icon" /><span>Food Delivery</span></Link>
+                  <Link to="/food-delivery"><GiForkKnifeSpoon className="mega-icon" /><span>Food Delivery</span></Link>
                   <Link to="/categories/fruits"><GiShop className="mega-icon" /><span>Grocery App</span></Link>
                   <Link to="/categories/ecommerce"><FaCartPlus className="mega-icon" /><span>E-commerce</span></Link>
                   <Link to="/categories/packers"><TbTruckDelivery className="mega-icon" /><span>Packers & Movers</span></Link>
@@ -236,7 +236,7 @@ const Header = () => {
               <summary>Industries</summary>
               <div className="mobile-dropdown">
                 <Link to="/categories/vegetables">Pickup & Delivery</Link>
-                <Link to="/categories/drinks">Food Delivery</Link>
+                <Link to="/food-delivery">Food Delivery</Link>
                 <Link to="/categories/fruits">Grocery App</Link>
                 <Link to="/categories/ecommerce">E-commerce</Link>
                 <Link to="/categories/packers">Packers & Movers</Link>

@@ -1,13 +1,15 @@
-// src/components/pages/profile/UpdateProfile.jsx
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { FaTimes } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import "./UpdateProfile.css";
+import { toast } from "react-toastify";
+
+
 
 const UpdateProfile = () => {
-  const { user, isAuthenticated, isLoading } = useAuth();
+  const { user, isAuthenticated, isLoading, setUser } = useAuth();
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
 
@@ -43,22 +45,24 @@ const UpdateProfile = () => {
     
 
   const handleChange = (e) => {
-  const { name, value, files } = e.target;
-  if (name === "image" && files && files.length > 0) {
-    const file = files[0];
-    setFormData({ ...formData, image: file });
+    const { name, value, files } = e.target;
+    if (name === "image" && files && files.length > 0) {
+      const file = files[0];
+      setFormData({ ...formData, image: file });
 
-    // preview purpose only
-    const reader = new FileReader();
-    reader.onloadend = () => {
-      document.querySelector(".profile-preview").src = reader.result;
-    };
-    reader.readAsDataURL(file);
-  } else {
-    setFormData({ ...formData, [name]: value });
-  }
-};
+      // preview purpose only
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        const preview = document.querySelector(".profile-preview");
+        if (preview) preview.src = reader.result;
+      };
+      reader.readAsDataURL(file);
+    } else {
+      setFormData({ ...formData, [name]: value });
+    }
+  };
  
+
   const handleSubmit = async (e) => {
   e.preventDefault();
 
@@ -71,11 +75,11 @@ const UpdateProfile = () => {
     formDataToSend.append("password", formData.password);
 
     if (formData.image instanceof File) {
-      formDataToSend.append("image", formData.image); // file binary
+      formDataToSend.append("image", formData.image);
     }
 
-    await axios.put(
-      `http://localhost:5000/api/update-profile/${user.id}`,
+    const res = await axios.put(
+      `http://localhost:5000/api/update-profile/${user._id}`,
       formDataToSend,
       {
         headers: {
@@ -85,11 +89,16 @@ const UpdateProfile = () => {
       }
     );
 
-    alert("Profile updated successfully!");
+    if (res.data?.updatedUser) {
+      setUser(res.data.updatedUser);
+    }
+
+    toast.success("Profile updated successfully!");
+    
     navigate(-1);
   } catch (err) {
     console.error("Error updating profile:", err.response?.data || err);
-    alert("Failed to update profile");
+    toast.error("Failed to update profile");
   }
 };
 
@@ -154,7 +163,7 @@ const UpdateProfile = () => {
           />
 
           <label>Profile Image:</label>
-          {formData.image && (
+          {formData.image && !(formData.image instanceof File) && (
             <img
               src={formData.image}
               alt="Profile Preview"

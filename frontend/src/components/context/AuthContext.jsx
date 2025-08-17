@@ -7,7 +7,7 @@ export const AuthProvider = ({ children }) => {
   const [user, setUserState] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
-  // normalize role shape to always be a string (eg. 'admin' or 'user')
+  // normalize role shape to always be a string
   const normalizeUser = (raw) => {
     if (!raw) return null;
     const normalizedRole =
@@ -19,7 +19,7 @@ export const AuthProvider = ({ children }) => {
     };
   };
 
-  // load user from localStorage (or you can fetch /me here)
+  // load user from localStorage
   useEffect(() => {
     try {
       const saved = localStorage.getItem('user');
@@ -48,15 +48,9 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  // login helper (you'd typically call API then setUser with response)
-  const login = (rawUser) => {
-    setUser(rawUser);
-  };
+  const login = (rawUser) => setUser(rawUser);
 
-  // logout helper
-  const logout = () => {
-    setUser(null);
-  };
+  const logout = () => setUser(null);
 
   const isAuthenticated = !!user;
 
