@@ -149,7 +149,7 @@ const Home = () => {
           <img
             src="/images/for_home_page.png"
             alt="Mobile app showcase"
-            className="hero-image"
+            className="hero-image" 
           />
         </div>
       </section>

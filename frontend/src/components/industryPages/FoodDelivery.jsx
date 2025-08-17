@@ -1,31 +1,39 @@
 import React from "react";
 import { ImSwitch } from "react-icons/im";
+import { FaMobileAlt, FaCreditCard, FaChartLine } from "react-icons/fa";
 import "./FoodDelivery.css";
 
 const FoodDelivery = () => {
   return (
     <div className="food-delivery">
       {/* Hero Section */}
-      <section className="hero">
-        <div className="hero-left">
+      <section className="hero1">
+        <div className="hero1-left">
           <img
             src="/images/food_delivery.jpg"
             alt="Food delivery mobile app"
-            className="hero-image"
+            className="hero1-image"
           />
         </div>
-        <div className="hero-right">
+        <div className="hero1-right">
           <h1>
             Food Delivery App <span>Development Services</span>
           </h1>
           <p>
-            Automate your operations with a dynamic and customized food ordering
-            and delivery system and offer a smooth experience to your customers,
-            drivers, and administrators. Save on your restaurant operational
-            costs, grow revenue, and differentiate your business from your
-            competitors in the intensely competitive food ordering and delivery
-            market.
-          </p>
+  At <b>Zentronix</b>, we help businesses transform and automate their 
+  operations with a fully dynamic and customized food ordering and delivery 
+  system. Deliver a seamless experience to your customers, drivers, and 
+  administrators while reducing operational costs and boosting overall revenue. 
+  Our advanced technology empowers restaurants and cloud kitchens to stay ahead 
+  in the highly competitive food delivery market. 
+  <br /><br />
+  With smart analytics, real-time tracking, and flexible customization, 
+  Zentronix ensures your brand stands out from competitors and builds stronger 
+  customer loyalty. Whether you’re a startup or an established enterprise, our 
+  solutions are designed to scale with your growth and create long-term 
+  success in the digital era.
+</p>
+
           <button className="btn-demo">
             <ImSwitch className="btn-icon" />
             BOOK A FREE DEMO
@@ -40,7 +48,7 @@ const FoodDelivery = () => {
         </h2>
         <div className="offer-cards">
           <div className="card">
-            <img src="/images/custom.png" alt="Custom App" className="card-icon"/>
+            <FaMobileAlt className="card-icon" />
             <h3>Custom App Development</h3>
             <p>
               Build a custom, branded food ordering and delivery app for Android
@@ -49,7 +57,7 @@ const FoodDelivery = () => {
             </p>
           </div>
           <div className="card">
-            <img src="/images/payment.png" alt="Payment" className="card-icon"/>
+            <FaCreditCard className="card-icon" />
             <h3>Flexible Payment</h3>
             <p>
               Choose to pay with cash, debit, or credit cards through various
@@ -58,7 +66,7 @@ const FoodDelivery = () => {
             </p>
           </div>
           <div className="card">
-            <img src="/images/analytics.png" alt="Analytics" className="card-icon"/>
+            <FaChartLine className="card-icon" />
             <h3>Business Analytics</h3>
             <p>
               Gain insights into customer interactions, behaviors, sales, app
