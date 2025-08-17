@@ -179,9 +179,9 @@
   .card-icon {
   font-size: 2.5rem;
 
-color: #06294f;
-/* -webkit-background-clip: text; */
-/* -webkit-text-fill-color: transparent; */
+/* color: #06294f; */
+background: linear-gradient( #02162E 20%, #0060d4 100%);
+  
 
   margin-bottom: 15px;
   width: 50px;

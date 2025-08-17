@@ -169,7 +169,7 @@ const Header = () => {
             )}
           </div>
 
-          <Link to="/alluser" className="nav-item">About</Link>
+          <Link to="/about_us" className="nav-item">About</Link>
           <Link to="/product" className="nav-item">Product</Link>
           <Link to="/contact-us" style={{border: "2px solid #ff6600",
             borderRadius: "6px",
@@ -262,7 +262,7 @@ const Header = () => {
               </div>
             </details>
 
-            <Link to="/alluser" className="nav-item">About</Link>
+            <Link to="/about_us" className="nav-item">About</Link>
             <Link to="/product" className="nav-item">Product</Link>
             <Link to="/contact-us" className="nav-item">Contact </Link>
 

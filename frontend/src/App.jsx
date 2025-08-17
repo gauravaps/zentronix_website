@@ -19,6 +19,7 @@ import UpdateProfile from './components/profile/UpdateProfile'
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import FoodDelivery from './components/industryPages/FoodDelivery'
+import About from './components/aboutPage/About_us'
 
  
 
@@ -40,11 +41,10 @@ const App = () => {
     <Route path='/' element={<Layout/>}>
       <Route path='/' element={<Home/>}/>
     <Route path='/contact-us' element={<Contact/>}/>
-    {/* <Route path='/product' element={<GetAllQuery/>}/> */}
     <Route path='/alluser' element={<GetAllUsers/>}/>
     <Route path='/login' element={<Login/>}/>
-    {/* <Route path='/userprofile' element={<UserProfile/>}/> */}
     <Route path='/food-delivery' element={<FoodDelivery/>}/>
+    <Route path='/about_us' element ={<About/>}/>
 
 
 {/* Only logged-in users can access profile */}
