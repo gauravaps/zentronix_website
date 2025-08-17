@@ -208,6 +208,7 @@ body{margin:0;font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, 
 /* ======= Services / Cards (Section 3) — updated ======= */
 .services-section {
   background: linear-gradient(180deg, #07254d 0%, #04264b 100%);
+  
   color: #fff;
   padding: 64px 0 72px;
   position: relative;
@@ -282,11 +283,13 @@ body{margin:0;font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, 
   min-width: 360px;     
   max-width: 420px;
   min-height: 240px;     
-  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  /* background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); */
+  background-color: white;
   border: 1px solid rgba(255,255,255,0.08);
   border-radius:6px;
   padding:28px;
   color:#fff;
+  
   text-decoration:none;
   position:relative;
   transition: transform .18s ease, box-shadow .18s ease;

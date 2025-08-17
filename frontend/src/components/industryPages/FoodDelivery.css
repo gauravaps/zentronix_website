@@ -13,9 +13,9 @@
   gap: 30px;
   margin-bottom: 60px;
 }
-
+ 
 .hero1-left {
-  flex:0.6;
+  flex:1;
   text-align: center;
   display: flex;
   justify-content: center;
@@ -25,7 +25,9 @@
 
 .hero1-image {
   width: 100%;
-  max-width: 400px;
+  /* max-width: 400px; */
+    max-width: 100%;
+
   border-radius: 12px;
 
   /* Animation / Motion Effect */
