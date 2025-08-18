@@ -156,3 +156,112 @@
     margin-bottom: 20px;
   }
 }
+
+
+
+/* ================= Second Section ================= */
+
+.newhome-about-section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  padding: 50px 10%;
+}
+
+.newhome-about-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap; /* 👈 ab wrap nahi karega, side-by-side rahega */
+  width: 100%;
+}
+
+/* Left Image */
+.newhome-about-image img {
+  max-width: 550px; /* bigger than first section */
+  width: 100%;
+  animation: newhome-about-float 5s ease-in-out infinite alternate;
+}
+
+/* Floating left-right animation */
+@keyframes newhome-about-float {
+  0% {
+    transform: translateX(0px);
+  }
+  50% {
+    transform: translateX(-20px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+/* Right Text */
+.newhome-about-text {
+  flex: 1 1 50%;
+  max-width: 600px;
+  padding-left: 40px;
+}
+
+.newhome-about-text h2 {
+  color: #e91e63;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.newhome-about-text h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #222;
+  line-height: 1.3;
+  margin-bottom: 20px;
+}
+
+.newhome-about-text p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 25px;
+}
+
+.newhome-about-btn {
+  background: #e91e63;
+  color: #fff;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 50px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.newhome-about-btn:hover {
+  background: #d81b60;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .newhome-about-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .newhome-about-text {
+    padding-left: 0;
+    margin-top: 30px;
+  }
+
+  .newhome-about-image img {
+    max-width: 380px;
+    margin-bottom: 20px;
+  }
+
+  .newhome-about-text h1 {
+    font-size: 2rem;
+  }
+}
+
