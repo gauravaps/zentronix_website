@@ -30,6 +30,7 @@ import OnDemand from './components/industryPages/OnDemand'
 import RealEstate from './components/industryPages/RealEstate'
 import EventsTicketing from './components/industryPages/EventsTicketing'
 import FitnessApp from './components/industryPages/FitnessApp'
+import MobileAppDevelopment from './components/ourServices/MobileAppDevelopment'
 
  
 
@@ -64,6 +65,7 @@ const App = () => {
     <Route path='/real_state' element={<RealEstate/>}/>
     <Route path='/Events_Ticketing' element={<EventsTicketing/>}/>
     <Route path='/Fitness_App' element={<FitnessApp/>}/>
+    <Route path='/MobileApp_Development' element={<MobileAppDevelopment/>}/>
     
 
 

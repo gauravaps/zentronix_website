@@ -158,7 +158,7 @@ const Header = () => {
             {servicesOpen && (
               <div className="mega-dropdown-menu">
                 <div className="mega-grid">
-                  <Link to="/services/mobile-app"><MdInstallMobile className="mega-icon" /><span>Mobile App Development</span></Link>
+                  <Link to="/MobileApp_Development"><MdInstallMobile className="mega-icon" /><span>Mobile App Development</span></Link>
                   <Link to="/services/web-app"><FaCode className="mega-icon" /><span>Web App Development</span></Link>
                   <Link to="/services/website"><CgWebsite className="mega-icon" /><span>Website Development</span></Link>
                   <Link to="/services/ui-ux"><SiCodesignal className="mega-icon" /><span>UI/UX Design</span></Link>
@@ -253,7 +253,7 @@ const Header = () => {
             <details>
               <summary>Our Services</summary>
               <div className="mobile-dropdown">
-                <Link to="/services/mobile-app">Mobile App Development</Link>
+                <Link to="/MobileApp_Development">Mobile App Development</Link>
                 <Link to="/services/web-app">Web App Development</Link>
                 <Link to="/services/website">Website Development</Link>
                 <Link to="/services/ui-ux">UI/UX Design</Link>
