@@ -128,7 +128,7 @@ const Header = () => {
             {dropdownOpen && (
               <div className="mega-dropdown-menu">
                 <div className="mega-grid">
-                  <Link to="/categories/vegetables"><FaCube className="mega-icon" /><span>Pickup & Delivery</span></Link>
+                  <Link to="/ Pickup_Delivery"><FaCube className="mega-icon" /><span>Pickup & Delivery</span></Link>
                   <Link to="/food-delivery"><GiForkKnifeSpoon className="mega-icon" /><span>Food Delivery</span></Link>
                   <Link to="/categories/fruits"><GiShop className="mega-icon" /><span>Grocery App</span></Link>
                   <Link to="/categories/ecommerce"><FaCartPlus className="mega-icon" /><span>E-commerce</span></Link>
@@ -235,7 +235,7 @@ const Header = () => {
             <details>
               <summary>Industries</summary>
               <div className="mobile-dropdown">
-                <Link to="/categories/vegetables">Pickup & Delivery</Link>
+                <Link to="/ Pickup_Delivery">Pickup & Delivery</Link>
                 <Link to="/food-delivery">Food Delivery</Link>
                 <Link to="/categories/fruits">Grocery App</Link>
                 <Link to="/categories/ecommerce">E-commerce</Link>

@@ -7,7 +7,7 @@ const IndustriesCard = [
     title: "Pickup & Delivery",
     desc: "Transform your logistics for higher efficiency and customer satisfaction with Zentronix.",
     icon: <MdInstallMobile size={40} color="orange" />,
-    link: "/pickup-delivery",
+    link: "/ Pickup_Delivery",
   },
   {
     id: 2,
