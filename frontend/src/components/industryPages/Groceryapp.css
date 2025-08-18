@@ -1,0 +1,212 @@
+.grocery-app {
+  font-family: Arial, sans-serif;
+  color: #222;
+  padding: 20px;
+}
+
+/* Hero Section */
+.grocery-hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-bottom: 60px;
+
+  /* Left-Right reverse for Grocery */
+  flex-direction: row-reverse;
+}
+
+.grocery-hero-left {
+  flex: 1;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.grocery-hero-image {
+  width: 90%;
+  max-width: 100%;
+  border-radius: 12px;
+
+  /* Animation */
+  animation: floatEffect 6s ease-in-out infinite;
+  transition: transform 0.3s ease;
+}
+
+.grocery-hero-right {
+  flex: 1;
+  position: relative;
+  padding: 20px;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.grocery-hero-right::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(270deg, #ff6a00, #ee0979, #00c6ff, #0056d2, #ff6a00);
+  background-size: 1000% 1000%;
+  animation: premiumGradient 18s ease infinite;
+  z-index: 0;
+  opacity: 0.15;
+}
+
+/* Gradient animation */
+@keyframes premiumGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.grocery-hero-right h1 {
+  font-size: 2.2rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  position: relative;
+  z-index: 1;
+}
+
+.grocery-hero-right h1 span {
+  color: #0056d2;
+}
+
+.grocery-hero-right p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.grocery-btn-demo,
+.grocery-btn-started {
+  background: #0056d2;
+  color: #fff;
+  border: none;
+  outline: none;
+  padding: 12px 22px;
+  font-size: 1rem;
+  border-radius: 30px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: background 0.3s;
+  position: relative;
+  z-index: 1;
+}
+
+.grocery-btn-demo:hover,
+.grocery-btn-started:hover {
+  background: #003f9a;
+}
+
+.grocery-btn-icon {
+  font-size: 1.2rem;
+}
+
+/* What We Offer Section (same as before) */
+.grocery-offer {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.grocery-offer h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+.grocery-offer h2 span {
+  color: #0056d2;
+}
+
+.grocery-offer-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 22px;
+  margin-bottom: 30px;
+}
+
+.grocery-card {
+  background: linear-gradient(135deg, #ffffff, #f3f6ff);
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  animation: cardZoom 6s ease-in-out infinite;
+}
+
+.grocery-card:hover {
+  background: linear-gradient(135deg, #f0f6ff, #e8f0ff);
+  transform: scale(1.08) translateY(-8px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+}
+
+@keyframes cardZoom {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.grocery-card-icon {
+  font-size: 2.5rem;
+  /* background: linear-gradient(#02162E 20%, #0060d4 100%); */
+  color: #02162E;
+  margin-bottom: 15px;
+  width: 50px;
+}
+
+.grocery-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #002855;
+}
+
+.grocery-card p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #666;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .grocery-hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .grocery-hero-right {
+    text-align: center;
+  }
+
+  .grocery-btn-demo,
+  .grocery-btn-started {
+    justify-content: center;
+  }
+}
+
+/* Hover zoom */
+.grocery-hero-image:hover {
+  transform: scale(1.05);
+}
+
+/* Floating animation */
+@keyframes floatEffect {
+  0% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(10px, -10px) scale(1.02); }
+  50% { transform: translate(0, 10px) scale(1); }
+  75% { transform: translate(-10px, -10px) scale(1.02); }
+  100% { transform: translate(0, 0) scale(1); }
+}

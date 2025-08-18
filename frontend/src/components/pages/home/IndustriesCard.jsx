@@ -63,14 +63,14 @@ const IndustriesCard = [
     title: "Grocery App",
     desc: "Enable users to shop groceries online with home delivery.",
     icon: <FaStore size={40} color="orange" />,
-    link: "/grocery-app",
+    link: "/Grocery_App",
   },
   {
     id: 10,
     title: "E-commerce",
     desc: "Build your online store with secure payments and easy navigation.",
     icon: <MdShoppingCart size={40} color="orange" />,
-    link: "/e-commerce",
+    link: "/Ecommerce",
   },
   {
     id: 11,

@@ -3,16 +3,16 @@ import { ImSwitch } from "react-icons/im";
 import { FaMobileAlt, FaCreditCard, FaChartLine } from "react-icons/fa";
 import "./Groceryapp.css";
 
-const Grocery_App = () => {
-  const [currentImage, setCurrentImage] = useState("/images/GroceryApp1.jpg");
+const Ecommerce = () => {
+  const [currentImage, setCurrentImage] = useState("/images/Ecommerce1.jpg");
 
   // Image toggle every 2 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImage((prev) =>
-        prev === "/images/GroceryApp1.jpg"
-          ? "/images/GroceryApp2.jpg"
-          : "/images/GroceryApp1.jpg"
+        prev === "/images/Ecommerce1.jpg"
+          ? "/images/commerce2.jpg"
+          : "/images/Ecommerce1.jpg"
       );
     }, 2000);
 
@@ -32,23 +32,24 @@ const Grocery_App = () => {
         </div>
         <div className="grocery-hero-right">
           <h1>
-            Grocery App <span>Development Services</span>
+            E-Commerce App <span>Development Services</span>
           </h1>
-         <p>
-  At <b>Zentronix</b>, we empower businesses to digitize and automate their
-  <b>grocery operations</b> with a fully dynamic and customized online grocery
-  ordering and delivery system. Deliver a seamless shopping experience to your
-  customers with features like smart product catalog management, real-time order
-  tracking, and multiple secure payment options — while helping you reduce
-  operational costs and maximize revenue.
+       <p>
+  At <b>Zentronix</b>, we empower businesses to launch and grow their 
+  <b> eCommerce stores</b> with a fully dynamic and customized online shopping 
+  and delivery system. Deliver a seamless shopping experience to your 
+  customers with features like smart product catalog management, real-time 
+  order tracking, and multiple secure payment options — while helping you 
+  reduce operational costs and maximize revenue.
   <br /><br />
-  Our advanced grocery app solutions are designed for supermarkets, local
-  grocery stores, and hyperlocal delivery startups, enabling them to stay ahead
-  in the fast-growing online grocery market. With flexible customization,
-  inventory management, and customer analytics, <b>Zentronix</b> ensures your
-  brand stands out, builds customer loyalty, and scales effortlessly as your
+  Our advanced eCommerce solutions are designed for fashion, electronics, 
+  grocery, and multi-category online stores, enabling them to stay ahead 
+  in the fast-growing digital marketplace. With flexible customization, 
+  inventory management, and customer analytics, <b>Zentronix</b> ensures your 
+  brand stands out, builds customer loyalty, and scales effortlessly as your 
   business grows.
 </p>
+
 
 
           <button className="grocery-btn-demo">
@@ -102,4 +103,4 @@ const Grocery_App = () => {
   );
 };
 
-export default Grocery_App;
+export default Ecommerce;

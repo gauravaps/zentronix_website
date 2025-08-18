@@ -21,6 +21,8 @@ import "react-toastify/dist/ReactToastify.css";
 import FoodDelivery from './components/industryPages/FoodDelivery'
 import About from './components/aboutPage/About_us'
 import PickupDelivery from './components/industryPages/PickupDelivery'
+import Grocery_App from './components/industryPages/Grocery_App'
+import Ecommerce from './components/industryPages/Ecommerce'
 
  
 
@@ -45,7 +47,9 @@ const App = () => {
     <Route path='/alluser' element={<GetAllUsers/>}/>
     <Route path='/login' element={<Login/>}/>
     <Route path='/food-delivery' element={<FoodDelivery/>}/>
-    <Route path='/ Pickup_Delivery' element={<PickupDelivery/>}/>
+    <Route path='/Pickup_Delivery' element={<PickupDelivery/>}/>
+    <Route path='/Grocery_App' element={<Grocery_App/>}/>
+    <Route path='/Ecommerce' element={<Ecommerce/>}/>
     <Route path='/about_us' element ={<About/>}/>
 
 

@@ -128,10 +128,10 @@ const Header = () => {
             {dropdownOpen && (
               <div className="mega-dropdown-menu">
                 <div className="mega-grid">
-                  <Link to="/ Pickup_Delivery"><FaCube className="mega-icon" /><span>Pickup & Delivery</span></Link>
+                  <Link to="/Pickup_Delivery"><FaCube className="mega-icon" /><span>Pickup & Delivery</span></Link>
                   <Link to="/food-delivery"><GiForkKnifeSpoon className="mega-icon" /><span>Food Delivery</span></Link>
-                  <Link to="/categories/fruits"><GiShop className="mega-icon" /><span>Grocery App</span></Link>
-                  <Link to="/categories/ecommerce"><FaCartPlus className="mega-icon" /><span>E-commerce</span></Link>
+                  <Link to="/Grocery_App"><GiShop className="mega-icon" /><span>Grocery App</span></Link>
+                  <Link to="/Ecommerce"><FaCartPlus className="mega-icon" /><span>E-commerce</span></Link>
                   <Link to="/categories/packers"><TbTruckDelivery className="mega-icon" /><span>Packers & Movers</span></Link>
                   <Link to="/categories/logistics"><FaTruckPlane className="mega-icon" /><span>Logistics Services</span></Link>
                   <Link to="/categories/demand"><FaTachometerAlt className="mega-icon" /><span>On Demand</span></Link>
@@ -235,10 +235,10 @@ const Header = () => {
             <details>
               <summary>Industries</summary>
               <div className="mobile-dropdown">
-                <Link to="/ Pickup_Delivery">Pickup & Delivery</Link>
+                <Link to="/Pickup_Delivery">Pickup & Delivery</Link>
                 <Link to="/food-delivery">Food Delivery</Link>
-                <Link to="/categories/fruits">Grocery App</Link>
-                <Link to="/categories/ecommerce">E-commerce</Link>
+                <Link to="/Grocery_App">Grocery App</Link>
+                <Link to="/Ecommerce">E-commerce</Link>
                 <Link to="/categories/packers">Packers & Movers</Link>
                 <Link to="/categories/logistics">Logistics Services</Link>
                 <Link to="/categories/demand">On Demand</Link>
