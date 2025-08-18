@@ -84,7 +84,7 @@ const IndustriesCard = [
     title: "Fitness App",
     desc: "Track workouts, connect with trainers, and stay fit anywhere.",
     icon: <MdFitnessCenter size={40} color="orange" />,
-    link: "/fitness-app",
+    link: "/Fitness_App",
   },
   {
     id: 13,

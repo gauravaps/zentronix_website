@@ -5,8 +5,10 @@ import { useEffect, useState } from "react";
 import ModalForm from "../pages/home/ModalForm";
 import ContactForm from "../pages/home/ContactForm"; 
 
-const RealEstate = () => {
-  const [currentImage, setCurrentImage] = useState("/images/realstate1.jpg");
+
+
+const FitnessApp = () => {
+const [currentImage, setCurrentImage] = useState("/images/fitness1.jpg");
     const [isModalOpen, setIsModalOpen] = useState(false);
 
 
@@ -14,9 +16,9 @@ const RealEstate = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImage((prev) =>
-        prev === "/images/realstate1.jpg"
-          ? "/images/realstate2.jpg"
-          : "/images/realstate1.jpg"
+        prev === "/images/fitness1.jpg"
+          ? "/images/fitness2.jpg"
+          : "/images/fitness1.jpg"
       );
     }, 2000);
 
@@ -36,22 +38,22 @@ const RealEstate = () => {
         </div>
         <div className="grocery-hero-right">
           <h1>
-            Real Estate App <span>Development Services</span>
+            Fitness App <span>Development Services</span>
           </h1>
-     <p>
-  At <b>Zentronix Infotech</b>, we specialize in building 
-  <b>innovative real estate software solutions</b> that are feature-rich, 
-  user-friendly, and highly reliable. Our customized real estate app development 
-  services empower property businesses, brokers, and agencies to manage listings, 
-  streamline transactions, and deliver a seamless experience to buyers, sellers, 
-  and renters. 
+    <p>
+  At <b>Zentronix Infotech</b>, we design and develop 
+  <b>innovative fitness and wellness mobile applications</b> that are 
+  engaging, user-friendly, and highly reliable. Our customized fitness 
+  app development services empower gyms, trainers, and health startups 
+  to deliver a personalized and connected experience to fitness enthusiasts. 
   <br /><br />
   With a strong focus on <b>automation, scalability, and innovation</b>, 
-  our solutions help you digitize property management, enable virtual tours, 
-  simplify communication, and ensure real-time updates on property availability. 
-  <b>Zentronix Infotech</b> enables real estate businesses to boost customer 
-  satisfaction, close deals faster, and scale effortlessly in today’s 
-  competitive property market.
+  our solutions include features like real-time workout tracking, 
+  personalized diet and exercise plans, wearable device integration, 
+  live virtual training, and progress analytics. 
+  <b>Zentronix Infotech</b> enables fitness businesses to boost member 
+  engagement, improve retention, and scale effortlessly in today’s 
+  fast-growing digital fitness market.
 </p>
 
 
@@ -118,4 +120,5 @@ const RealEstate = () => {
     </div>
   );
 };
-export default RealEstate
+
+export default FitnessApp

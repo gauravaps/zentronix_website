@@ -29,6 +29,7 @@ import LogisticsServices from './components/industryPages/LogisticsServices'
 import OnDemand from './components/industryPages/OnDemand'
 import RealEstate from './components/industryPages/RealEstate'
 import EventsTicketing from './components/industryPages/EventsTicketing'
+import FitnessApp from './components/industryPages/FitnessApp'
 
  
 
@@ -62,6 +63,7 @@ const App = () => {
     <Route path='/on_demand' element={<OnDemand/>}/>
     <Route path='/real_state' element={<RealEstate/>}/>
     <Route path='/Events_Ticketing' element={<EventsTicketing/>}/>
+    <Route path='/Fitness_App' element={<FitnessApp/>}/>
     
 
 

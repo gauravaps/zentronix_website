@@ -137,7 +137,7 @@ const Header = () => {
                   <Link to="/on_demand"><FaTachometerAlt className="mega-icon" /><span>On Demand</span></Link>
                   <Link to="/real_state"><BsFillBuildingsFill className="mega-icon" /><span>Real Estate</span></Link>
                   <Link to="/Events_Ticketing"><BsFillTicketPerforatedFill className="mega-icon" /><span>Events and Ticketing</span></Link>
-                  <Link to="/categories/fitness"><IoMdFitness className="mega-icon" /><span>Fitness App</span></Link>
+                  <Link to="/Fitness_App"><IoMdFitness className="mega-icon" /><span>Fitness App</span></Link>
                   <Link to="/categories/social"><FaPhotoVideo className="mega-icon" /><span>Social Media App</span></Link>
                   <Link to="/categories/healthcare"><FaBriefcaseMedical className="mega-icon" /><span>Health Care App</span></Link>
                   <Link to="/categories/healthcare"><GiAutoRepair className="mega-icon" /><span>Home Services</span></Link>
@@ -244,7 +244,7 @@ const Header = () => {
                 <Link to="/on_demand">On Demand</Link>
                 <Link to="/real_state">Real Estate</Link>
                 <Link to="/Events_Ticketing">Events and Ticketing</Link>
-                <Link to="/categories/fitness">Fitness App</Link>
+                <Link to="/Fitness_App">Fitness App</Link>
                 <Link to="/categories/social">Social Media App</Link>
                 <Link to="/categories/healthcare">Health Care App</Link>
               </div>

@@ -40,20 +40,21 @@ const EventsTicketing = () => {
            <h1>
              Events and Ticketing  App <span>Development Services</span>
            </h1>
-           <p>
-             At <b>Zentronix</b>, we help businesses transform and automate their
-             operations with a fully dynamic and customized food ordering and delivery
-             system. Deliver a seamless experience to your customers, drivers, and
-             administrators while reducing operational costs and boosting overall revenue.
-             Our advanced technology empowers restaurants and cloud kitchens to stay ahead
-             in the highly competitive food delivery market.
-             <br /><br />
-             With smart analytics, real-time tracking, and flexible customization,
-             Zentronix ensures your brand stands out from competitors and builds stronger
-             customer loyalty. Whether you’re a startup or an established enterprise, our
-             solutions are designed to scale with your growth and create long-term
-             success in the digital era.
-           </p>
+          <p>
+  At <b>Zentronix</b>, we empower event organizers, venues, and businesses with 
+  fully dynamic and customized <b>event management and ticketing solutions</b>. 
+  Deliver a seamless experience to your audience with features like real-time 
+  event booking, secure digital ticketing, QR-based check-ins, and instant 
+  notifications — all designed to reduce manual work and boost engagement.
+  <br /><br />
+  Our advanced event technology simplifies end-to-end management, from ticket 
+  sales and seat reservations to audience analytics and payment integration. 
+  With <b>smart insights, flexible customization, and robust scalability</b>, 
+  Zentronix ensures your platform stands out, builds stronger audience loyalty, 
+  and drives higher revenue. Whether you’re hosting concerts, conferences, 
+  sports events, or festivals, our solutions are built to scale and ensure 
+  long-term success in the digital era.
+</p>
  
            <button className="btn-demo"  onClick={() => setIsModalOpen(true)}>
              <ImSwitch className="btn-icon" />
