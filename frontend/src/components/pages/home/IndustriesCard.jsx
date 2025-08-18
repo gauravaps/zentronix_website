@@ -21,7 +21,7 @@ const IndustriesCard = [
     title: "On Demand",
     desc: "Empower users with instant services and real-time booking capabilities.",
     icon: <MdShoppingCart size={40} color="orange" />,
-    link: "/on-demand",
+    link: "/on_demand",
   },
   {
     id: 4,
@@ -91,14 +91,14 @@ const IndustriesCard = [
     title: "Packers & Movers",
     desc: "Plan and manage relocations with reliable moving services.",
     icon: <FaTruckMoving size={40} color="orange" />,
-    link: "/packers-movers",
+    link: "/Packer_Movers",
   },
   {
     id: 14,
     title: "Logistics Services",
     desc: "Optimize shipments with real-time tracking and scheduling.",
     icon: <MdLocalShipping size={40} color="orange" />,
-    link: "/logistics-services",
+    link: "/Logistics_Services",
   },
   {
     id: 15,

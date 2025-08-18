@@ -24,6 +24,9 @@ import PickupDelivery from './components/industryPages/PickupDelivery'
 import Grocery_App from './components/industryPages/Grocery_App'
 import Ecommerce from './components/industryPages/Ecommerce'
 import NewHome from './components/pages/home/NewHome'
+import PackerMovers from './components/industryPages/PackerMovers'
+import LogisticsServices from './components/industryPages/LogisticsServices'
+import OnDemand from './components/industryPages/OnDemand'
 
  
 
@@ -43,7 +46,7 @@ const App = () => {
     <Routes>
 
     <Route path='/' element={<Layout/>}>
-      <Route path='/' element={<Home/>}/>
+      <Route path='/' element={<NewHome/>}/>
     <Route path='/contact-us' element={<Contact/>}/>
     <Route path='/alluser' element={<GetAllUsers/>}/>
     <Route path='/login' element={<Login/>}/>
@@ -52,7 +55,10 @@ const App = () => {
     <Route path='/Grocery_App' element={<Grocery_App/>}/>
     <Route path='/Ecommerce' element={<Ecommerce/>}/>
     <Route path='/about_us' element ={<About/>}/>
-    <Route path='/product' element={<NewHome/>}/>
+    <Route path='/Packer_Movers' element={<PackerMovers/>}/>
+    <Route path='/Logistics_Services' element={<LogisticsServices/>}/>
+    <Route path='/on_demand' element={<OnDemand/>}/>
+    
 
 
 {/* Only logged-in users can access profile */}

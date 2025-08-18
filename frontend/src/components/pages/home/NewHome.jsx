@@ -445,7 +445,7 @@ const servicesRef1 = useRef(null);
             ahead of the curve, transforming your business into a digital
             leader.
           </p>
-          <button className="contact-btn">
+          <button className="contact-btn"   onClick={() => setIsModalOpen(true)}>
             <FaPaperPlane /> Get in Touch
           </button>
         </div>

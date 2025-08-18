@@ -132,9 +132,9 @@ const Header = () => {
                   <Link to="/food-delivery"><GiForkKnifeSpoon className="mega-icon" /><span>Food Delivery</span></Link>
                   <Link to="/Grocery_App"><GiShop className="mega-icon" /><span>Grocery App</span></Link>
                   <Link to="/Ecommerce"><FaCartPlus className="mega-icon" /><span>E-commerce</span></Link>
-                  <Link to="/categories/packers"><TbTruckDelivery className="mega-icon" /><span>Packers & Movers</span></Link>
-                  <Link to="/categories/logistics"><FaTruckPlane className="mega-icon" /><span>Logistics Services</span></Link>
-                  <Link to="/categories/demand"><FaTachometerAlt className="mega-icon" /><span>On Demand</span></Link>
+                  <Link to="/Packer_Movers"><TbTruckDelivery className="mega-icon" /><span>Packers & Movers</span></Link>
+                  <Link to="/Logistics_Services"><FaTruckPlane className="mega-icon" /><span>Logistics Services</span></Link>
+                  <Link to="/on_demand"><FaTachometerAlt className="mega-icon" /><span>On Demand</span></Link>
                   <Link to="/categories/realestate"><BsFillBuildingsFill className="mega-icon" /><span>Real Estate</span></Link>
                   <Link to="/categories/events"><BsFillTicketPerforatedFill className="mega-icon" /><span>Events and Ticketing</span></Link>
                   <Link to="/categories/fitness"><IoMdFitness className="mega-icon" /><span>Fitness App</span></Link>
@@ -239,9 +239,9 @@ const Header = () => {
                 <Link to="/food-delivery">Food Delivery</Link>
                 <Link to="/Grocery_App">Grocery App</Link>
                 <Link to="/Ecommerce">E-commerce</Link>
-                <Link to="/categories/packers">Packers & Movers</Link>
-                <Link to="/categories/logistics">Logistics Services</Link>
-                <Link to="/categories/demand">On Demand</Link>
+                <Link to="/Packer_Movers">Packers & Movers</Link>
+                <Link to="/Logistics_Services">Logistics Services</Link>
+                <Link to="/on_demand">On Demand</Link>
                 <Link to="/categories/realestate">Real Estate</Link>
                 <Link to="/categories/events">Events and Ticketing</Link>
                 <Link to="/categories/fitness">Fitness App</Link>
