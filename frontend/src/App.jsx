@@ -28,6 +28,7 @@ import PackerMovers from './components/industryPages/PackerMovers'
 import LogisticsServices from './components/industryPages/LogisticsServices'
 import OnDemand from './components/industryPages/OnDemand'
 import RealEstate from './components/industryPages/RealEstate'
+import EventsTicketing from './components/industryPages/EventsTicketing'
 
  
 
@@ -60,6 +61,7 @@ const App = () => {
     <Route path='/Logistics_Services' element={<LogisticsServices/>}/>
     <Route path='/on_demand' element={<OnDemand/>}/>
     <Route path='/real_state' element={<RealEstate/>}/>
+    <Route path='/Events_Ticketing' element={<EventsTicketing/>}/>
     
 
 

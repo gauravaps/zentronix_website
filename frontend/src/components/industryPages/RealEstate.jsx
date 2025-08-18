@@ -36,22 +36,22 @@ const RealEstate = () => {
         </div>
         <div className="grocery-hero-right">
           <h1>
-            Logistics Services App <span>Development Services</span>
+            Real Estate App <span>Development Services</span>
           </h1>
      <p>
-  At <b>Zentronix Infotech</b>, we specialize in delivering 
-  <b>innovative logistics software solutions</b> that are feature-rich, 
-  user-friendly, and highly reliable. Our customized logistics app development 
-  services help businesses overcome complex supply chain challenges, 
-  streamline operations, and boost efficiency with advanced transport and 
-  logistics management systems. 
+  At <b>Zentronix Infotech</b>, we specialize in building 
+  <b>innovative real estate software solutions</b> that are feature-rich, 
+  user-friendly, and highly reliable. Our customized real estate app development 
+  services empower property businesses, brokers, and agencies to manage listings, 
+  streamline transactions, and deliver a seamless experience to buyers, sellers, 
+  and renters. 
   <br /><br />
-  With a strong focus on <b>scalability, automation, and innovation</b>, 
-  our solutions enable enterprises to digitize their logistics processes, 
-  optimize fleet management, and ensure real-time visibility across operations. 
-  <b>Zentronix Infotech</b> empowers logistics providers, delivery companies, 
-  and supply chain businesses to reduce costs, improve customer satisfaction, 
-  and scale effortlessly in today’s competitive market.
+  With a strong focus on <b>automation, scalability, and innovation</b>, 
+  our solutions help you digitize property management, enable virtual tours, 
+  simplify communication, and ensure real-time updates on property availability. 
+  <b>Zentronix Infotech</b> enables real estate businesses to boost customer 
+  satisfaction, close deals faster, and scale effortlessly in today’s 
+  competitive property market.
 </p>
 
 

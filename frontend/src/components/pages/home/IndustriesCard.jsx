@@ -49,7 +49,7 @@ const IndustriesCard = [
     title: "Events and Ticketing",
     desc: "Manage events, sell tickets, and track attendees with ease.",
     icon: <MdEvent size={40} color="orange" />,
-    link: "/events-ticketing",
+    link: "/Events_Ticketing",
   },
   {
     id: 8,
