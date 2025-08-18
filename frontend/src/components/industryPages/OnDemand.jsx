@@ -37,20 +37,25 @@ const OnDemand = () => {
         </div>
         <div className="hero1-right">
           <h1>
-            Packer and Movers App <span>Development Services</span>
+            On-Demand App <span>Development Services</span>
           </h1>
-          <p>
-  At <b>Zentronix Infotech</b>, we help relocation businesses transform their
-  services with fully customized and dynamic mobile applications. Deliver a seamless
-  experience to your customers by offering real-time booking, tracking, and secure
-  communication, while reducing operational challenges and boosting efficiency.
-  <br /><br />
-  With smart analytics, GPS-based tracking, and flexible customization, Zentronix
-  ensures your brand stands out in the competitive moving industry and builds
-  stronger customer trust. Whether you’re a startup or an established enterprise,
-  our scalable solutions empower you to streamline operations, enhance customer
-  satisfaction, and achieve long-term success in the digital era.
-</p>
+          
+  <p>
+    At <b>Zentronix Infotech</b>, we specialize in helping relocation businesses 
+    revolutionize their services with fully customized and dynamic mobile applications. 
+    Our solutions are designed to deliver a seamless experience by enabling real-time 
+    booking, live GPS tracking, and secure communication channels.
+  </p>
+  <p>
+    By integrating smart analytics and advanced tracking technology, we empower your 
+    brand to overcome operational challenges, boost efficiency, and stand out in the 
+    highly competitive moving industry. 
+  </p>
+  <p>
+    Whether you’re a startup or a well-established enterprise, our scalable solutions 
+    are tailored to streamline operations, enhance customer satisfaction, and build 
+    long-term trust in the digital era. 
+  </p>
 
           <button className="btn-demo"  onClick={() => setIsModalOpen(true)}>
             <ImSwitch className="btn-icon" />

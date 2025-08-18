@@ -42,7 +42,7 @@ const IndustriesCard = [
     title: "Real Estate",
     desc: "Showcase properties and connect buyers with sellers effortlessly.",
     icon: <FaBuilding size={40} color="orange" />,
-    link: "/real-estate",
+    link: "/real_state",
   },
   {
     id: 7,
