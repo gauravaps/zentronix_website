@@ -7,7 +7,7 @@ import ModalForm from "./ModalForm";
 import IndustriesCard from "./IndustriesCard";
 import { FaPaperPlane } from "react-icons/fa";
 import Curosole from "./Curosole";
-
+ 
 const Home = () => {
   // State for count animation
   const [years, setYears] = useState(0);

@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import "./Modal.css";
 import { IoClose } from "react-icons/io5";
   
-const ModalForm = ({ isOpen, onClose, children }) => {
+const ModalForm = ({ isOpen, onClose, children }) => { 
   useEffect(() => {
     const handleEsc = (e) => {
       if (e.key === "Escape") onClose?.();
