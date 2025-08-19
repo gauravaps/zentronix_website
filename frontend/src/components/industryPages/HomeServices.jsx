@@ -5,8 +5,8 @@ import ModalForm from "../pages/home/ModalForm";
 import ContactForm from "../pages/home/ContactForm";
 
 
-const SocialMediaApp = () => {
-   const [currentImage, setCurrentImage] = useState("/images/social1.jpg");
+const HomeServices = () => {
+ const [currentImage, setCurrentImage] = useState("/images/HomeServices1.jpg");
     const [isModalOpen, setIsModalOpen] = useState(false);
 
 
@@ -14,9 +14,9 @@ const SocialMediaApp = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImage((prev) =>
-        prev === "/images/social1.jpg"
-          ? "/images/social2.jpg"
-          : "/images/social1.jpg"
+        prev === "/images/HomeServices1.jpg"
+          ? "/images/HomeServices2.jpg"
+          : "/images/HomeServices1.jpg"
       );
     }, 2000);
 
@@ -36,32 +36,33 @@ const SocialMediaApp = () => {
         </div>
         <div className="hero1-right">
           <h1>
-            Social Media App <span>Development Services</span>
+            HomeServices <span>Development Services</span>
           </h1>
           
 
 <p>
-  At <b>Zentronix Infotech</b>, we specialize in developing 
-  <b>on-demand home services applications</b> that make it easier for 
-  customers to book trusted professionals for their daily needs. Our goal is 
-  to build apps that are user-friendly, fast, and reliable, helping service 
-  providers connect with customers seamlessly.
+  At <b>Zentronix Infotech</b>, we specialize in building 
+  <b> feature-rich and scalable social media applications</b> that connect 
+  people, enhance engagement, and drive digital communities. Our goal is to 
+  create apps that are user-friendly, interactive, and aligned with your 
+  business vision.
 </p>
 
 <p>
-  From <b>house cleaning, plumbing, electrical repairs, appliance 
-  maintenance, pest control, painting, beauty & salon at home, and 
-  carpentry</b> to advanced features like GPS tracking, online payments, 
-  service scheduling, ratings & reviews, and push notifications, we deliver 
-  complete digital solutions tailored to your business.
+  From <b> real-time chat, news feeds, content sharing, push notifications, 
+  and in-app analytics</b> to advanced features like AI-powered 
+  recommendations and secure user authentication, we deliver customized 
+  solutions that keep your audience connected and engaged across platforms.
 </p>
 
 <p>
-  Whether you are a startup or an established service provider, our 
-  <b>end-to-end home services app development</b> ensures better customer 
-  satisfaction, improved efficiency, and long-term scalability in today’s 
-  competitive on-demand service market.
+  Whether you’re a startup aiming to launch a new social networking platform 
+  or an enterprise looking to expand digital presence, our 
+  <b> end-to-end social media app development services </b> ensure seamless 
+  performance, improved user retention, and long-term scalability in today’s 
+  competitive market.
 </p>
+
           <button className="btn-demo"  onClick={() => setIsModalOpen(true)}>
             <ImSwitch className="btn-icon" />
             BOOK A FREE DEMO
@@ -124,4 +125,5 @@ const SocialMediaApp = () => {
 };
 
 
-export default SocialMediaApp
+
+export default HomeServices

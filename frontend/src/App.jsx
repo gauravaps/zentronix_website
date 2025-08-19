@@ -39,6 +39,7 @@ import ScrollToTopButton from './components/ScrollToTopButton/ScrollToTopButton'
 import DigitalMarketing from './components/ourServices/DigitalMarketing'
 import SocialMediaApp from './components/industryPages/SocialMediaApp'
 import HealthCareApp from './components/industryPages/HealthCareApp'
+import HomeServices from './components/industryPages/HomeServices'
 
  
 
@@ -81,6 +82,7 @@ const App = () => {
     <Route path='/Digital_Marketing' element={<DigitalMarketing/>}/>
     <Route path='/Social_MediaApp' element={<SocialMediaApp/>}/>
     <Route path='/Health_CareApp' element={<HealthCareApp/>}/>
+    <Route path='/Home_Services' element={<HomeServices/>}/>
     
 
 

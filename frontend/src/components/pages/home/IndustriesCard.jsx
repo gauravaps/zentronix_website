@@ -77,7 +77,7 @@ const IndustriesCard = [
     title: "Home Services",
     desc: "Book professionals for cleaning, repair, and other home needs.",
     icon: <MdHomeRepairService size={40} color="orange" />,
-    link: "/home-services",
+    link: "/Home_Services",
   },
   {
     id: 12,

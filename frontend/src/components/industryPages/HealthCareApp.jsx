@@ -41,13 +41,13 @@ const HealthCareApp = () => {
           </h1>
     <p>
   At <b>Zentronix Infotech</b>, we build 
-  <b>secure, reliable, and user-friendly healthcare applications</b> that 
+  <b> secure, reliable, and user-friendly healthcare applications</b> that 
   empower hospitals, clinics, doctors, and patients with smarter digital 
   solutions. Our goal is to simplify healthcare delivery, improve patient 
   engagement, and ensure seamless communication between healthcare providers 
   and patients.
   <br /><br />
-  With a strong focus on <b>data security, scalability, and innovation</b>, 
+  With a strong focus on <b> data security, scalability, and innovation</b>, 
   our solutions include features like online appointment booking, 
   telemedicine & video consultations, electronic health records (EHR), 
   prescription management, wearable device integration, real-time health 
