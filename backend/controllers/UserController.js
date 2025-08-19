@@ -1,6 +1,7 @@
 import User from "../models/User.js";
 import bcrypt from "bcryptjs"; 
 import jwt from 'jsonwebtoken';
+import uploadonCloudinary from "../utils/cloudinary.js";
 
 
 
@@ -14,7 +15,6 @@ import jwt from 'jsonwebtoken';
 
 export const registerUser = async (req, res) => {
   try {
-    // If using form-data, fields in req.body, file in req.file (memoryStorage)
     const { firstName, lastName, email, phone, password, role } = req.body;
     console.log("Received body:", req.body);
     console.log("Received file:", req.file?.originalname);
@@ -38,26 +38,28 @@ export const registerUser = async (req, res) => {
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
 
-    // Prepare image value:
-    // - if req.file exists, convert buffer -> dataURL (base64) and save into image (String)
-    // - else do not set image; mongoose schema default will apply
-    let imageValue;
-    if (req.file && req.file.buffer) {
-      const mime = req.file.mimetype; // e.g. image/png
-      const base64 = req.file.buffer.toString("base64");
-      imageValue = `data:${mime};base64,${base64}`; // store data URL string
-    }
+     let imageUrl = null;
 
-    // Create new user
-    const newUser = new User({
-      firstName,
-      lastName,
-      email,
-      phone,
-      password: hashedPassword,
-      role: role || "normal",
-      ...(imageValue ? { image: imageValue } : {}), // set only if uploaded
-    });
+       if (req.file) {
+  console.log("Multer File Path:", req.file.path);
+
+  const uploadResponse = await uploadonCloudinary(req.file.path);
+  if (uploadResponse) {
+    imageUrl = uploadResponse.secure_url;
+  } else {
+    return res.status(500).json({ message: "Image upload failed at Cloudinary." });
+  }
+}
+
+const newUser = new User({
+  firstName,
+  lastName,
+  email,
+  phone,
+  password: hashedPassword,
+  role: role || "normal",
+  image:imageUrl || undefined , 
+});
 
     await newUser.save();
 
@@ -139,7 +141,7 @@ export const loginUser = async (req, res) => {
 
 
 // Update profile
-// Update profile
+
 export const updateUserProfile = async (req, res) => {
   try {
     const { firstName, lastName, email, phone, password } = req.body;
@@ -147,17 +149,25 @@ export const updateUserProfile = async (req, res) => {
     const user = await User.findById(req.params.id);
     if (!user) return res.status(404).json({ message: "User not found" });
 
+    // --- Basic details update ---
     user.firstName = firstName || user.firstName;
     user.lastName = lastName || user.lastName;
     user.email = email || user.email;
     user.phone = phone || user.phone;
 
-    // Image handle
+    // --- Image handle (upload to Cloudinary) ---
     if (req.file) {
-      user.image = req.file.buffer; 
+      console.log("Updating profile image, file path:", req.file.path);
+
+      const uploadResponse = await uploadonCloudinary(req.file.path, "zentronix");
+      if (uploadResponse) {
+        user.image = uploadResponse.secure_url; // ✅ Cloudinary URL save in DB
+      } else {
+        return res.status(500).json({ message: "Image upload failed at Cloudinary." });
+      }
     }
 
-    // Password update
+    // --- Password update ---
     if (password && password.trim() !== "") {
       const salt = await bcrypt.genSalt(10);
       user.password = await bcrypt.hash(password, salt);
@@ -165,15 +175,19 @@ export const updateUserProfile = async (req, res) => {
 
     await user.save();
 
-    // 👇 Response me consistent key send karo
-    res.status(200).json({ 
-      message: "Profile updated successfully", 
-      updatedUser: user 
+    // Password ko response se hata do
+    const updatedUser = user.toObject();
+    delete updatedUser.password;
+
+    res.status(200).json({
+      message: "Profile updated successfully",
+      updatedUser,
     });
   } catch (err) {
-    res.status(500).json({ 
-      message: "Error updating profile", 
-      error: err.message 
+    console.error("Update profile error:", err);
+    res.status(500).json({
+      message: "Error updating profile",
+      error: err.message,
     });
   }
 };

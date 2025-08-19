@@ -15,6 +15,7 @@ export const AuthProvider = ({ children }) => {
 
     return {
       ...raw,
+      id: raw._id || raw.id,
       role: normalizedRole,
     };
   };
