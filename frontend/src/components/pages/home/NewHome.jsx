@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./NewHome.css";
 import { ImSwitch } from "react-icons/im";
-
 import {  FaMobileAlt, FaCode, FaPencilAlt, FaPaintBrush, FaBullhorn} from "react-icons/fa";
 import {  MdWeb, MdApps, MdOutlineDraw} from "react-icons/md";
 import { SiAffinitydesigner} from "react-icons/si";
@@ -10,6 +9,8 @@ import ModalForm from "./ModalForm";
 import IndustriesCard from "./IndustriesCard";
 import ContactForm from "./ContactForm";
 import { FaPaperPlane } from "react-icons/fa";
+import { HashLoader } from "react-spinners";
+
 
 
 
@@ -18,6 +19,15 @@ const NewHome = () => {
   // 🔹 State for second section image
   const [currentImage, setCurrentImage] = useState("/images/about1.png");
     const [activeIndex, setActiveIndex] = useState(null);
+      const [loading, setLoading] = useState(true);
+
+
+    useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2000); // 2 second loader
+    return () => clearTimeout(timer);
+  }, []);
   
   // State for count animation
     const [years, setYears] = useState(0);
@@ -133,6 +143,25 @@ const servicesRef1 = useRef(null);
       a: "Yes, we offer continuous support, maintenance, and updates to ensure your digital solutions perform at their best."
     }
   ];
+
+
+  // 🔹 Loader condition
+  if (loading) {
+    return (
+      <div
+        style={{
+          height: "100vh",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          backgroundColor: "#fff"
+        }}
+      >
+        <HashLoader size={70} color="#36d7b7" />
+      </div>
+    );
+  }
+
 
 
   return (

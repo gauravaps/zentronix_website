@@ -35,6 +35,7 @@ import WebAppDevelopment from './components/ourServices/WebAppDevelopment'
 import WebsiteDevelopment from './components/ourServices/WebsiteDevelopment'
 import UIUXDesign from './components/ourServices/UIUXDesign'
 import LogoDesigning from './components/ourServices/LogoDesigning'
+import ScrollToTopButton from './components/ScrollToTopButton/ScrollToTopButton'
 
  
 
@@ -147,7 +148,7 @@ const App = () => {
         notification
         notificationSound    
       />
-
+    <ScrollToTopButton/>
 
       <ToastContainer 
     position="top-right"
