@@ -10,6 +10,9 @@ import { toast } from "react-toastify";
 
 const UpdateProfile = () => {
   const { user, isAuthenticated, isLoading, setUser } = useAuth();
+    const [updating, setUpdating] = useState(false);
+
+
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
 
@@ -65,6 +68,7 @@ const UpdateProfile = () => {
 
   const handleSubmit = async (e) => {
   e.preventDefault();
+  setUpdating(true); 
 
   try {
     const formDataToSend = new FormData();
@@ -79,7 +83,7 @@ const UpdateProfile = () => {
     }
 
     const res = await axios.put(
-      `http://localhost:5000/api/update-profile/${user._id}`,
+      `http://localhost:5000/api/update-profile/${user.id}`,
       formDataToSend,
       {
         headers: {
@@ -100,6 +104,10 @@ const UpdateProfile = () => {
     console.error("Error updating profile:", err.response?.data || err);
     toast.error("Failed to update profile");
   }
+
+  finally {
+      setUpdating(false); 
+    }
 };
 
 
@@ -177,8 +185,14 @@ const UpdateProfile = () => {
             onChange={handleChange}
           />
 
-          <button type="submit">Update Profile</button>
-        </form>
+<button type="submit" disabled={updating}>
+            {updating ? (
+              <span className="spinner"></span> 
+            ) : (
+              "Update Profile"
+            )}
+          </button>    
+              </form>
       </div>
     </div>
   );
