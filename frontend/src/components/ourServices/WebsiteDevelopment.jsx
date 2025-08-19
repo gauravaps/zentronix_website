@@ -5,19 +5,19 @@ import { useEffect, useState } from "react";
 import ModalForm from "../pages/home/ModalForm";
 import ContactForm from "../pages/home/ContactForm"; 
 
-  
-const MobileAppDevelopment = () => {
 
-const [currentImage, setCurrentImage] = useState("/images/mobileapp1.jpg");
+
+const WebsiteDevelopment = () => {
+  const [currentImage, setCurrentImage] = useState("/images/website1.jpg");
 const [isModalOpen, setIsModalOpen] = useState(false);
 
   // Image toggle every 2 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImage((prev) =>
-        prev === "/images/mobileapp1.jpg"
-          ? "/images/mobileapp2.jpg"
-          : "/images/mobileapp1.jpg"
+        prev === "/images/website1.jpg"
+          ? "/images/website2.jpg"
+          : "/images/website1.jpg"
       );
     }, 2000);
 
@@ -37,23 +37,24 @@ const [isModalOpen, setIsModalOpen] = useState(false);
         </div>
         <div className="grocery-hero-right">
           <h1>
-            Mobile App <span>Development Services</span>
+            Website  <span>Development Services</span>
           </h1>
-    <p>
+  <p>
   At <b>Zentronix Infotech</b>, we craft 
-  <b>innovative, scalable, and user-centric mobile applications</b> 
-  that help businesses transform ideas into impactful digital solutions. 
-  Our expertise spans across Android, iOS, and cross-platform app 
-  development — delivering apps that are high-performing, secure, and 
-  future-ready. 
+  <b>innovative, scalable, and user-friendly websites</b> 
+  that help businesses build a strong digital presence and deliver 
+  seamless experiences to their customers. Our expertise spans 
+  across corporate websites, eCommerce platforms, portfolio sites, 
+  and custom web solutions — ensuring speed, security, and 
+  responsiveness across all devices.
   <br /><br />
-  With a strong focus on <b>UI/UX design, automation, and innovation</b>, 
-  we integrate features like real-time notifications, in-app payments, 
-  cloud sync, GPS tracking, AI-powered recommendations, and seamless 
-  third-party integrations. 
-  <b>Zentronix Infotech</b> empowers startups, enterprises, and 
-  growing businesses to engage customers, optimize processes, and 
-  stay ahead in today’s competitive mobile-first world.
+  With a strong focus on <b>UI/UX design, performance, and innovation</b>, 
+  we integrate features like interactive layouts, secure payment gateways, 
+  content management systems (CMS), SEO optimization, and advanced analytics 
+  to maximize your website’s impact. 
+  <b>Zentronix Infotech</b> empowers startups, SMEs, and enterprises 
+  to engage audiences, increase conversions, and stay ahead in today’s 
+  competitive digital landscape.
 </p>
 
 
@@ -121,4 +122,5 @@ const [isModalOpen, setIsModalOpen] = useState(false);
   );
 };
 
-export default MobileAppDevelopment
+
+export default WebsiteDevelopment

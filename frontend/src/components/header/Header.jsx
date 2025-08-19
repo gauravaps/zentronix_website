@@ -160,7 +160,7 @@ const Header = () => {
                 <div className="mega-grid">
                   <Link to="/MobileApp_Development"><MdInstallMobile className="mega-icon" /><span>Mobile App Development</span></Link>
                   <Link to="/WebApp_Development"><FaCode className="mega-icon" /><span>Web App Development</span></Link>
-                  <Link to="/services/website"><CgWebsite className="mega-icon" /><span>Website Development</span></Link>
+                  <Link to="/Website_Development"><CgWebsite className="mega-icon" /><span>Website Development</span></Link>
                   <Link to="/services/ui-ux"><SiCodesignal className="mega-icon" /><span>UI/UX Design</span></Link>
                   <Link to="/services/staff"><FaArrowsDownToPeople className="mega-icon" /><span>Staff Augmentation</span></Link>
                   <Link to="/services/marketing"><BsPciCardSound className="mega-icon" /><span>Digital Marketing</span></Link>
@@ -255,7 +255,7 @@ const Header = () => {
               <div className="mobile-dropdown">
                 <Link to="/MobileApp_Development">Mobile App Development</Link>
                 <Link to="/WebApp_Development">Web App Development</Link>
-                <Link to="/services/website">Website Development</Link>
+                <Link to="/Website_Development">Website Development</Link>
                 <Link to="/services/ui-ux">UI/UX Design</Link>
                 <Link to="/services/staff">Staff Augmentation</Link>
                 <Link to="/services/marketing">Digital Marketing</Link>
