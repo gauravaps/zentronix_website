@@ -33,6 +33,8 @@ import FitnessApp from './components/industryPages/FitnessApp'
 import MobileAppDevelopment from './components/ourServices/MobileAppDevelopment'
 import WebAppDevelopment from './components/ourServices/WebAppDevelopment'
 import WebsiteDevelopment from './components/ourServices/WebsiteDevelopment'
+import UIUXDesign from './components/ourServices/UIUXDesign'
+import LogoDesigning from './components/ourServices/LogoDesigning'
 
  
 
@@ -70,6 +72,8 @@ const App = () => {
     <Route path='/MobileApp_Development' element={<MobileAppDevelopment/>}/>
     <Route path='/WebApp_Development' element={<WebAppDevelopment/>}/>
     <Route path='/Website_Development' element={<WebsiteDevelopment/>}/>
+    <Route path='/UI-UX_Design' element={<UIUXDesign/>}/>
+    <Route path='/logo_design' element={<LogoDesigning/>}/>
     
 
 

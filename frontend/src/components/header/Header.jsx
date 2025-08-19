@@ -161,8 +161,8 @@ const Header = () => {
                   <Link to="/MobileApp_Development"><MdInstallMobile className="mega-icon" /><span>Mobile App Development</span></Link>
                   <Link to="/WebApp_Development"><FaCode className="mega-icon" /><span>Web App Development</span></Link>
                   <Link to="/Website_Development"><CgWebsite className="mega-icon" /><span>Website Development</span></Link>
-                  <Link to="/services/ui-ux"><SiCodesignal className="mega-icon" /><span>UI/UX Design</span></Link>
-                  <Link to="/services/staff"><FaArrowsDownToPeople className="mega-icon" /><span>Staff Augmentation</span></Link>
+                  <Link to="/UI-UX_Design"><SiCodesignal className="mega-icon" /><span>UI/UX Design</span></Link>
+                  <Link to="/logo_design"><FaArrowsDownToPeople className="mega-icon" /><span>Logo Designing</span></Link>
                   <Link to="/services/marketing"><BsPciCardSound className="mega-icon" /><span>Digital Marketing</span></Link>
                 </div>
               </div>
@@ -256,8 +256,8 @@ const Header = () => {
                 <Link to="/MobileApp_Development">Mobile App Development</Link>
                 <Link to="/WebApp_Development">Web App Development</Link>
                 <Link to="/Website_Development">Website Development</Link>
-                <Link to="/services/ui-ux">UI/UX Design</Link>
-                <Link to="/services/staff">Staff Augmentation</Link>
+                <Link to="/UI-UX_Design">UI/UX Design</Link>
+                <Link to="/logo_design">Logo Designing</Link>
                 <Link to="/services/marketing">Digital Marketing</Link>
               </div>
             </details>
