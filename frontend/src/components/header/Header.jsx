@@ -138,8 +138,8 @@ const Header = () => {
                   <Link to="/real_state"><BsFillBuildingsFill className="mega-icon" /><span>Real Estate</span></Link>
                   <Link to="/Events_Ticketing"><BsFillTicketPerforatedFill className="mega-icon" /><span>Events and Ticketing</span></Link>
                   <Link to="/Fitness_App"><IoMdFitness className="mega-icon" /><span>Fitness App</span></Link>
-                  <Link to="/categories/social"><FaPhotoVideo className="mega-icon" /><span>Social Media App</span></Link>
-                  <Link to="/categories/healthcare"><FaBriefcaseMedical className="mega-icon" /><span>Health Care App</span></Link>
+                  <Link to="/Social_MediaApp"><FaPhotoVideo className="mega-icon" /><span>Social Media App</span></Link>
+                  <Link to="/Health_CareApp"><FaBriefcaseMedical className="mega-icon" /><span>Health Care App</span></Link>
                   <Link to="/categories/healthcare"><GiAutoRepair className="mega-icon" /><span>Home Services</span></Link>
                   <Link to="/categories/healthcare"><GiConvergenceTarget className="mega-icon" /><span>Taxi Dispatch</span></Link>
                   <Link to="/categories/healthcare"><TbScooterElectric className="mega-icon" /><span>e-Scooter App</span></Link>
@@ -163,7 +163,7 @@ const Header = () => {
                   <Link to="/Website_Development"><CgWebsite className="mega-icon" /><span>Website Development</span></Link>
                   <Link to="/UI-UX_Design"><SiCodesignal className="mega-icon" /><span>UI/UX Design</span></Link>
                   <Link to="/logo_design"><FaArrowsDownToPeople className="mega-icon" /><span>Logo Designing</span></Link>
-                  <Link to="/services/marketing"><BsPciCardSound className="mega-icon" /><span>Digital Marketing</span></Link>
+                  <Link to="/Digital_Marketing"><BsPciCardSound className="mega-icon" /><span>Digital Marketing</span></Link>
                 </div>
               </div>
             )}
@@ -245,8 +245,8 @@ const Header = () => {
                 <Link to="/real_state">Real Estate</Link>
                 <Link to="/Events_Ticketing">Events and Ticketing</Link>
                 <Link to="/Fitness_App">Fitness App</Link>
-                <Link to="/categories/social">Social Media App</Link>
-                <Link to="/categories/healthcare">Health Care App</Link>
+                <Link to="/Social_MediaApp">Social Media App</Link>
+                <Link to="/Health_CareApp">Health Care App</Link>
               </div>
             </details>
 
@@ -258,7 +258,7 @@ const Header = () => {
                 <Link to="/Website_Development">Website Development</Link>
                 <Link to="/UI-UX_Design">UI/UX Design</Link>
                 <Link to="/logo_design">Logo Designing</Link>
-                <Link to="/services/marketing">Digital Marketing</Link>
+                <Link to="/Digital_Marketing">Digital Marketing</Link>
               </div>
             </details>
 

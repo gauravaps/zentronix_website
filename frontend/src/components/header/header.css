@@ -7,20 +7,13 @@
 
 
 .header {
-
-
- /* new headder color */
-  /* background-color: #0f172a;  */
-
-  /* background-color: #02162E; */
-
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Soft depth */
   color: white; 
-
  background: linear-gradient( #02162E 20%, #0060d4 100%);
-  /* -webkit-background-clip: text; */
-  /* -webkit-text-fill-color: transparent; */
+  
 }
+
+
 
 
 .header a,

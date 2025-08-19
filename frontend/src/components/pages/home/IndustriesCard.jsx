@@ -56,7 +56,7 @@ const IndustriesCard = [
     title: "Social Media App",
     desc: "Engage communities with powerful sharing and networking tools.",
     icon: <FaUsers size={40} color="orange" />,
-    link: "/social-media-app",
+    link: "/Social_MediaApp",
   },
   {
     id: 9,
@@ -105,7 +105,7 @@ const IndustriesCard = [
     title: "Health Care App",
     desc: "Book appointments, access medical records, and consult online.",
     icon: <MdHealthAndSafety size={40} color="orange" />,
-    link: "/health-care-app",
+    link: "/Health_CareApp",
   },
   {
     id: 16,

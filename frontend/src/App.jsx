@@ -36,6 +36,9 @@ import WebsiteDevelopment from './components/ourServices/WebsiteDevelopment'
 import UIUXDesign from './components/ourServices/UIUXDesign'
 import LogoDesigning from './components/ourServices/LogoDesigning'
 import ScrollToTopButton from './components/ScrollToTopButton/ScrollToTopButton'
+import DigitalMarketing from './components/ourServices/DigitalMarketing'
+import SocialMediaApp from './components/industryPages/SocialMediaApp'
+import HealthCareApp from './components/industryPages/HealthCareApp'
 
  
 
@@ -75,6 +78,9 @@ const App = () => {
     <Route path='/Website_Development' element={<WebsiteDevelopment/>}/>
     <Route path='/UI-UX_Design' element={<UIUXDesign/>}/>
     <Route path='/logo_design' element={<LogoDesigning/>}/>
+    <Route path='/Digital_Marketing' element={<DigitalMarketing/>}/>
+    <Route path='/Social_MediaApp' element={<SocialMediaApp/>}/>
+    <Route path='/Health_CareApp' element={<HealthCareApp/>}/>
     
 
 
