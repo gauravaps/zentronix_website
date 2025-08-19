@@ -14,7 +14,7 @@ const IndustriesCard = [
     title: "Taxi Dispatch",
     desc: "Streamline ride-booking and fleet management for a smarter taxi business.",
     icon: <MdLocalTaxi size={40} color="orange" />,
-    link: "/taxi-dispatch",
+    link: "/Taxi_Dispatch",
   },
   {
     id: 3,
