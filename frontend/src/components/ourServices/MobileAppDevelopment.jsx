@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import ModalForm from "../pages/home/ModalForm";
 import ContactForm from "../pages/home/ContactForm"; 
 
-
+  
 const MobileAppDevelopment = () => {
 
 const [currentImage, setCurrentImage] = useState("/images/mobileapp1.jpg");

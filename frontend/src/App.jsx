@@ -31,6 +31,7 @@ import RealEstate from './components/industryPages/RealEstate'
 import EventsTicketing from './components/industryPages/EventsTicketing'
 import FitnessApp from './components/industryPages/FitnessApp'
 import MobileAppDevelopment from './components/ourServices/MobileAppDevelopment'
+import WebAppDevelopment from './components/ourServices/WebAppDevelopment'
 
  
 
@@ -66,6 +67,7 @@ const App = () => {
     <Route path='/Events_Ticketing' element={<EventsTicketing/>}/>
     <Route path='/Fitness_App' element={<FitnessApp/>}/>
     <Route path='/MobileApp_Development' element={<MobileAppDevelopment/>}/>
+    <Route path='/WebApp_Development' element={<WebAppDevelopment/>}/>
     
 
 
