@@ -207,7 +207,7 @@ const GetAllProducts = () => {
               View Live
             </a>
             <div className="product-actions">
-              <button onClick={() => handleEditClick(p)}>Edit</button>
+              <button onClick={() => handleEditClick(p)}>Update</button>
               <button onClick={() => handleDeleteProduct(p._id)}>
                 Delete
               </button>

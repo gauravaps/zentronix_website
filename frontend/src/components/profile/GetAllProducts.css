@@ -12,6 +12,15 @@
   align-items: center;
 }
 
+.product-header h2{
+   background: linear-gradient( #02162E 20%, #0060d4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+    text-align: center;
+
+  
+}
+
 /* Add Project Button (same rakha) */
 .product-add-btn {
   padding: 10px 15px;
@@ -39,6 +48,10 @@
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-height: 320px;   
+  max-height: 440px;   
 }
 
 .product-card:hover {
@@ -48,15 +61,16 @@
 
 .product-card img {
   width: 100%;
-  height: 220px;
-  object-fit: cover; /* pura image cover karega */
+  height: 200px;       
+  object-fit: contain; 
 }
 
 /* Card Content */
 .product-card h3 {
-  margin: 10px 0 5px;
+  margin: 12px 0 6px;
   font-size: 18px;
   font-weight: 600;
+  color: #333;
 }
 
 .product-card p {
@@ -66,11 +80,11 @@
 }
 
 .product-card a {
-  display: block;
+  display: inline-block; 
   color: #667eea;
   text-decoration: none;
   font-weight: 500;
-  margin-bottom: 10px;
+  margin: 8px 0;
 }
 
 /* Card Buttons */
