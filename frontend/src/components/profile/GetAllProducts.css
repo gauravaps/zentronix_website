@@ -1,0 +1,178 @@
+/* ========== PAGE LAYOUT ========== */
+.product-page {
+  padding: 20px;
+  background: linear-gradient(135deg, #f0f4f8, #e3e9ff);
+  min-height: 100vh;
+}
+
+/* Header */
+.product-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Add Project Button (same rakha) */
+.product-add-btn {
+  padding: 10px 15px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* ========== GRID & CARDS ========== */
+.product-grid {
+  display: grid;
+  gap: 20px;
+  margin-top: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.product-card {
+  background: #fff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+.product-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover; /* pura image cover karega */
+}
+
+/* Card Content */
+.product-card h3 {
+  margin: 10px 0 5px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.product-card p {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+.product-card a {
+  display: block;
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+/* Card Buttons */
+.product-actions {
+  margin-top: auto;
+  padding: 12px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.product-actions button {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  color: #fff;
+  transition: transform 0.2s ease, opacity 0.3s ease;
+}
+
+.product-actions button:first-child {
+  background: linear-gradient(135deg, #4caf50, #45a049);
+}
+
+.product-actions button:last-child {
+  background: linear-gradient(135deg, #f44336, #e53935);
+}
+
+.product-actions button:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+/* ========== POPUP ========== */
+.product-popup {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.product-popup-inner {
+  background: #fff;
+  padding: 25px;
+  border-radius: 14px;
+  width: 420px;
+  max-width: 90%;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  animation: popupFade 0.3s ease;
+}
+
+@keyframes popupFade {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.product-popup-inner h2 {
+  margin-bottom: 15px;
+  text-align: center;
+  color: #333;
+}
+
+/* Popup Form Inputs */
+.product-popup-inner form input,
+.product-popup-inner form textarea {
+  width: 100%;
+  margin: 10px 0;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.product-popup-inner form input:focus,
+.product-popup-inner form textarea:focus {
+  border: 1px solid #667eea;
+  box-shadow: 0 0 6px rgba(102,126,234,0.4);
+  outline: none;
+}
+
+/* Popup Form Buttons */
+.product-popup-inner form button {
+  margin-top: 12px;
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.3s ease;
+}
+
+.product-popup-inner form button:hover {
+  transform: scale(1.03);
+  opacity: 0.95;
+}

@@ -5,6 +5,7 @@ import cors from 'cors';
 import quryRouter from './routes/QueriesRoute.js';
 import userRouter from './routes/UserRoutes.js'
 import addressRouter from './routes/AddressRoutes.js'
+import productRoutes from './routes/productRoutes.js'
  
 
 
@@ -30,6 +31,11 @@ app.use('/api' , userRouter);
 
 //Address router /api
 app.use('/api' , addressRouter);
+
+
+// product router /api
+app.use('/api' , productRoutes)
+
 
 
 
