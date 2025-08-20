@@ -5,12 +5,20 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./GetAllProducts.css";
 import { useAuth } from "../context/AuthContext";
+import { HashLoader } from "react-spinners";
+
 
 const GetAllProducts = () => {
   const [products, setProducts] = useState([]);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [isEditPopupOpen, setIsEditPopupOpen] = useState(false);
     const token = localStorage.getItem("token");
+    const [updating, setUpdating] = useState(false);
+    const [loading, setLoading] = useState(false);
+    
+    
+    
+    
 
   const [formData, setFormData] = useState({
     projectName: "",
@@ -22,6 +30,8 @@ const GetAllProducts = () => {
 
   // Fetch products
   const fetchProducts = async () => {
+          setLoading(true); 
+
     try {
       const { data } = await axios.get("http://localhost:5000/api/all_products");
       setProducts(data.products);
@@ -29,6 +39,10 @@ const GetAllProducts = () => {
       console.error(error);
       toast.error("Failed to fetch products");
     }
+    finally {
+      setLoading(false); 
+    }
+
   };
 
   useEffect(() => {
@@ -47,6 +61,8 @@ const GetAllProducts = () => {
   // Add product
   const handleAddProduct = async (e) => {
     e.preventDefault();
+      setUpdating(true); 
+
     try {
       const fd = new FormData();
       fd.append("projectName", formData.projectName);
@@ -74,6 +90,10 @@ const GetAllProducts = () => {
       console.error(error);
       toast.error("Failed to add project");
     }
+
+    finally {
+      setUpdating(false); 
+    }
   };
 
   // Edit product
@@ -90,6 +110,8 @@ const GetAllProducts = () => {
 
   const handleUpdateProduct = async (e) => {
     e.preventDefault();
+      setUpdating(true); 
+
     try {
       const fd = new FormData();
       fd.append("projectName", formData.projectName);
@@ -115,6 +137,10 @@ const GetAllProducts = () => {
       console.error(error);
       toast.error("Failed to update project");
     }
+
+    finally {
+      setUpdating(false); 
+    }
   };
 
   // Delete product
@@ -137,6 +163,26 @@ const GetAllProducts = () => {
       toast.error("Failed to delete project");
     }
   };
+
+
+  // 🔹 Loader condition
+  
+    if (loading) {
+      return (
+        <div
+          style={{
+            height: "100vh",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            backgroundColor: "#fff"
+          }}
+        >
+          <HashLoader size={70} color="#36d7b7" />
+        </div>
+      );
+    }
+  
 
   return (
     <div className="product-page">
@@ -200,8 +246,16 @@ const GetAllProducts = () => {
                 required
               />
               <input type="file" name="image" onChange={handleChange} />
-              <button type="submit">Add Project</button>
-              <button
+
+              <button type="submit" disabled={updating}>
+            {updating ? (
+              <span className="spinner"></span> 
+            ) : (
+              "Add Project"
+            )}
+          </button> 
+
+          <button
                 type="button"
                 onClick={() => setIsPopupOpen(false)}
               >
@@ -242,7 +296,17 @@ const GetAllProducts = () => {
                 required
               />
               <input type="file" name="image" onChange={handleChange} />
-              <button type="submit">Update Project</button>
+
+
+              <button type="submit" disabled={updating}>
+            {updating ? (
+              <span className="spinner"></span> 
+            ) : (
+              "Update Project"
+            )}
+          </button> 
+
+
               <button
                 type="button"
                 onClick={() => setIsEditPopupOpen(false)}
