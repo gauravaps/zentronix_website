@@ -2,9 +2,13 @@ import React, { useState, useEffect } from "react";
 import { ImSwitch } from "react-icons/im";
 import { FaMobileAlt, FaCreditCard, FaChartLine } from "react-icons/fa";
 import "./Groceryapp.css";
+import ModalForm from "../pages/home/ModalForm";
+import ContactForm from "../pages/home/ContactForm";
 
 const Ecommerce = () => {
   const [currentImage, setCurrentImage] = useState("/images/Ecommerce1.jpg");
+      const [isModalOpen, setIsModalOpen] = useState(false);
+
 
   // Image toggle every 2 seconds
   useEffect(() => {
@@ -52,7 +56,7 @@ const Ecommerce = () => {
 
 
 
-          <button className="grocery-btn-demo">
+          <button className="grocery-btn-demo"  onClick={() => setIsModalOpen(true)}>
             <ImSwitch className="grocery-btn-icon" />
             BOOK A FREE DEMO
           </button>
@@ -94,11 +98,18 @@ const Ecommerce = () => {
           </div>
         </div>
 
-        <button className="grocery-btn-started">
+        <button className="grocery-btn-started" onClick={() => setIsModalOpen(true)}>
           <ImSwitch className="grocery-btn-icon" />
           GET STARTED
         </button>
       </section>
+      {/* Modal with contact form */}
+      <ModalForm isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+        <h2 className="modal-title">
+          Get Started — Tell us about your project
+        </h2>
+        <ContactForm onClose={() => setIsModalOpen(false)} />
+      </ModalForm>
     </div>
   );
 };

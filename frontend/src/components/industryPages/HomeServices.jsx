@@ -36,7 +36,7 @@ const HomeServices = () => {
         </div>
         <div className="hero1-right">
           <h1>
-            HomeServices <span>Development Services</span>
+            Home Services <span>Development Services</span>
           </h1>
           
 

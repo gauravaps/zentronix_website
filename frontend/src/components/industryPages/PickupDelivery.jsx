@@ -2,12 +2,16 @@ import React, { useState, useEffect } from "react";
 import { ImSwitch } from "react-icons/im";
 import { FaMobileAlt, FaCreditCard, FaChartLine } from "react-icons/fa";
 import "./FoodDelivery.css";
+import ModalForm from "../pages/home/ModalForm";
+import ContactForm from "../pages/home/ContactForm";
 
 
 
 
 const PickupDelivery = () => {
   const [currentImage, setCurrentImage] = useState("/images/delivery-platform1.png");
+      const [isModalOpen, setIsModalOpen] = useState(false);
+
   
     // Image toggle every 2 seconds
     useEffect(() => {
@@ -50,7 +54,7 @@ const PickupDelivery = () => {
   and scale effortlessly in the growing logistics market.
 </p>
   
-            <button className="btn-demo">
+            <button className="btn-demo" onClick={() => setIsModalOpen(true)}>
               <ImSwitch className="btn-icon" />
               BOOK A FREE DEMO
             </button>
@@ -92,11 +96,19 @@ const PickupDelivery = () => {
             </div>
           </div>
   
-          <button className="btn-started">
+          <button className="btn-started" onClick={() => setIsModalOpen(true)}>
             <ImSwitch className="btn-icon" />
             GET STARTED
           </button>
         </section>
+
+        {/* Modal with contact form */}
+      <ModalForm isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+        <h2 className="modal-title">
+          Get Started — Tell us about your project
+        </h2>
+        <ContactForm onClose={() => setIsModalOpen(false)} />
+      </ModalForm>
       </div>
     );
   };

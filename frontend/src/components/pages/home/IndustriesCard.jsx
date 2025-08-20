@@ -112,7 +112,7 @@ const IndustriesCard = [
     title: "e-Scooter App",
     desc: "Manage scooter rentals and rides with smart GPS tracking.",
     icon: <MdElectricScooter size={40} color="orange" />,
-    link: "/e-scooter-app",
+    link: "/E-Scooter",
   },
 ];
 

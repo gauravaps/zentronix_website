@@ -41,18 +41,17 @@ import SocialMediaApp from './components/industryPages/SocialMediaApp'
 import HealthCareApp from './components/industryPages/HealthCareApp'
 import HomeServices from './components/industryPages/HomeServices'
 import TaxiDispatch from './components/industryPages/TaxiDispatch'
+import EScooterApp from './components/industryPages/EScooterApp'
+import GetAllProducts from './components/profile/GetAllProducts'
+
 
  
 
 const App = () => {
     const navigate = useNavigate();
-  
+       const {user, setUser } = useAuth();
 
-    const {user, setUser } = useAuth();
-
-  
-
-
+    
   
   return (
     
@@ -85,6 +84,7 @@ const App = () => {
     <Route path='/Health_CareApp' element={<HealthCareApp/>}/>
     <Route path='/Home_Services' element={<HomeServices/>}/>
     <Route path='/Taxi_Dispatch' element={<TaxiDispatch/>}/>
+    <Route path='/E-Scooter' element={<EScooterApp/>}/>
     
 
 
@@ -109,6 +109,16 @@ const App = () => {
 
 
     {/* Example admin-only page (replace paths as needed) */}
+
+
+<Route path='/admin/all_products' 
+element={
+  <ProtectedRoute requiredRole='admin'>
+    <GetAllProducts/>
+  </ProtectedRoute>
+}/>
+
+
     <Route
       path='/admin/all-queries'
       element={

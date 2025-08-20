@@ -91,6 +91,9 @@ const UserProfile = () => {
           <button className="up-btn" onClick={() => navigate('/update-profile')}>
             Update Self
           </button>
+          <button className="up-btn" onClick={() => navigate('/admin/all_products')}>
+            Our Products
+          </button>
         </div>
       </div>
 

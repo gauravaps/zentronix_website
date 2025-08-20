@@ -1,22 +1,22 @@
-import React, { useState, useEffect } from "react";
 import { ImSwitch } from "react-icons/im";
 import { FaMobileAlt, FaCreditCard, FaChartLine } from "react-icons/fa";
-import "./FoodDelivery.css";
+import { useEffect, useState } from "react";
 import ModalForm from "../pages/home/ModalForm";
 import ContactForm from "../pages/home/ContactForm";
 
-const FoodDelivery = () => {
-  const [currentImage, setCurrentImage] = useState("/images/food_delivery.jpg");
-      const [isModalOpen, setIsModalOpen] = useState(false);
+
+const EScooterApp = () => {
+ const [currentImage, setCurrentImage] = useState("/images/escooter1.jpg");
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
 
   // Image toggle every 2 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImage((prev) =>
-        prev === "/images/food_delivery.jpg"
-          ? "/images/food_delivery2.jpg"
-          : "/images/food_delivery.jpg"
+        prev === "/images/escooter1.jpg"
+          ? "/images/escooter2.jpg"
+          : "/images/escooter1.jpg"
       );
     }, 2000);
 
@@ -36,24 +36,33 @@ const FoodDelivery = () => {
         </div>
         <div className="hero1-right">
           <h1>
-            Food Delivery App <span>Development Services</span>
+            E-Scooter App <span>Development Services</span>
           </h1>
-          <p>
-            At <b>Zentronix</b>, we help businesses transform and automate their
-            operations with a fully dynamic and customized food ordering and delivery
-            system. Deliver a seamless experience to your customers, drivers, and
-            administrators while reducing operational costs and boosting overall revenue.
-            Our advanced technology empowers restaurants and cloud kitchens to stay ahead
-            in the highly competitive food delivery market.
-            <br /><br />
-            With smart analytics, real-time tracking, and flexible customization,
-            Zentronix ensures your brand stands out from competitors and builds stronger
-            customer loyalty. Whether you’re a startup or an established enterprise, our
-            solutions are designed to scale with your growth and create long-term
-            success in the digital era.
-          </p>
+          
 
-          <button className="btn-demo"  onClick={() => setIsModalOpen(true)}>
+<p>
+  At <b> Zentronix Infotech</b>, we specialize in developing 
+  <b>feature-rich and scalable e-scooter applications</b> that make 
+  ride-sharing and rental services smarter, faster, and more convenient. 
+  Our goal is to create apps that are easy to use, secure, and aligned with 
+  your business vision for sustainable urban mobility.
+</p>
+
+<p>
+  From <b> real-time scooter tracking, GPS-based navigation, ride booking & 
+  scheduling, QR code unlocking, battery & speed monitoring, and in-app 
+  payments</b> to advanced features like IoT integration, geofencing, and 
+  analytics dashboards, we deliver customized solutions that help operators 
+  manage fleets efficiently and enhance rider experience.
+</p>
+
+<p>
+  Whether you’re a startup launching an e-scooter sharing platform or an 
+  enterprise expanding mobility services, our 
+  <b>end-to-end e-scooter app development</b> ensures seamless performance, 
+  improved customer satisfaction, and long-term scalability in today’s 
+  fast-growing micro-mobility market.
+</p>          <button className="btn-demo"  onClick={() => setIsModalOpen(true)}>
             <ImSwitch className="btn-icon" />
             BOOK A FREE DEMO
           </button>
@@ -101,15 +110,18 @@ const FoodDelivery = () => {
         </button>
       </section>
 
-      {/* Modal with contact form */}
+
+{/* Modal with contact form */}
       <ModalForm isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
         <h2 className="modal-title">
           Get Started — Tell us about your project
         </h2>
         <ContactForm onClose={() => setIsModalOpen(false)} />
       </ModalForm>
+
     </div>
   );
 };
 
-export default FoodDelivery;
+
+export default EScooterApp

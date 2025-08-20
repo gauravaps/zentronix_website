@@ -142,7 +142,7 @@ const Header = () => {
                   <Link to="/Health_CareApp"><FaBriefcaseMedical className="mega-icon" /><span>Health Care App</span></Link>
                   <Link to="/Home_Services"><GiAutoRepair className="mega-icon" /><span>Home Services</span></Link>
                   <Link to="/Taxi_Dispatch"><GiConvergenceTarget className="mega-icon" /><span>Taxi Dispatch</span></Link>
-                  <Link to="/categories/healthcare"><TbScooterElectric className="mega-icon" /><span>e-Scooter App</span></Link>
+                  <Link to="/E-Scooter"><TbScooterElectric className="mega-icon" /><span>e-Scooter App</span></Link>
                 </div>
               </div>
             )}
@@ -249,7 +249,7 @@ const Header = () => {
                 <Link to="/Health_CareApp">Health Care App</Link>
                 <Link to="/Home_Services">Home Services</Link>
                  <Link to="/Taxi_Dispatch">taxi Dispatch</Link>
-                  <Link to="/Home_Services">e-Scooter App</Link>
+                  <Link to="/E-Scooter">e-Scooter App</Link>
 
 
 

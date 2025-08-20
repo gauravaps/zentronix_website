@@ -10,6 +10,7 @@ import IndustriesCard from "./IndustriesCard";
 import ContactForm from "./ContactForm";
 import { FaPaperPlane } from "react-icons/fa";
 import { HashLoader } from "react-spinners";
+import { Link } from "react-router-dom";
 
 
 
@@ -25,7 +26,7 @@ const NewHome = () => {
     useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 2000); // 2 second loader
+    }, 1000); // 2 second loader
     return () => clearTimeout(timer);
   }, []);
   
@@ -146,6 +147,7 @@ const servicesRef1 = useRef(null);
 
 
   // 🔹 Loader condition
+
   if (loading) {
     return (
       <div
@@ -193,7 +195,7 @@ const servicesRef1 = useRef(null);
               committed to quality, innovation, and client satisfaction, helping
               you unlock new opportunities in the digital era.
             </p>
-            <button className="newhome-hero-btn">Get Started</button>
+            <button className="newhome-hero-btn"  onClick={() => setIsModalOpen(true)}>Get Started</button>
           </div>
 
           {/* Right Image */}
@@ -230,7 +232,7 @@ const servicesRef1 = useRef(null);
   competitive advantage for your business.
 </p>
 
-            <button className="newhome-about-btn">About More</button>
+           <a href="/about_us">    <button className="newhome-about-btn">About More</button> </a>
           </div>
         </div>
       </section>
