@@ -43,6 +43,9 @@ import HomeServices from './components/industryPages/HomeServices'
 import TaxiDispatch from './components/industryPages/TaxiDispatch'
 import EScooterApp from './components/industryPages/EScooterApp'
 import GetAllProducts from './components/profile/GetAllProducts'
+import TermsAndConditions from './components/footer/TermsAndConditions'
+import PrivacyPolicy from './components/footer/PrivacyPolicy'
+import ReturnPolicy from './components/footer/ReturnPolicy'
 
 
  
@@ -85,6 +88,9 @@ const App = () => {
     <Route path='/Home_Services' element={<HomeServices/>}/>
     <Route path='/Taxi_Dispatch' element={<TaxiDispatch/>}/>
     <Route path='/E-Scooter' element={<EScooterApp/>}/>
+    <Route path='/Terms_And_Conditions' element={<TermsAndConditions/>}/>
+    <Route path='/Privacy_Policy' element={<PrivacyPolicy/>}/>
+    <Route path='/Return_Policy' element={<ReturnPolicy/>}/>
     
 
 

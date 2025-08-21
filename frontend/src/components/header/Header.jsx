@@ -170,7 +170,6 @@ const Header = () => {
           </div>
 
           <Link to="/about_us" className="nav-item">About</Link>
-          <Link to="/product" className="nav-item">Product</Link>
           <Link to="/contact-us" style={{border: "2px solid #ff6600",
             borderRadius: "6px",
              padding: "6px 12px",
@@ -269,7 +268,6 @@ const Header = () => {
             </details>
 
             <Link to="/about_us" className="nav-item">About</Link>
-            <Link to="/product" className="nav-item">Product</Link>
             <Link to="/contact-us" className="nav-item">Contact </Link>
 
             {/* Show logout in mobile menu too */}
