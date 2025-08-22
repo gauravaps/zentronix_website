@@ -13,10 +13,23 @@ import {
   AiOutlinePartition
 } from "react-icons/ai";
 import "./About.css";
+import { HashLoader } from "react-spinners";
+
 
 const About = () => {
   const [currentImage, setCurrentImage] = useState("/images/about1.png");
   const [activeIndex, setActiveIndex] = useState(null);
+    const [loading, setLoading] = useState(true);
+  
+
+ useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 1000); // 1 second loader
+    return () => clearTimeout(timer);
+  }, []);
+
+
 
   // Image toggle every 2 seconds
   useEffect(() => {
@@ -59,6 +72,27 @@ const About = () => {
       a: "Yes, we offer continuous support, maintenance, and updates to ensure your digital solutions perform at their best."
     }
   ];
+
+
+// 🔹 Loader condition
+
+  if (loading) {
+    return (
+      <div
+        style={{
+          height: "100vh",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          backgroundColor: "#fff"
+        }}
+      >
+        <HashLoader size={70} color="#36d7b7" />
+      </div>
+    );
+  }
+
+
 
   return (
     <div className="about-page">

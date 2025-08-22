@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import './ReturnPolicy.css'
 import axios from 'axios';
+import { HashLoader } from "react-spinners";
+
 
 const ReturnPolicy = () => {
+      const [loading, setLoading] = useState(false);
+  
 
 const [companyInfo, setCompanyInfo] = useState({
     email: "",
@@ -12,6 +16,8 @@ const [companyInfo, setCompanyInfo] = useState({
   });
 
   const fetchAddress = async () => {
+                  setLoading(true); 
+
     try {
       const res = await axios.get("http://localhost:5000/api/get_address");
       if (res.data.data && res.data.data.length > 0) {
@@ -26,6 +32,11 @@ const [companyInfo, setCompanyInfo] = useState({
     } catch (err) {
       console.error("Error fetching company info:", err);
     }
+
+    finally {
+      setLoading(false); 
+    }
+
   };
 
   useEffect(() => {
@@ -33,7 +44,24 @@ const [companyInfo, setCompanyInfo] = useState({
   }, []);
 
 
-
+  // 🔹 Loader condition
+     
+       if (loading) {
+         return (
+           <div
+             style={{
+               height: "100vh",
+               display: "flex",
+               justifyContent: "center",
+               alignItems: "center",
+               backgroundColor: "#fff"
+             }}
+           >
+             <HashLoader size={70} color="#36d7b7" />
+           </div>
+         );
+       }
+     
 
   return (
     <div className="return_policy_container">
@@ -105,9 +133,9 @@ const [companyInfo, setCompanyInfo] = useState({
         <p>
           For any queries related to returns, refunds, or cancellations, you can
           reach out to our support team: <br />
-          <b>Email:</b> info@zentronixinfotech.com <br />
-          <b>Phone:</b> +91-6260706512 <br />
-          <b>Address:</b> Zentronix Infotech, Indore, Madhya Pradesh, India
+          <b>Email:</b> {companyInfo.email} <br />
+          <b>Phone:</b> +91-{companyInfo.phone} <br />
+          <b>Address:</b> {companyInfo.address} india
         </p>
       </div>
 

@@ -81,25 +81,25 @@ const Footer = () => {
           <h3 className="footer-heading">Services & Pages</h3>
           <ul className="footer-links">
             <li>
-              <Link to="/">Home</Link>
+              <a href="/">Home</a>
             </li>
             <li>
-              <Link to="/">Categories</Link>
+              <a href="/">Categories</a>
             </li>
             <li>
-              <Link to="/">Blog</Link>
+              <a href="/">Blog</a>
             </li>
             <li>
-              <Link to="/Terms_And_Conditions">Terms And Conditions</Link>
+             <a href="/Terms_And_Conditions">Terms And Conditions </a>
             </li>
             <li>
-              <Link to="/Privacy_Policy">Privacy Policy</Link>
+              <a href="/Privacy_Policy">Privacy Policy</a>
             </li>
             <li>
-              <Link to="/Return_Policy">Return Policy</Link>
+              <a href="/Return_Policy">Return Policy</a>
             </li>
             <li>
-              <Link to="/about_us">About Us</Link>
+              <a href="/about_us">About Us</a>
             </li>
           </ul>
         </div>

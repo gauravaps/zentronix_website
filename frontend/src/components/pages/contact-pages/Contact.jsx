@@ -5,9 +5,13 @@ import { MdEmail, MdPhone, MdLanguage } from 'react-icons/md';
 import axios from 'axios';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { HashLoader } from "react-spinners";
+
 
 const Contact = () => {
   const [loading, setLoading] = useState(false);
+    const [loadingAddress, setLoadingAddress] = useState(false);
+
   const [companyInfo, setCompanyInfo] = useState({
       email: "",
       phone: "",
@@ -30,6 +34,7 @@ const Contact = () => {
   // ✅ Fetch company address/email/phone from backend
   
     const fetchAddress = async () => {
+      setLoadingAddress(true)
       try {
         const res = await axios.get("http://localhost:5000/api/get_address");
         if (res.data.data && res.data.data.length > 0) {
@@ -44,6 +49,11 @@ const Contact = () => {
       } catch (err) {
         console.error("Error fetching company info:", err);
       }
+
+       finally {
+      setLoadingAddress(false); 
+    }
+
     };
   
     useEffect(() => {
@@ -119,6 +129,26 @@ const Contact = () => {
   ];
 
   const currentDay = new Date().toLocaleString('en-US', { weekday: 'long' });
+
+
+    // 🔹 Loader condition
+         
+           if (loadingAddress) {
+             return (
+               <div
+                 style={{
+                   height: "100vh",
+                   display: "flex",
+                   justifyContent: "center",
+                   alignItems: "center",
+                   backgroundColor: "#fff"
+                 }}
+               >
+                 <HashLoader size={70} color="#36d7b7" />
+               </div>
+             );
+           }
+         
 
   return (
     <div className="contact-page">

@@ -1,8 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "./TermsAndConditions.css";
 import axios from "axios";
+import { HashLoader } from "react-spinners";
+
 
 const TermsAndConditions = () => {
+    const [loading, setLoading] = useState(false);
+
+
 
 const [companyInfo, setCompanyInfo] = useState({
     email: "",
@@ -12,6 +17,8 @@ const [companyInfo, setCompanyInfo] = useState({
   });
 
   const fetchAddress = async () => {
+              setLoading(true); 
+
     try {
       const res = await axios.get("http://localhost:5000/api/get_address");
       if (res.data.data && res.data.data.length > 0) {
@@ -26,11 +33,36 @@ const [companyInfo, setCompanyInfo] = useState({
     } catch (err) {
       console.error("Error fetching company info:", err);
     }
+     finally {
+      setLoading(false); 
+    }
+
   };
 
   useEffect(() => {
     fetchAddress();
   }, []);
+
+
+   // 🔹 Loader condition
+     
+       if (loading) {
+         return (
+           <div
+             style={{
+               height: "100vh",
+               display: "flex",
+               justifyContent: "center",
+               alignItems: "center",
+               backgroundColor: "#fff"
+             }}
+           >
+             <HashLoader size={70} color="#36d7b7" />
+           </div>
+         );
+       }
+     
+
 
 
   return (

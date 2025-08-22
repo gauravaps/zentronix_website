@@ -26,7 +26,7 @@ const NewHome = () => {
     useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 1000); // 2 second loader
+    }, 1000); // 1 second loader
     return () => clearTimeout(timer);
   }, []);
   
