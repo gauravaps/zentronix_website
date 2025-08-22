@@ -266,3 +266,25 @@
   }
 }
 
+
+
+/* loader css here */
+.loader-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; 
+  align-items: center;
+  background-color: #fff;
+  padding-top: 20px;
+}
+
+.loader-image {
+  width: 300px; 
+}
+
+@media (max-width: 768px) {
+  .loader-image {
+    width: 200px;
+  }
+}

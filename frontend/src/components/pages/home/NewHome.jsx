@@ -147,22 +147,22 @@ const servicesRef1 = useRef(null);
 
 
   // 🔹 Loader condition
+if (loading) {
+  return (
+    <div className="loader-container">
+      <img
+        src="/images/zentronix.png"
+        alt="Zentronix infotech"
+        className="loader-image"
+      />
+      <HashLoader size={70} color="#36d7b7" />
+    </div>
+  );
+}
 
-  if (loading) {
-    return (
-      <div
-        style={{
-          height: "100vh",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          backgroundColor: "#fff"
-        }}
-      >
-        <HashLoader size={70} color="#36d7b7" />
-      </div>
-    );
-  }
+
+
+
 
 
 
